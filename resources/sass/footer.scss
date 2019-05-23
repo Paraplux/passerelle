@@ -1,0 +1,50 @@
+.footer {
+    padding: 1rem;
+    padding-top: 3rem;
+    margin-top: 2rem;
+    display: flex;
+    font-size: 1rem;
+    background-color: #FFFFFF;
+    color: #202020;
+
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+
+    .informations {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        img {
+            width: 50%;
+            margin-left: 25%;
+            margin-bottom: 3rem;
+        }
+
+        .social-icons {
+            font-size: 2rem;
+            display: flex;
+            justify-content: space-evenly;
+            color: #E15C36;
+        }
+    }
+
+    .navigation {
+        width: 50%;
+        display: flex;
+        justify-content: space-evenly;
+        text-align: center;
+
+        div {
+            width: 33%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            margin: 10px;
+            text-decoration: none;
+            color: #505050;
+        }
+    }
+}

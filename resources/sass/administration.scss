@@ -1,0 +1,115 @@
+@import './variables.scss';
+
+.admin-wrap {
+
+   * {
+       box-sizing: border-box;
+   }
+
+    .container {
+        display: flex;
+    }
+
+    .navigation {
+        position: fixed;
+        width: 12%;
+        padding: 20px;
+        height: 100vh;
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        
+        color: $light;
+        background-color: lighten($dark, 5%); 
+
+        overflow: auto;
+
+        .navigation-group {
+            border-bottom: 1px solid lighten($dark, 10%);
+
+            a {
+                display: inline-block;
+                padding: 10px 0;
+                color: darken($light, 40%);
+                text-decoration: none;
+            }
+        }
+    }
+
+    .content {
+        width: 88%;
+        margin-left: 12%;
+        padding-left: 50px;
+
+        color: $dark;
+        background-color: $light;
+
+        form {
+            width: 80%;
+
+            input {
+                width: 50%;
+                margin-left: 25%;
+            }
+
+            textarea {
+                width: 80%;
+                height: 200px;
+            }
+
+            button {
+                display: block;
+                height: 50px;
+                width: 150px;
+                margin: auto;
+                margin-top: 2rem;
+
+                font-family: 'Quicksand';
+                font-size: 1.1rem;
+                font-weight: bold;
+                text-transform: uppercase;
+
+                border: none;
+                border-radius: 5px;
+                background-color: $orange;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+                color: $light;
+
+                cursor: pointer;
+                outline: none;
+            }
+
+            .form-group {
+                margin: 15px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+                width: 100%;
+
+                h2 {
+                    width: 100%;
+                    text-align: center; 
+                }
+
+                input {
+                    margin: auto;
+                    width: calc(35%);
+                }
+            }
+        }
+
+        input, textarea, button {
+            font-size: 1.1rem;
+            font-family: 'Nunito', sans-serif;
+        }
+    }
+
+    table {
+        margin-top: 5rem;
+        border: 1px solid $dark;
+    }
+
+
+
+}

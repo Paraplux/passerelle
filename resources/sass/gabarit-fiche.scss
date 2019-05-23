@@ -1,0 +1,293 @@
+@import './variables.scss';
+
+
+.template-fiche {
+
+    * {
+        box-sizing: border-box;
+    }
+
+    padding: 50px;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: flex-start;
+    font-family: 'Quicksand', sans-serif;
+    color: $light;
+
+    /*LIBELLE*/
+    .fiche-head {
+        width: 60%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 100px;
+        
+        .title-1 {
+            width: 100%;
+            text-align: center;
+            font-weight: 700;
+            font-size: 28px;
+            color: $light;
+
+            .libelle-1,
+            .libelle-2 {
+                width: 100%;
+            }
+        }
+
+        .logos {
+            margin-top: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba($light, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 0 6px rgba($dark, 0.5);
+
+            img {
+                width: 60px;
+                margin: 5px;
+            }
+
+            .structure {
+                padding-right: 25px;
+                margin-right: 25px;
+                border-right: 1px solid rgba($dark, 0.5);
+            }
+        }
+    }
+
+    /*ONGLET INFORMATIONS*/
+    .informations {
+        width: 50%;
+        color: $light;
+    }
+
+    .informations-navigation {
+        display: flex;
+        justify-content: space-between;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 8px;
+
+        span {
+            width: 24%;
+            padding-left: 5px;
+            color: $dark;
+            box-sizing: border-box;
+            background: $light;
+            box-shadow: 0 0 12px rgba($dark, 0.3);
+            transition: transform 50ms;
+            border-radius: 5px;
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.02);
+                box-shadow: 0 0 15px rgba($dark, 0.4);
+                transition: transform 50ms;
+            }
+
+            .fas {
+                font-size: 1.2rem;
+            }
+        }
+        span.is-active {
+            background-color: $orange;
+            color: $light;
+        }
+    }
+
+    .informations div {
+        width: 100%;
+        margin: auto;
+        margin-top: 10px;
+        padding: 20px 30px;
+
+        display: none;
+
+        background-color: rgba($dark, 0.3);
+    }
+
+    .informations div[visible] {
+        display: block;
+    }
+
+    .informations div .picto {
+        width: 50px;
+        font-size: 2rem;
+    }
+
+    /*CONTENT*/
+    .fiche-content {
+        width: 35%;
+
+        .fiche-mosaic {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+
+            text-align: center;
+
+            .mosaic-item {
+                width: calc(100% / 3 - 9px);
+                margin: 3px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 3.5rem;
+                border-radius: 10px;
+                box-shadow: 0 0 12px rgba($dark, 0.3);
+            }
+
+        }
+    }
+
+    .fiche-mosaic div:nth-child(1) {
+        background-color: $orange;
+        color: $light;
+    }
+
+    .fiche-mosaic div:nth-child(2) {
+        background-color: $light;
+        color: $dark;
+    }
+
+    .fiche-mosaic div:nth-child(3) {
+        background-color: $blue;
+        color: $light;
+    }
+
+    .fiche-mosaic div:nth-child(4) {
+        background-color: $light;
+        color: $dark;
+    }
+
+    .fiche-mosaic div:nth-child(5) {
+        background-color: $blue;
+        color: $light;
+    }
+
+    .fiche-mosaic div:nth-child(6) {
+        background-color: $orange;
+        color: $light;
+    }
+
+    /*MAP*/
+    .map-button {
+        display: none;
+        position: absolute;
+        right: 10vh;
+        top: 110px;
+        font-size: 4rem;
+        color: $orange;
+        cursor: pointer;
+        text-align: center;
+        filter: drop-shadow(0 0 12px rgba($dark, 0.5));
+    }
+
+    .map-button h5 {
+        margin: 1rem;
+        padding: 0;
+        font-size: 1rem;
+        filter: drop-shadow(0 0 12px rgba($dark, 0.5));
+        color: $light;
+    }
+
+    .map {
+        position: absolute;
+        width: 100%;
+        top: -5px;
+        right: -200%;
+        bottom: 0;
+        z-index: 1;
+        box-shadow: 0 0 20px $dark;
+        border-top: 5px solid $orange;
+    }
+
+    .map-close {
+        display: none;
+        position: absolute;
+        right: 2.5%;
+        top: 5%;
+
+        font-size: 2rem;
+        color: $dark;
+        z-index: 2;
+        cursor: pointer;
+    }
+
+    #mapid {
+        display: block;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+
+    .leaflet-top {
+        top: 10px;
+    }
+
+    .leaflet-left {
+        left: 15px;
+    }
+
+    .leaflet-control-attribution {
+        bottom: 10px;
+    }
+}
+
+
+
+
+/*
+ * ────────────────────────────────────────────────────────────  ──────────
+ *   :::::: R E S P O N S I V E : :  :   :    :     :        :          :
+ * ──────────────────────────────────────────────────────────────────────
+ */
+
+@media all and (max-width: 1000px) {
+
+    .template-fiche {
+        
+        .informations {
+            /* margin-top: 10vh; */
+            width: 100%;
+            height: 60vh;
+            color: $light;
+        }
+
+        .informations-navigation {
+            font-size: 0.8rem;
+        }
+
+        .informations-navigation span {
+            width: 30%;
+        }
+
+        .informations div {
+            padding: 0 10px;
+        }
+
+        /*CONTENT*/
+        .fiche-content {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+
+        .map-close {
+            display: none;
+        }
+
+        .map-button {
+            position: static;
+            color: $orange;
+            cursor: pointer;
+            text-align: center;
+            filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.5));
+            z-index: 1000;
+        }
+    }
+}

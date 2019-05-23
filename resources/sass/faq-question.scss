@@ -1,0 +1,95 @@
+@import './variables.scss';
+
+.question-page * {
+    box-sizing: border-box;
+}
+
+.question-page {
+    padding: 25px;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.question-main-content {
+    width: 70%;
+    padding-right: 50px;
+
+    a {
+        color: $orange;
+    }
+
+    .question-item {
+        margin-top: 5rem;
+        border-bottom: 1px solid lighten($dark, 40%);
+
+        img {
+            width: 100px;
+        }
+
+        h1 i {
+            color: $orange;
+        }
+
+        h3 {
+            text-align: right;
+        }
+    }
+
+    .reponse-item {
+        margin-left: 2rem;
+        padding: 10px;
+        border-bottom: 1px solid lighten($dark, 40%);
+
+        p {
+            margin: 0;
+        }
+
+        .vote {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            a {
+                text-decoration: none;
+            }
+            i {
+                margin: 5px 15px;
+                font-size: 1.5rem;
+            }
+
+            i[data-thumb="up"],
+            span[data-thumb="up"] {
+                color: rgb(61, 182, 61);
+            }
+
+            i[data-thumb="down"],
+            span[data-thumb="down"] {
+                color: rgb(231, 79, 79);
+            }
+        }
+    }
+
+    .reponse-item[approved] {
+        background-color: rgba(255, 144, 71, 0.3);
+    }
+
+}
+
+.question-side-content {
+    width: 30%;
+    margin-top: 3rem;
+    padding-left: 50px;
+
+    text-align: center;
+    border-left: 1px solid rgba($dark, 0.5);
+
+    .side-item {
+        width: 50%;
+        margin: auto;
+
+        img {
+            width: 100%;
+        }
+    }
+}

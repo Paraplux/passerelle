@@ -1,0 +1,114 @@
+@import './variables.scss';
+
+
+//GLOBAL SETTINGS
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Nunito', sans-serif;
+    background-color: $light;
+    color: $dark;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -100;
+    background-color: $dark;
+}
+
+.background {
+    min-width: 100%;
+    min-height: 100%;
+    filter: grayscale(0.2) opacity(0.6);
+    pointer-events: none;
+}
+
+
+//TITLES
+.title-1,
+.title-2,
+.title-3,
+.title-4 {
+    color: $dark;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 300;
+}
+
+.title-1 {
+    font-size: 40px;
+}
+
+.title-2 {
+    font-size: 32px;
+}
+
+.title-3 {
+    font-size: 28px;
+}
+
+.title-4 {
+    font-size: 24px;
+}
+
+
+//TEXT
+.text-main {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    color: $dark;
+    font-size: 16px;
+}
+
+.text-muted {
+    color: lighten($dark, 10%);
+    font-size: 15px;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.text-italic {
+    font-style: oblique;
+}
+
+strong,
+.text-orange {
+    color: $orange;
+}
+
+.text-blue {
+    color: $blue;
+}
+
+.text-light {
+    color: $light;
+}
+
+.text-dark {
+    color: $dark;
+}
+
+
+//SCROLLBAR
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #424B6D;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #39446b;
+}

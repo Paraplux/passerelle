@@ -1,0 +1,261 @@
+@import './variables.scss';
+
+.navigation-container {
+    position: fixed;
+    height: 60px;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 10000000;
+    transition: top 300ms;
+}
+
+.navigation-container.transparent {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.navigation-container.hidden {
+    top: -90px;
+    box-shadow: none;
+    transition: top 300ms;
+}
+
+.btn-pins {
+    box-sizing: border-box;
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: $blue;
+    font-size: 25px;
+    cursor: pointer;
+
+    .fa-times {
+        color: $dark;
+    }
+}
+
+.btn-pins.transparent {
+    color: $light;
+}
+
+.logo {
+    position: relative;
+    height: 70px;
+    margin-top: 2px;
+    padding: 5px 15px;
+    padding-top: 25px;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 7px 5px -6px rgba(0, 0, 0, 1);
+    border-radius: 40px;
+    transition: box-shadow 300ms;
+    
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0 10px 5px -6px rgba(0, 0, 0, 1);
+        transition: box-shadow 300ms;
+    }
+}
+
+.logo.transparent {
+    filter: contrast(0) brightness(0) invert(1);
+    background: transparent;
+    box-shadow: none;
+}
+
+.nav-fix {
+    height: 60px;
+}
+
+.quick-actions-container {
+    position: relative;
+}
+
+.quick-actions {
+    position: absolute;
+    bottom: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    transform: translateY(100%);
+}
+
+.quick-item {
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+
+    display: none;
+    line-height: 50px;
+    text-align: center;
+    font-size: 1.3rem;
+    border-radius: 10%;
+    background-color: $orange;
+    color: $light;
+}
+
+.navigation-lateral {
+    position: fixed;
+    top: 0px;
+    bottom: 0;
+    left: -300px;
+    width: 300px;
+    
+    font-family: 'Nunito',
+    sans-serif;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000000;
+    overflow: auto;
+
+    #hideLateral {
+        position: absolute;
+    }
+
+    .lateral-head {
+        margin-top: 90px;
+    } 
+    .lateral-body {
+        margin-top: 50px;
+    }
+    .head-link, .body-link {
+        padding: 10px;
+        padding-left: 30px;
+        font-size: 20px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: $blue;
+
+        i {
+            color: $blue;
+            margin-right: 5px;
+            font-size: 34px;
+        }
+    }
+}
+
+.dark-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    z-index: 100000;
+    background-color: rgba($dark, 0.5);
+}
+
+
+/*
+ * ──────────────────────────────────────────────────────────────── VI ──────────
+ *   :::::: S E A R C H   M O D A L : :  :   :    :     :        :          :
+ * ──────────────────────────────────────────────────────────────────────────
+ */
+
+.search-modal {
+    box-sizing: border-box;
+    position: fixed;
+    top: -20%;
+    left: 50%;
+    height: 200px;
+    width: 500px;
+
+    display: none;
+    padding: 25px;
+
+    color: $dark;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+
+    background-color: rgba($light, 0.9);
+    box-shadow: 0 0 12px rgba($dark, 0.5);
+    border-radius: 5px;
+
+    transform: translate(-50%, -50%);
+    z-index: 50000000;
+}
+
+.search-modal div {
+    margin-bottom: 2rem;
+}
+
+.search-modal input[type="text"] {
+    width: 80%;
+
+    font-size: 20px;
+    line-height: 30px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 1px solid darken($light, 84%);
+}
+
+.search-modal input[type="text"]:focus {
+    border-bottom: 1px solid darken($light, 68%);
+}
+
+.search-modal input[type="submit"],
+.search-modal input[type="reset"] {
+    height: 35px;
+
+    font-family: 'Quicksand';
+    font-weight: bold;
+
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 3px rgba($dark, 0.3);
+    cursor: pointer;
+    outline: none;
+}
+
+.search-modal input[type="submit"] {
+    background-color: $blue;
+    color: $light;
+    width: 120px;
+}
+
+.search-modal input[type="reset"] {
+    background-color: transparent;
+    border: 2px solid $orange;
+    color: $orange;
+    width: 80px;
+    opacity: 0.8;
+}
+
+.search-modal input[type="reset"]:hover {
+    background-color: $orange;
+    border: 2px solid $orange;
+    color: $light;
+    opacity: 1;
+}
+
+#searchClose {
+    position: absolute;
+    font-size: 20px;
+    top: 10px;
+    right: 15px;
+    color: darken($light, 62%);
+}
+
+#searchClose:hover {
+    cursor: pointer;
+    color: $dark;
+}

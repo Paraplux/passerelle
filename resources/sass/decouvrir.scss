@@ -1,0 +1,255 @@
+@import './variables.scss';
+
+body {
+    background-color: #d5ddf1;
+}
+
+.decouvrir-page {
+    .header {
+        background: linear-gradient(#4b4b4b00,
+                #4b4b4b00),
+                url('https://www.maxwell.com/images/applications/wind_animated.gif') no-repeat top left;
+        display: flex;
+        width: 100%;
+        height: 350px;
+        z-index: 1;
+        background-size: cover;
+        color: #ffffff;
+        box-shadow: 0 0 8px rgba($dark, 0.5);
+
+        .title {
+            width: 65%;
+
+            h1 {
+                width: 100%;
+                z-index: 10;
+                padding-left: 10%;
+                padding-top: 10px;
+                font-size: 3rem;
+                font-weight: bolder;
+            }
+
+            p {
+                width: 70%;
+                z-index: 10;
+                font-size: 20px;
+                padding: 20px 40px;
+                color: #252525;
+                background-color: #fff;
+                text-align: justify;
+                border-right: solid 5px $blue;
+            }
+        }
+    }
+
+    .body {
+
+        display: flex;
+        justify-content: space-evenly;
+        padding-top: 2rem;
+
+        .caldendar-container {
+            width: 35%;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .decouvrir-carousel-container {
+            width: 40%;
+            z-index: 100;
+            padding: 10px;
+            overflow: hidden;
+            background-color: #fff;
+            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.445);
+            padding-bottom: 50px;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+}
+
+.container {
+    width: 400px;
+    height: 200px;
+    position: sticky;
+    top: calc(160px + 2rem);
+    perspective: 1000px;
+    z-index: 100;
+
+    transform: translateY(calc(-50% - 2rem));
+
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 1s ease;
+    cursor: pointer;
+}
+
+.back,
+.front {
+    border-radius: 6px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.contentfront {
+    width: 100%;
+    height: 100%;
+    float: left;
+    transform: translatez(60px);
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+
+}
+
+.contentback {
+    width: 100%;
+    height: 100%;
+    float: left;
+    transform: translatez(-60px);
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+
+}
+
+.back {
+    transform: rotateY(180deg);
+    background-color: #232227;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.front {
+    text-transform: uppercase;
+    background-color: #232227;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.date {
+    height: 100%;
+    width: 130px;
+    float: left;
+    background-color: $orange;
+    border-radius: 0 6px 6px 0;
+    text-align: right;
+    padding: 10px 30px;
+    box-sizing: border-box;
+    transform-style: preserve-3d;
+}
+
+.datecont {
+    height: 100%;
+    transform: translatez(60px) scale(.9);
+}
+
+#date {
+    font-size: 50px;
+    color: #ECECE7;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    float: right;
+}
+
+#day {
+    float: right;
+    font-size: 14px;
+    color: #232227;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+#month {
+    float: right;
+    font-size: 10px;
+    color: #232227;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+}
+
+.date i {
+    color: #ECECE7;
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+}
+
+.date i:hover {
+    color: #232227;
+    transition: .3s ease;
+}
+
+.month {
+    height: 100%;
+    width: 270px;
+    float: left;
+    padding: 20px 30px;
+    box-sizing: border-box;
+}
+
+.month table {
+    width: 100%;
+}
+
+.orangeTr {
+    color: $orange;
+}
+
+.whiteTr {
+    color: #ECECE7;
+
+}
+
+.whiteTr th:hover {
+    color: $orange;
+    transition: .3s ease;
+}
+
+.month tr {
+    height: 24px;
+}
+
+.month th {
+    width: 14%;
+    font-size: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+.flipped {
+    transform: rotateY(-180deg);
+    /*height:400px;
+  width:200px;
+  left:calc(50% - 100px);
+  top:calc(50vh - 200px);*/
+}
+
+.backcontainer {
+    color: $light;
+    font-weight: bold;
+    font-size: 1.5rem;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    width: calc(100% - 60px);
+    height: calc(100% - 40px);
+    float: left;
+    margin-left: 30px;
+    margin-top: 20px;
+    // border-left:solid red 5px;
+    // background-color:red;
+    transform: translatez(-60px) scale();
+}
