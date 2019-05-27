@@ -35,6 +35,7 @@
         <td>Edité le</td>
         <td>Dernier éditeur</td>
     </tr>
+    @if(!empty($data))
     @foreach($data as $item)
     <tr>
             <td>{{ $item->title }}</td>
@@ -47,5 +48,6 @@
             <td>{{ $item->edited_by }}</td>
     </tr>
     @endforeach
+    @endif
 </table>
 @endsection

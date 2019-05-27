@@ -50,6 +50,7 @@
         <td>Branche</td>
     </tr>
     <tr>
+    @if(!empty($data))
         @foreach($data as $item)
             <td>{{ $item->name }}</td>
             <td>{{ $item->content }}</td>
@@ -61,6 +62,7 @@
             <td>{{ $item->level }}</td>
             <td>{{ $item->branche->name }}</td>
         @endforeach
+    @endif
     </tr>
 </table>
 @endsection

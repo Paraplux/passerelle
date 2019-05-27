@@ -32,7 +32,7 @@
                 <p>Communication</p>
                 <a href="/governator/communications/article">Articles</a>
                 <a href="/governator/communications/faq">Foire aux Questions</a>
-                <a href="">Fonction</a>
+                <a href="/governator/communications/partenaire">Partenaires</a>
                 <a href="">Fonction</a>
             </div>
             <div class="navigation-group">

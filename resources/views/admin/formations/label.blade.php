@@ -24,11 +24,13 @@
         <td>Site</td>
     </tr>
     <tr>
+    @if(!empty($data))
         @foreach($data as $item)
             <td>{{ $item->name }}</td>
             <td>{{ $item->logo }}</td>
             <td>{{ $item->website }}</td>
         @endforeach
+    @endif
     </tr>
 </table>
 @endsection

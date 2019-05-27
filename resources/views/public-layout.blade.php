@@ -42,13 +42,12 @@
 <div class="navigation-lateral">
     <div class="lateral-head">
         <div class="head-link">TRAVAUX EN COURS (ci dessous)</div>
-        <a href="/governator" class="head-link">Page d'administration</a>
+        <a href="{{ route('governator') }}" class="head-link">Page d'administration</a>
         <a href="{{ route('faq') }}" class="head-link">Page Faq</a>
-        <a href="{{ route('se-former') }}" class="head-link">Formations</a>
     </div>
     <div class="lateral-body">
-        <a href="/decouvrir" class="body-link"><i class="fas fa-question-circle"></i>Découvrir</a>
-        <a href="" class="body-link"><i class="fas fa-question-circle"></i>Se former</a>
+        <a href="{{ route('decouvrir') }}" class="body-link"><i class="fas fa-question-circle"></i>Découvrir</a>
+        <a href="{{ route('se-former') }}" class="body-link"><i class="fas fa-question-circle"></i>Se former</a>
         <a href="" class="body-link"><i class="fas fa-question-circle"></i>Accompagner</a>
         <a href="" class="body-link"><i class="fas fa-question-circle"></i>Innover</a>
         <a href="" class="body-link"><i class="fas fa-question-circle"></i>Apprendre</a>

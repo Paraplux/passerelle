@@ -1,11 +1,11 @@
 @extends('administration')
 
 @section('create')
-<h1 class="title-1">Formations</h1>
+<h1 class="title-1">Communication</h1>
 
-<h2 class="title-2">Ajout d'une nouvelle structure</h2>
+<h2 class="title-2">Ajout d'un nouveau partenaire</h2>
 
-<form action="/governator/formations/structure/create" method="POST">
+<form action="/governator/communication/partenaire/create" method="POST">
 {{ csrf_field() }}
     <div class="form-group">
         <input value="" type="text" name="name" placeholder="Nom de la structure">

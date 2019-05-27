@@ -13,11 +13,14 @@
 //! TESTING ROUTE
 Route::get('/test', 'AccueilController@test');
 
-//* ACCUEIL ROUTE
-Route::get('/', 'AccueilController@index')->name('/ ');
 
-//* SEARCH ROUTE
-Route::get('/search', 'SearchController@search');
+//* GLOBALS ROUTES
+    //? Routes de récupération
+    Route::get('/', 'AccueilController@index')->name('/ ');
+    Route::get('/nos-partenaires', 'PasserelleController@getPartenaire')->name('partenaire');
+
+    //? Route de recherche
+    Route::get('/search', 'SearchController@search');
 
 //* FORMATIONS ROUTES
 
@@ -28,15 +31,18 @@ Route::get('/search', 'SearchController@search');
     //? Route de recherche
     Route::get('/se-former/search', 'FormationController@search');
 
+    
 //* ARTICLES ROUTES
 
     //? Route de récupération
     Route::get('/article/{id}', 'ArticleController@getArticle');
 
+
 //* DECOUVRIR ROUUTES
 
     //? Route de récupération
     Route::get('/decouvrir', 'DecouvrirController@index')->name('decouvrir');
+
 
 //* FAQ ROUTES
 
@@ -53,7 +59,7 @@ Route::get('/search', 'SearchController@search');
 //* ADMINISTRATION ROUTES
 
     //? Routes de récupération
-    Route::get('/governator', 'AdministrationController@index');
+    Route::get('/governator', 'AdministrationController@index')->name('governator');
     Route::get('/governator/{category}/{type}', 'AdministrationController@getPanel');
 
     //? Routes de création
