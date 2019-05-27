@@ -69,3 +69,4 @@ Route::get('/test', 'AccueilController@test');
     Route::post('/governator/formations/branche/create', 'AdministrationController@addBranche');
     Route::post('/governator/communications/article/create', 'AdministrationController@addArticle');
     Route::post('/governator/communications/faq/create', 'AdministrationController@addFaq');
+    Route::post('/governator/communications/partenaire/create', 'AdministrationController@addPartenaire');
