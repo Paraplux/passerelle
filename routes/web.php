@@ -26,7 +26,7 @@ Route::get('/test', 'AccueilController@test');
     //? Route de récupération
     Route::get('/nos-partenaires', 'PartenaireController@index')->name('partenaire');
 
-//* PARTENAIRES ROUTES
+//* APPRENDRE ROUTES
 
     //? Route de récupération
     Route::get('/apprendre-autrement', 'ApprendreController@index')->name('apprendre');

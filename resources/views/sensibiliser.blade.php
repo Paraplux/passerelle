@@ -1,12 +1,11 @@
 @extends('public-layout')
 
-@section('title', 'Sensibiliser
-')
+@section('title', 'Sensibiliser')
 
 @section('style')
-<link rel="stylesheet" href="/css/navigation.no-transparent.css">
 <link rel="stylesheet" href="/css/sensibiliser.css">
 <link rel="stylesheet" href="/css/carousel.css">
+<link rel="stylesheet" href="/css/navigation.no-transparent.css">
 @endsection
 
 @section('content')
@@ -154,6 +153,5 @@
 
 @section('script')
 <script src="/js/carousel.js"></script>
-<script src="/js/sensibiliser
-.js"></script>
+<script src="/js/sensibiliser.js"></script>
 @endsection
