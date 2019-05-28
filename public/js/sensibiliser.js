@@ -2,11 +2,12 @@
 * CAROUSEL INIT
 */
 
-new Carousel(document.querySelector('#carousel-decouvrir'), {
-        slidesVisible: 1,
-        slidesToScroll: 1,
-        touch: true
-    })
+
+new Carousel(document.querySelector('#carousel-communication'), {
+    slidesVisible: 1,
+    slidesToScroll: 1,
+    touch: true
+})
 
 
 /*
@@ -22,26 +23,26 @@ function flip() {
 
 function startTime() {
     var weekday = new Array();
-    weekday[0] = "Sunday";
-    weekday[1] = "Monday";
-    weekday[2] = "Tuesday";
-    weekday[3] = "Wednesday";
-    weekday[4] = "Thursday";
-    weekday[5] = "Friday";
-    weekday[6] = "Saturday";
+    weekday[0] = "Dimanche";
+    weekday[1] = "Lundi";
+    weekday[2] = "Mardi";
+    weekday[3] = "Mercredi";
+    weekday[4] = "Jeudi";
+    weekday[5] = "Vendredi";
+    weekday[6] = "Samedi";
     var month = new Array();
-    month[0] = "January";
-    month[1] = "February";
-    month[2] = "March";
-    month[3] = "April";
-    month[4] = "May";
-    month[5] = "June";
-    month[6] = "July";
-    month[7] = "August";
-    month[8] = "September";
-    month[9] = "October";
-    month[10] = "November";
-    month[11] = "December";
+    month[0] = "Janvier";
+    month[1] = "Fevrier";
+    month[2] = "Mars";
+    month[3] = "Avril";
+    month[4] = "Mai";
+    month[5] = "Juin";
+    month[6] = "Juillet";
+    month[7] = "Août";
+    month[8] = "Septembre";
+    month[9] = "Octobre";
+    month[10] = "Novembre";
+    month[11] = "Decembre";
     var today = new Date();
     var h = today.getHours();
     var m = today.getMinutes();
