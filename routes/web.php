@@ -21,6 +21,10 @@ Route::get('/test', 'AccueilController@test');
     //? Route de recherche
     Route::get('/search', 'SearchController@search');
 
+    //? Route de choix de catégorie pro
+    Route::get('/choix-category/pro', 'ChoixCategoryController@pro');
+    Route::get('/choix-category/part', 'ChoixCategoryController@part');
+
 //* PARTENAIRES ROUTES
 
     //? Route de récupération

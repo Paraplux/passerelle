@@ -83,8 +83,8 @@
             <i class="fas fa-exchange-alt"></i>
             <i class="fas fa-user-tie"></i>
         </div>
-        <a href=""><button id="togglePart" class="pro-modal-button">UN PARTICULIER</button></a>
-        <button id="togglePro" class="pro-modal-button">UN PROFESSIONNEL</button>
+        <a href="/choix-category/part" id="togglePart" class="pro-modal-button">UN PARTICULIER</a>
+        <a href="/choix-category/pro" id="togglePro" class="pro-modal-button">UN PROFESSIONNEL</a>
     </div>
     <p class="text-muted">Personnalisez votre expérience sur Passerelle Numérique</p>
     <span class="text-muted">Par défaut : particulier</span>

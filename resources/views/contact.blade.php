@@ -11,7 +11,7 @@ Nous contacter
 
 @section('content')
 <h1 class="title-1">Nous contacter</h1>
-
+{{ cookie('passerelle-numerique-choix-category') }}
 <form action="" method="POST">
 {{ csrf_field() }}
     <div class="form-group">
