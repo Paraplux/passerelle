@@ -57,6 +57,11 @@ Route::get('/test', 'AccueilController@test');
     //? Route de récupération
     Route::get('/sensibiliser', 'SensibiliserController@index')->name('sensibiliser');
 
+//* INNOVER ROUUTES
+
+    //? Route de récupération
+    Route::get('/innover', 'InnoverController@index')->name('innover');
+
 
 //* CONTACT ROUUTES
 
