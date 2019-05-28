@@ -8,6 +8,7 @@ use App\Structure;
 use App\Branche;
 use App\Faq;
 use App\Article;
+use App\Partenaire;
 
 class AdministrationController extends Controller
 {
@@ -101,6 +102,21 @@ class AdministrationController extends Controller
         Faq::create([
             'question' => request('question'),
             'reponse' => request('reponse')
+        ]);
+
+        return back();
+    }
+
+    public function addPartenaire() 
+    {
+        Partenaire::create([
+            'name' => request('name'),
+            'mail' => request('mail'),
+            'website' => request('website'), 
+            'logo' => request('logo'), 
+            'phone' => request('phone'), 
+            'adress' => request('adress'), 
+            'city' => request('city')
         ]);
 
         return back();

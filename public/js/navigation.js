@@ -50,7 +50,7 @@ $(function(){
         if(window.pageYOffset <= 50) {
             //Barre proche du haut de la page
            addTransparent($('.navigation-container'))
-           addTransparent($('.logo'))
+           addTransparent($('.navigation-logo'))
            addTransparent($('.btn-pins'))
            $('.navigation-container').removeClass('hidden')
         } else if (st > lastScrollTop) {
@@ -59,7 +59,7 @@ $(function(){
         } else {
             //Scroll vers le haut
             removeTransparent($('.navigation-container'))
-            removeTransparent($('.logo'))
+            removeTransparent($('.navigation-logo'))
             removeTransparent($('.btn-pins'))
             $('.navigation-container').removeClass('hidden')
         }
@@ -125,4 +125,34 @@ $(function(){
         }
     }
 
+    /*POP UP PRO*/
+    
+    function hideProModal () {
+        $('.pro-modal').animate({
+            'right': '-101%'
+        }, 600)
+    }
+
+    function showProModal () {
+        $('.pro-modal').animate({
+            'right': '10px'
+        }, 600)
+    }
+
+    $('#proModalOpen').on('click', function() {
+        showProModal()
+    })
+
+    $('#proModalClose').on('click', function(){
+        hideProModal()
+    })
+
+    if (localStorage.getItem('setPro') != 'true') {
+        showProModal()
+    }
+
+    $('#togglePro, #togglePart').on('click', function() {
+        localStorage.setItem('setPro', 'true');
+        hideProModal()
+    })
 })

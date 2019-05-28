@@ -10,7 +10,7 @@
 @section('content')
 <div class="search-container">
     <img src="https://cdn.stocksnap.io/img-thumbs/960w/OO7XQL3Q9C.jpg" alt="" class="search-background">
-    <div class="typewriter">Besoin d'une formation numérique ?</div>
+    <div class="typewriter">Se former sur les différents métiers d'aujourd'hui et de demain.</div>
         <div class="input-field">
             <form action="/se-former/search" method="GET">
                 <input name="query" type="text" placeholder="Formation, métiers, numérique, . . .">
@@ -33,6 +33,7 @@
 
 <script src="/js/typewriter.js"></script>
 <script src="/js/scroll-lat.js"></script>
+<script src="/js/formations.js"></script>
 @if(isset($search))
 <script>
     const thisTop = window.pageYOffset

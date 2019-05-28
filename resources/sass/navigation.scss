@@ -53,7 +53,7 @@
     color: $light;
 }
 
-.logo {
+.navigation-logo {
     position: relative;
     height: 70px;
     margin-top: 2px;
@@ -71,7 +71,7 @@
     }
 }
 
-.logo.transparent {
+.navigation-logo.transparent {
     filter: contrast(0) brightness(0) invert(1);
     background: transparent;
     box-shadow: none;
@@ -133,6 +133,9 @@
     .lateral-body {
         margin-top: 50px;
     }
+    .body-link {
+        justify-content: space-between;
+    }
     .head-link, .body-link {
         padding: 10px;
         padding-left: 30px;
@@ -144,8 +147,12 @@
         color: $blue;
 
         i {
+            height: 40px;
+            width: 40px;
+            line-height: 40px;
+            text-align: center;
             color: $blue;
-            margin-right: 5px;
+            margin-right: 10px;
             font-size: 34px;
         }
     }
@@ -259,3 +266,83 @@
     cursor: pointer;
     color: $dark;
 }
+
+
+/*
+ * ──────────────────────────────────────────────────────────────── VII ──────────
+ *   :::::: P R O F E S S I O N A L   M O D A L : :  :   :    :     :        :          :
+ * ──────────────────────────────────────────────────────────────────────────
+ */
+
+ .pro-modal {
+    position: fixed;
+    bottom: 10px;
+    right: -101%;
+    padding: 10px 0;
+    color: $dark;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+
+    background-color: #EFEFEF;
+    box-shadow: 0 0 12px rgba($dark, 0.5);
+    border-radius: 5px;
+    z-index: 100;
+
+    h1 {
+        font-weight: bold;
+        color: $blue;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    #proModalClose {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: rgba($dark, 0.8);
+        cursor: pointer;
+    }
+ }
+
+ .pro-modal-buttons {
+     margin-bottom: 1rem;
+     display: flex;
+     flex-wrap: wrap;
+
+     .pro-modal-icons {
+         width: 100%;
+         display: flex;
+         justify-content: space-evenly;
+         font-size: 2rem;
+         color: $orange;
+
+         .fa-exchange-alt {
+             color: $blue;
+         }
+    }
+ }
+
+ .pro-modal-button {
+     height: 50px;
+     width: calc(50% - 40px);
+     margin: 20px;
+
+     font-family: 'Quicksand';
+     font-size: 0.9rem;
+     font-weight: bold;
+     text-transform: uppercase;
+
+     border: none;
+     border-radius: 5px;
+     background-color: $orange;
+     box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+     color: $light;
+
+     cursor: pointer;
+     outline: none;
+
+
+ }

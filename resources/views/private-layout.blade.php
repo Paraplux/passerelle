@@ -22,6 +22,7 @@
     <div class="container">
         <div class="navigation">
             <div class="navigation-group">
+                <a href="/">Retour au site</a>
                 <p>Formations</p>
                 <a href="/governator/formations/fiche">Ajouter une fiche formation</a>
                 <a href="/governator/formations/label">Ajouter un label</a>

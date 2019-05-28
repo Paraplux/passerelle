@@ -8,6 +8,7 @@ use App\Structure;
 use App\Branche;
 use App\Faq;
 use App\Article;
+use App\Partenaire;
 
 class AdministrationRepository {
 
@@ -30,6 +31,9 @@ class AdministrationRepository {
                 break;
             case 'faq':
                 $data = Faq::all();
+                break;
+            case 'partenaire':
+                $data = Partenaire::all();
                 break;
             default:
                 $data = '';

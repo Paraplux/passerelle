@@ -20,9 +20,9 @@
             </div>
             <div class="feature-body">
                 <div class="feature-carousel" id="carousel-feature">
-                    <img src="/images/template/feature-1.jpg" alt="">
-                    <img src="/images/template/feature-2.jpg" alt="">
-                    <img src="/images/template/feature-3.jpg" alt="">
+                    <iframe src="https://www.youtube.com/embed/ra3rF4b6O3E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/ra3rF4b6O3E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/ra3rF4b6O3E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
             <div class="feature-footer"></div>

@@ -16,11 +16,21 @@ Route::get('/test', 'AccueilController@test');
 
 //* GLOBALS ROUTES
     //? Routes de récupération
-    Route::get('/', 'AccueilController@index')->name('/ ');
-    Route::get('/nos-partenaires', 'PasserelleController@getPartenaire')->name('partenaire');
+    Route::get('/', 'AccueilController@index')->name('/');
 
     //? Route de recherche
     Route::get('/search', 'SearchController@search');
+
+//* PARTENAIRES ROUTES
+
+    //? Route de récupération
+    Route::get('/nos-partenaires', 'PartenaireController@index')->name('partenaire');
+
+//* PARTENAIRES ROUTES
+
+    //? Route de récupération
+    Route::get('/apprendre-autrement', 'ApprendreController@index')->name('apprendre');
+
 
 //* FORMATIONS ROUTES
 
@@ -38,10 +48,16 @@ Route::get('/test', 'AccueilController@test');
     Route::get('/article/{id}', 'ArticleController@getArticle');
 
 
-//* DECOUVRIR ROUUTES
+//* SENSIBILISER ROUUTES
 
     //? Route de récupération
-    Route::get('/decouvrir', 'DecouvrirController@index')->name('decouvrir');
+    Route::get('/sensibiliser', 'SensibiliserController@index')->name('sensibiliser');
+
+
+//* CONTACT ROUUTES
+
+    //? Route de récupération
+    Route::get('/nous-contacter', 'ContactController@index')->name('contact');
 
 
 //* FAQ ROUTES

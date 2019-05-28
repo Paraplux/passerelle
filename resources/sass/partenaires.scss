@@ -1,0 +1,22 @@
+.partenaires-page {
+    padding: 25px;
+    
+    * {
+        box-sizing: border-box;
+    }
+    
+    .partenaires-container {
+        padding: 25px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .partenaire {
+        width: 25%;
+
+        .logo {
+            width: 60%;
+            margin: auto;
+        }
+    }
+}

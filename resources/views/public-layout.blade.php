@@ -26,14 +26,15 @@
         <i class="fas fa-bars"></i>
     </div>
     <div class="logo-container">
-        <a href="/"><img src="/images/logos/logo-trans.png" alt="" class="logo transparent"></a>
+        <a href="/"><img src="/images/logos/logo-trans.png" alt="" class="navigation-logo transparent"></a>
     </div>
     <div class="quick-actions-container btn-pins transparent">
         <i id="quickActionOpen" class="fas fa-plus"></i>
         <div class="quick-actions">
             <div id="searchOpen" class="quick-item"><i class="fas fa-search"></i></div>
-            <div class="quick-item"><i class="fas fa-calendar-alt"></i></div>
-            <div class="quick-item"><i class="far fa-envelope"></i></div>
+            <a href="{{ route('faq') }}" class="quick-item"><i class="fas fa-question"></i></a>
+            <a href="{{ route('contact') }}" class="quick-item"><i class="far fa-envelope"></i></a>
+            <div id="proModalOpen" class="quick-item"><i class="fas fa-exchange-alt"></i></div>
         </div>
     </div>
 </div>
@@ -43,16 +44,15 @@
     <div class="lateral-head">
         <div class="head-link">TRAVAUX EN COURS (ci dessous)</div>
         <a href="{{ route('governator') }}" class="head-link">Page d'administration</a>
-        <a href="{{ route('faq') }}" class="head-link">Page Faq</a>
     </div>
     <div class="lateral-body">
-        <a href="{{ route('decouvrir') }}" class="body-link"><i class="fas fa-question-circle"></i>Découvrir</a>
-        <a href="{{ route('se-former') }}" class="body-link"><i class="fas fa-question-circle"></i>Se former</a>
-        <a href="" class="body-link"><i class="fas fa-question-circle"></i>Accompagner</a>
-        <a href="" class="body-link"><i class="fas fa-question-circle"></i>Innover</a>
-        <a href="" class="body-link"><i class="fas fa-question-circle"></i>Apprendre</a>
-        <a href="" class="body-link"><i class="fas fa-question-circle"></i>Utiliser</a>
-        <a href="" class="body-link"><i class="fas fa-question-circle"></i>Partager</a>
+        <a href="{{ route('sensibiliser') }}" class="body-link">Sensibiliser<i class="fas fa-bullhorn"></i></a>
+        <a href="{{ route('se-former') }}" class="body-link">Se former<i class="fas fa-graduation-cap"></i></a>
+        <a href="" class="body-link">Accompagner<i class="far fa-handshake"></i></a>
+        <a href="" class="body-link">Innover<i class="far fa-lightbulb"></i></a>
+        <a href="{{ route('apprendre') }}" class="body-link">Apprendre<i class="fas fa-brain"></i></a>
+        <a href="" class="body-link">Utiliser<i class="far fa-hand-pointer"></i></a>
+        <a href="" class="body-link">Partager<i class="fas fa-hands"></i></a>
     </div>
 </div>
 
@@ -73,6 +73,23 @@
     </form>
 </div>
 
+<!-- POP UP PARTICULIER / PROFESSIONNEL -->
+<div class="pro-modal">
+    <i id="proModalClose" class="fas fa-times"></i>
+    <h1 class="title-3">Vous êtes ?</h1>
+    <div class="pro-modal-buttons">
+        <div class="pro-modal-icons">
+            <i class="fas fa-user-alt"></i>
+            <i class="fas fa-exchange-alt"></i>
+            <i class="fas fa-user-tie"></i>
+        </div>
+        <a href=""><button id="togglePart" class="pro-modal-button">UN PARTICULIER</button></a>
+        <button id="togglePro" class="pro-modal-button">UN PROFESSIONNEL</button>
+    </div>
+    <p class="text-muted">Personnalisez votre expérience sur Passerelle Numérique</p>
+    <span class="text-muted">Par défaut : particulier</span>
+</div>
+
 <!-- DYNAMIC CONTENT -->
 @yield('content')
 
@@ -87,30 +104,31 @@
     </div>
     <div class="navigation">
         <div class="navigation-numerique">
-            <h4>Quoi ?</h4>
-            <a href="../formations" class="">Nos formations</a>
-            <a href="" class="">Le numérique</a>
-            <a href="" class="">Autre lien</a>
-            <a href="" class="">Autre lien</a>
+            <h4>Agir</h4>
+            <a href="{{ route('se-former') }}" class="">Se former</a>
+            <a href="" class="">Innover</a>
+            <a href="" class="">Utiliser</a>
+            <a href="{{ route('apprendre') }}" class="">Apprendre</a>
         </div>
         <div class="navigation-passerelle">
-            <h4>Qui ?</h4>
-            <a href="" class="">Nos engagements</a>
-            <a href="" class="">Autre lien</a>
-            <a href="" class="">Autre lien</a>
-            <a href="" class="">Autre lien</a>
+            <h4>Coopérer</h4>
+            <a href="" class="">Accompagner</a>
+            <a href="" class="">Partager</a>
+            <a href="{{ route('sensibiliser') }}" class="">Sensibiliser</a>
+            <a href="{{ route('faq') }}" class="">Foire aux questions</a>
         </div>
         <div class="navigation-more">
-            <h4>Allez plus loin ?</h4>
-            <a href="" class="">Autre lien</a>
-            <a href="" class="">Autre lien</a>
-            <a href="" class="">Autre lien</a>
-            <a href="" class="">Autre lien</a>
+            <h4>Qui sommes nous ?</h4>
+            <a href="" class="">Passerelle & moi</a>
+            <a href="" class="">Nos engagements</a>
+            <a href="{{ route('partenaire') }}" class="">Nos partenaires</a>
+            <a href="{{ route('contact') }}" class="">Nous contacter</a>
         </div>
     </div>
     <div class="about"></div>
-
 </footer>
+
+
 
 <!-- EXTERNAL SCRIPTS -->
 <script src="/js/jquery.js"></script>

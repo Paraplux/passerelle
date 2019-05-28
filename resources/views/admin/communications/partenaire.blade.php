@@ -5,7 +5,7 @@
 
 <h2 class="title-2">Ajout d'un nouveau partenaire</h2>
 
-<form action="/governator/communication/partenaire/create" method="POST">
+<form action="/governator/communications/partenaire/create" method="POST">
 {{ csrf_field() }}
     <div class="form-group">
         <input value="" type="text" name="name" placeholder="Nom de la structure">
@@ -35,9 +35,9 @@
         <td>Adresse</td>
         <td>Ville</td>
     </tr>
-    <tr>
     @if(!empty($data))
         @foreach($data as $item)
+        <tr>
             <td>{{ $item->name }}</td>
             <td>{{ $item->mail }}</td>
             <td>{{ $item->website }}</td>
@@ -45,8 +45,8 @@
             <td>{{ $item->phone }}</td>
             <td>{{ $item->adress }}</td>
             <td>{{ $item->city }}</td>
+        </tr>
         @endforeach
     @endif
-    </tr>
 </table>
 @endsection
