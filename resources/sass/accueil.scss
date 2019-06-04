@@ -83,8 +83,13 @@
     }
 
     .header-button {
+        display: flex;
+        width: 250px;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
         height: 50px;
-        width: 150px;
+        padding: 10px;
         margin-top: 3rem;
 
         font-family: 'Quicksand';
@@ -97,6 +102,7 @@
         background-color: $orange;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
         color: $light;
+        text-decoration: none;
 
         cursor: pointer;
         outline: none;

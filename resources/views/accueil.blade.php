@@ -11,7 +11,7 @@
 <div class="home-wrap">
     <header class="header">
         <div class="typewriter">Votre passerelle numérique, à votre service.</div>
-        <button class="header-button">Suivez nous</button>
+        <a href="{{ route('partenaire') }}" class="header-button">Qui sommes nous ?</a>
         <div class="feature">
             <div class="feature-header">
                 <i id="feature-left" class="fas fa-chevron-left"></i>
