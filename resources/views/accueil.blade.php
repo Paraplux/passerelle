@@ -72,7 +72,7 @@
                                 <i class="fas fa-map-marker-alt"></i> Etaples
                             </div>
                             <div class="tile-info">
-                                <i class="fas fa-chevron-right"></i></i><a href="">Voir...</a>
+                                <i class="fas fa-chevron-right"></i><a href="">Voir...</a>
                             </div>
                         </div>
                     </div>

@@ -39,7 +39,7 @@
     </div>
 
     <div class="calendar-container">
-    <div class="container"">
+    <div class="container">
         <!-- ^width 50% -->
         <div class="card">
           <div class="front">

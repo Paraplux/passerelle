@@ -19,7 +19,12 @@
         <input value="" type="text" name="adress" placeholder="Adresse"><br> 
         <input value="" type="text" name="city" placeholder="Ville"><br> 
     </div>
+    <div class="form-group">
+        <p>Signataire <input type="radio" name="type" value="signataire"></p>
+        <p>Partenaire <input type="radio" name="type" value="partenaire"></p>
+    </div>
     <input value="" type="text" name="logo"><br>
+    
     <button type="submit">Ajouter</button>
 </form>
 @endsection
@@ -27,7 +32,7 @@
 @section('edit')
 <table>
     <tr>
-        <td>Structure</td>
+        <td>Nom</td>
         <td>Adresse Mail</td>
         <td>Site</td>
         <td>Logo</td>
