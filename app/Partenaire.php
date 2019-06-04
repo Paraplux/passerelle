@@ -13,6 +13,7 @@ class Partenaire extends Model
         'logo', 
         'phone', 
         'adress', 
-        'city'
+        'city',
+        'type'
     ];
 }

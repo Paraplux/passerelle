@@ -22,6 +22,7 @@ class CreatePartenairesTable extends Migration
             $table->string('phone');
             $table->string('adress');
             $table->string('city');
+            $table->string('type');
             $table->timestamps();
         });
     }
