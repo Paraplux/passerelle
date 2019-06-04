@@ -63,7 +63,7 @@
                         </div>
                         <div class="tile-body">
                             <div class="tile-info">
-                                <i class="far fa-clock"></i> 700 heures
+                                <i class="far fa-clock"></i> 700 H
                             </div>
                             <div class="tile-info">
                                 <i class="far fa-calendar-alt"></i> 12/06/19

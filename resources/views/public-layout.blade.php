@@ -44,6 +44,7 @@
     <div class="lateral-head">
         <div class="head-link">TRAVAUX EN COURS (ci dessous)</div>
         <a href="{{ route('governator') }}" class="head-link">Page d'administration</a>
+        <a href="{{ route('partenaire') }}" class="head-link">Le groupe Passerelle</a>
     </div>
     <div class="lateral-body">
         <a href="{{ route('sensibiliser') }}" class="body-link">Sensibiliser<i class="fas fa-bullhorn"></i></a>

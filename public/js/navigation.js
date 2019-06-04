@@ -8,13 +8,13 @@ $(function(){
         $('#toggleLateral').html('<i class="fas fa-times"></i>')
     }
     function hideLateral() {
-        $('.navigation-lateral').animate({'left': '-300px'}, 300)
+        $('.navigation-lateral').animate({'left': '-310px'}, 300)
         $('.dark-background').fadeOut();
         $('#toggleLateral').html('<i class="fas fa-bars"></i>')
     }
 
     $('#toggleLateral').on('click', function () {
-        if($('.navigation-lateral').css('left') === '-300px') {
+        if($('.navigation-lateral').css('left') === '-310px') {
             showLateral()
         } else {
             hideLateral()
