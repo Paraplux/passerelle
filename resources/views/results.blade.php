@@ -10,7 +10,7 @@ Résultats pour : {{ $query }}
 
 @section('content')
 <div class="results-page">
-    <h1 class="title-1">Résultats pour : {{ $query }}</h1>
+    <h1 class="title-1">Notre contenu contenant : {{ $query }}</h1>
 
     @if(isset($formations) && count($formations) != 0)
     <h2 class="title-4">Section formations :</h2>

@@ -1,17 +1,21 @@
 @extends('administration')
 
 @section('create')
-<h1 class="title-1">Formations</h1>
 
-<h2 class="title-2">Ajout d'un nouveau label</h2>
-
-<form action="/governator/formations/label/create" method="POST">
+<form action="/governator/formations/label/create" method="POST" enctype="multipart/form-data">
 {{ csrf_field() }}
     <div class="form-group">
-        <input value="" type="text" name="name" placeholder="Nom du label">
-        <input value="" type="text" name="website" placeholder="Site web du label">
+        <label for="name">Nom du label</label>
+        <input type="text" name="name" placeholder="Entrez le nom..." id="name">
     </div>
-    <input type="text" name="logo" value="">
+    <div class="form-group">
+        <label for="website">Site web du label</label>
+        <input type="text" name="website" placeholder="Entrez l'url..." id="website">
+    </div>
+    <div class="form-group">
+        <label for="logo">Logo du label</label>
+        <input type="file" name="logo" id="logo">
+    </div>
     <button type="submit">Ajouter</button>
 </form>
 @endsection

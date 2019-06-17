@@ -21,14 +21,19 @@ $(document).ready(function(){
         targetElem.show()
     })
 
-    $a = $('.mosaic-item').width();
-    $('.mosaic-item').height($a);
-
-    $(window).resize(function () {
-        $a = $('.mosaic-item').width();
-        $('.mosaic-item').height($a);
-    });
-
+    $(document).on('click', '.accordion-title', function(evt) {
+        evt.stopPropagation();
+        if ($(this).parent().find('.accordion-content').css('display') === 'none') {
+            $('.accordion-content').slideUp();
+            $(this).parent().find('.accordion-content').slideDown();
+        } else {
+            $('.accordion-content').slideUp();
+        }
+    })
+    
+    $(document).on('click', 'body', function() {
+        $('.accordion-content').slideUp();
+    })
 
     //
     // ────────────────────────────────────────────── II ──────────

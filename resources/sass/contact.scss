@@ -1,23 +1,59 @@
 @import './variables.scss';
-
+body {
+    background-color: #e6e9f0;
+}
 form {
-    width: 70%;
+    padding-bottom: 5rem;
+    width: 50%;
     margin: auto;
-
-    input,
-    textarea,
-    button {
-        font-size: 1.1rem;
-        font-family: 'Nunito', sans-serif;
+    
+    h1 {
+        margin: 3rem auto;
+        text-align: center;
     }
 
-    input {
-        width: 40%;
-    }
-
-    textarea {
+    .form-group {
+        margin: 20px auto;
+        display: flex;
+        flex-wrap: wrap;
         width: 100%;
-        height: 200px;
+
+        label {
+            margin: 10px auto;
+            width: 100%;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            height: 2.5rem;
+            line-height: 2.5rem;
+            padding-left: 10px;
+            border-radius: 5px;
+            border: none;
+            border: 1px solid rgba($blue, 0.3);
+            outline: none;
+        }
+
+        select[multiple] {
+            height: 150px;
+
+            option {
+                font-size: 1rem;
+                background-repeat:no-repeat;
+                background-position: center left;
+                background-size: 40px;
+            }
+        }
+
+        textarea {
+            height: 200px;
+        }
+
+        .info {
+            width: 100%;
+            color: $dark;
+        }
     }
 
     button {
@@ -40,18 +76,5 @@ form {
 
         cursor: pointer;
         outline: none;
-    }
-
-    .form-group {
-        margin: 15px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        width: 100%;
-
-        h2 {
-            width: 100%;
-            text-align: center;
-        }
     }
 }

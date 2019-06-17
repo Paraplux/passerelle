@@ -5,7 +5,7 @@ $(function(){
     function showLateral() {
         $('.navigation-lateral').animate({'left': '0'}, 300)
         $('.dark-background').fadeIn();
-        $('#toggleLateral').html('<i class="fas fa-times"></i>')
+        // $('#toggleLateral').html('<i class="fas fa-times"></i>')
     }
     function hideLateral() {
         $('.navigation-lateral').animate({'left': '-310px'}, 300)
@@ -23,7 +23,8 @@ $(function(){
 
     // GESTION DU MENU QUICK ACTIONS
 
-    $('#quickActionOpen').on('click', function () {
+    $('#quickActionOpen').on('click', function (evt) {
+        evt.stopPropagation()
         if($('.quick-item').css('display') === 'none') {
             $('.quick-item').each(function (index) {
                 $(this).delay(100 * index).show(100)
@@ -34,6 +35,12 @@ $(function(){
                 $(this).delay(100 * index).hide(100)
             })
         }
+    })
+
+    $('body').on('click', function(){
+        $('.quick-item').each(function (index) {
+            $(this).delay(100 * index).hide(100)
+        })
     })
 
     // GESTION DE LA TRANSPARENCE EN FONCTION DU SCROLL
