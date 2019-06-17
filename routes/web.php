@@ -62,6 +62,10 @@ Route::get('/test', 'AccueilController@test');
     //? Route de récupération
     Route::get('/innover', 'InnoverController@index')->name('innover');
 
+//* ACCOMPAGNER ROUTES
+
+    //? Route de récupération
+    Route::get('/accompagner', 'AccompagnerController@index')->name('accompagner');
 
 //* CONTACT ROUUTES
 

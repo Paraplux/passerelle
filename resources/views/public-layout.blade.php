@@ -48,7 +48,7 @@
     <div class="lateral-body">
         <a title="S'informer sur les métiers d'aujourd'hui et de demain" href="{{ route('sensibiliser') }}" class="body-link">Sensibiliser<i class="fas fa-bullhorn"></i></a>
         <a title="Se former sur les différents métiers d'aujourd'hui et de demain" href="{{ route('se-former') }}" class="body-link">Se former<i class="fas fa-graduation-cap"></i></a>
-        <a title="Vous accompagner de manière individualisée selon vos besoins" href="" class="body-link">Accompagner<i class="far fa-handshake"></i></a>
+        <a title="Vous accompagner de manière individualisée selon vos besoins" href="{{ route('accompagner') }}" class="body-link">Accompagner<i class="far fa-handshake"></i></a>
         <a title="L'innovation numérique au coeur de l'avenir" href="" class="body-link">Innover<i class="far fa-lightbulb"></i></a>
         <a title="Découvrir les nouvelles modalités d'apprentissage" href="{{ route('apprendre') }}" class="body-link">Apprendre<i class="fas fa-brain"></i></a>
         <a title="S'initier au numérique du quotidien" href="" class="body-link">Utiliser<i class="far fa-hand-pointer"></i></a>
