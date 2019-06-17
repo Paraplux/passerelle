@@ -56,27 +56,27 @@
                     <h2 class="title-2">Nos formations débutent bientôt...</h2>
                 </div>
                 <div class="formations-body" id="carousel-formations">
-                    @for($i = 0; $i < 3; $i++)
+                    @foreach($formations as $formation)
                     <div class="formations-tile">
                         <div class="tile-head">
-                            <h1 class="title-4">Développeur Web et Web mobile</h1>
+                            <h1 class="title-4">{{ $formation->name }}</h1>
                         </div>
                         <div class="tile-body">
                             <div class="tile-info">
-                                <i class="far fa-clock"></i> 700 H
+                                <i class="far fa-clock"></i> {{ $formation->duree }} H
                             </div>
                             <div class="tile-info">
-                                <i class="far fa-calendar-alt"></i> 12/06/19
+                                <i class="far fa-calendar-alt"></i> {{ $formation->getDate('d/m/y') }}
                             </div>
                             <div class="tile-info">
-                                <i class="fas fa-map-marker-alt"></i> Etaples
+                                <i class="fas fa-map-marker-alt"></i> {{ $formation->location }}
                             </div>
                             <div class="tile-info">
-                                <i class="fas fa-chevron-right"></i><a href="">Voir...</a>
+                                <i class="fas fa-chevron-right"></i><a href="/formation/{{ $formation->id }}">Voir...</a>
                             </div>
                         </div>
                     </div>
-                    @endfor
+                    @endforeach
                 </div>
             </div>
         </div>

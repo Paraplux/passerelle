@@ -40,24 +40,43 @@ Formation : {{ $fiche->name }}
         </div>
     </div>
     <div class="fiche-content">
-        <div class="fiche-mosaic">
-            <div class="mosaic-item"><i class="fas fa-tasks"></i></div>
-            <div class="mosaic-item"><i class="far fa-clock"></i></div>
-            <div class="mosaic-item"><i class="fas fa-euro-sign"></i></div>
-            <div class="mosaic-item"><i class="fas fa-file-pdf"></i></div>
-            <div class="mosaic-item"><i class="fas fa-user-check"></i></div>
-            <div class="mosaic-item"><i class="far fa-envelope"></i></div>
+        <div class="fiche-accordion">
+            <div class="accordion-item">
+                <p class="accordion-title accordion-title-1"><i class="fas fa-tasks"></i> Pré Requis</p>
+                <p class="accordion-content">{{ $fiche->pre_requisite }}</p>
+            </div>
+            <div class="accordion-item">
+                <p class="accordion-title accordion-title-2"><i class="far fa-clock"></i> Dates & Durée</p>
+                <p class="accordion-content">
+                         - {{ $fiche->date_start }} <br>
+                         - {{ $fiche->date_end }} <br>
+                         - {{ $fiche->duree }} <br>
+                </p>
+            </div>
+            <div class="accordion-item">
+                <p class="accordion-title accordion-title-3"><i class="fas fa-map-marker-alt"></i> Location</p>
+                <p class="accordion-content">{{ $fiche->location }}</p>
+            </div>
+            <div class="accordion-item">
+                <p class="accordion-title accordion-title-4"><i class="fas fa-file-pdf"></i> Documentation</p>
+                <p class="accordion-content">Téléchargez la version pdf de la fiche ! </p>
+            </div>
+            <div class="accordion-item">
+                <p class="accordion-title accordion-title-5"><i class="fas fa-user-check"></i> Lorem</p>
+                <p class="accordion-content">Je sais plus ce qui va ici</p>
+            </div>
+            <div class="accordion-item">
+                <p class="accordion-title accordion-title-6"><i class="far fa-envelope"></i> Contact</p>
+                <p class="accordion-content">
+                         - Nom de la structure <br>
+                         - Téléphone de la structure <br>
+                         - Adresse mail de la structure <br>
+                         - Website de la structure <br>
+                         - Adress postale de la structure <br>
+                         - Ville & de la structure <br>
+                </p>
+            </div>
         </div>
-        <div class="map">
-            <div id="mapid"></div>
-        </div>
-        <i class="map-close fas fa-times-circle"></i>
-    </div>
-    <div class="map-button">
-        <i class="fas fa-map-marker-alt"></i>
-        <h5>
-            Où trouver cette formation ?
-        </h5>
     </div>
 </div>
 @endsection

@@ -7,7 +7,7 @@
         box-sizing: border-box;
     }
 
-    padding: 50px;
+    padding-bottom: 10vh;
     min-height: 100vh;
     display: flex;
     flex-wrap: wrap;
@@ -26,6 +26,7 @@
         
         .title-1 {
             width: 100%;
+            margin-top: 5rem;
             text-align: center;
             font-weight: 700;
             font-size: 28px;
@@ -62,20 +63,20 @@
 
     /*ONGLET INFORMATIONS*/
     .informations {
-        width: 50%;
+        width: 45%;
         color: $light;
     }
 
     .informations-navigation {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         height: 40px;
         line-height: 40px;
         border-radius: 8px;
 
         span {
-            width: 24%;
-            padding-left: 5px;
+            width: 30%;
+            padding-left: 20px;
             color: $dark;
             box-sizing: border-box;
             background: $light;
@@ -91,6 +92,7 @@
             }
 
             .fas {
+                margin-right: 20px;
                 font-size: 1.2rem;
             }
         }
@@ -122,56 +124,49 @@
 
     /*CONTENT*/
     .fiche-content {
-        width: 35%;
+        width: 40%;
 
-        .fiche-mosaic {
+        .fiche-accordion {
             width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-
+            border-radius: 5px;
+            overflow: hidden;
             text-align: center;
 
-            .mosaic-item {
-                width: calc(100% / 3 - 9px);
-                margin: 3px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 3.5rem;
-                border-radius: 10px;
-                box-shadow: 0 0 12px rgba($dark, 0.3);
+            .accordion-item {
+                width: 100%;
+                font-size: 1.2rem;
+            }
+
+            .accordion-title {
+                margin: 0;
+                line-height: 3rem;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+
+            .accordion-content,
+            .accordion-content ul {
+                display: none;
             }
 
         }
     }
 
-    .fiche-mosaic div:nth-child(1) {
-        background-color: $orange;
+    .accordion-title-1,
+    .accordion-title-4 {
+        background-color: rgba($orange, 0.8);
         color: $light;
     }
 
-    .fiche-mosaic div:nth-child(2) {
-        background-color: $light;
+    .accordion-title-2,
+    .accordion-title-5 {
+        background-color: rgba($light, 0.8);
         color: $dark;
     }
 
-    .fiche-mosaic div:nth-child(3) {
-        background-color: $blue;
-        color: $light;
-    }
-
-    .fiche-mosaic div:nth-child(4) {
-        background-color: $light;
-        color: $dark;
-    }
-
-    .fiche-mosaic div:nth-child(5) {
-        background-color: $blue;
-        color: $light;
-    }
-
-    .fiche-mosaic div:nth-child(6) {
-        background-color: $orange;
+    .accordion-title-3,
+    .accordion-title-6 {
+        background-color: rgba($blue, 0.8);
         color: $light;
     }
 

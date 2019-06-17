@@ -15,7 +15,9 @@ class AdministrationRepository {
     public function getData($type) {
         switch ($type) {
             case 'fiche':
-                $data = Fiche::all();
+                $data['fiches'] = Fiche::all();
+                $data['labels'] = Label::all();
+                $data['branches'] = Branche::all();
                 break;
             case 'label':
                 $data = Label::all();
@@ -38,34 +40,35 @@ class AdministrationRepository {
             default:
                 $data = '';
         }
-        
         return $data;
     }
 
-    public function setData()
+    public function deleteData($model, $id)
     {
-        switch ($type) {
+        switch ($model) {
             case 'fiche':
-                $data = Fiche::all();
+                $item = Fiche::findOrFail($id);
+                $status = $item->delete();
                 break;
             case 'label':
-                $data = Label::all();
+                
                 break;
             case 'structure':
-                $data = Structure::all();
+                
                 break;
             case 'branche':
-                $data = Branche::all();
+                
                 break;
             case 'article':
-                $data = Article::all();
+                
                 break;
             case 'faq':
-                $data = Faq::all();
+                
                 break;
             default:
-                $data = '';
+                $status = false;
         }
+        return $status;
     }
 
 }

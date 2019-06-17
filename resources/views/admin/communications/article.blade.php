@@ -1,23 +1,33 @@
 @extends('administration')
 
 @section('create')
-<h1 class="title-1">Communication</h1>
-
-<h2 class="title-2">Ajout d'un article</h2>
 
 <form action="/governator/communications/article/create" method="POST">
 {{ csrf_field() }}
+        <div class="form-group">
+            <label for="title">Titre de l'article</label>
+            <input type="text" name="title" placeholder="Entrez un titre..." id="title">
+        </div>
+        <div class="form-group">
+            <label for="author">Auteur</label>
+            <input type="text" name="author" placeholder="Personne connectée" id="author">
+        </div>
     <div class="form-group">
-        <input value="" type="text" name="title" placeholder="Titre de l'article">
-        <input value="" type="text" name="author" placeholder="Auteur de l'article">
+        <label for="article_ckeditor">Contenu de l'article</label>
+        <textarea id="article_ckeditor" name="content"></textarea>
     </div>
     <div class="form-group">
-        <textarea value="test" name="content"></textarea>
+        <label for="article_ckeditor">Illustration 1</label>
+        <input type="file" name="thumb_1">
+        <label for="article_ckeditor">Illustration 2</label>
+        <input type="file" name="thumb_2">
+        <p class="text-muted"><i class="fas fa-exclamation-circle"></i> Attention, l'utilisation de deux images d'illustrations nécessite un texte d'une longueur minimale de 1000 caractères</p>
     </div>
-    <div class="form-group">
-        <h2 class="title-4">Illustrations de l'article</h2>
-        <input value="/images/landscape01.jpg" type="text" name="thumb_1">
-        <input value="/images/landscape02.jpg" type="text" name="thumb_2">
+    <div class="tags form-group">
+        <label for="taginput">Tags</label><br>
+        <div class="validated-tags"></div>
+        <input id="taginput" name="taginput" type="text" placeholder="Entrez vos tags...">
+        <button id="addtag">Ajouter un tag</button>
     </div>
     <button type="submit">Publier</button>
 </form>

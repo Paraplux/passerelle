@@ -1,16 +1,16 @@
 @extends('administration')
 
 @section('create')
-<h1 class="title-1">Communication</h1>
-
-<h2 class="title-2">Ajout une nouvelle question dans la Foire aux Questions</h2>
 
 <form action="/governator/communications/faq/create" method="POST">
 {{ csrf_field() }}
-    <input name="question" value="" type="text" placeholder="Question">
     <div class="form-group">
-        <h2 class="title-4">Entrez la réponse</h2>
-        <textarea name="reponse"></textarea>
+        <label for="question">Question</label>
+        <input name="question" value="" type="text" placeholder="Entrez la question..." id="question">
+    </div>
+    <div class="form-group">
+        <label for="faq_ckeditor">Réponse</label>
+        <textarea name="reponse" id="faq_ckeditor"></textarea>
     </div>
     <button type="submit">Ajouter la question</button>
 </form>

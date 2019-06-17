@@ -9,11 +9,12 @@ class SearchController extends Controller
 {
     public function search()
     {
-        $formations = Fiche::search(request('query'))->get()->all();
-        $articles = Article::search(request('query'))->get()->all();
+        $query = request('query');
+        $formations = Fiche::search($query)->get()->all();
+        $articles = Article::search($query)->with('tags')->get()->all();
 
         return view('results', [
-            'query' => request('query'),
+            'query' => $query,
             'formations' => $formations,
             'articles' => $articles
         ]);

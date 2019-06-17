@@ -67,7 +67,7 @@ class AccueilRepository {
     }
 
     public function getFormations () {
-        $formations = Article::all();
+        $formations = Fiche::all();
 
         return $formations;
     }

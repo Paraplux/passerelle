@@ -1,36 +1,52 @@
 @extends('administration')
 
 @section('create')
-<h1 class="title-1">Formations</h1>
-
-<h2 class="title-2">Ajout d'une fiche formation</h2>
 
 <form action="/governator/formations/fiche/create" method="POST">
 {{ csrf_field() }}
     <div class="form-group">
-        <input value="" type="text" name="name" placeholder="Libellé de l'action">
-        <input value="2" type="text" name="branche_id">
+        <label for="name">Libellé de l'action</label>
+        <input type="text" name="name" placeholder="Entrez le libellé de l'action..." id="name">
     </div>
     <div class="form-group">
-        <h2 class="title-4">Description</h2>
-        <textarea value="test" name="content"></textarea>
+        <label for="branche">Branche de l'action</label>
+        <select name="branche_id" id="">
+            <option value="">- Selectionnez une branche -</option>
+            @foreach($data['branches'] as $branche)
+            <option value={{ $branche->id }}>{{ $branche->name }}</option>
+            @endforeach
+        </select>
     </div>
     <div class="form-group">
-        <h2 class="title-4">Programme</h2>
-        <textarea value="test" name="program"></textarea>
+        <label for="fiche_ckeditor_1">Description</label>
+        <textarea name="content" id="fiche_ckeditor_1"></textarea>
     </div>
     <div class="form-group">
-        <h2 class="title-4">Pré-requis</h2>
-        <textarea value="test" name="pre_requisite"></textarea>
+        <label for="fiche_ckeditor_2">Programme</label>
+        <textarea name="program" id="fiche_ckeditor_2"></textarea>
     </div>
     <div class="form-group">
-        <h2 class="title-4">Dates des actions / Début et Fin</h2>
-        <input value="test" type="date" name="date_start"><br>
-        <input value="test" type="date" name="date_end"><br>
+        <label for="fiche_ckeditor_3">Pré requis</label>
+        <textarea name="pre_requisite" id="fiche_ckeditor_3"></textarea>
     </div>
     <div class="form-group">
-        <input value="" type="text" name="location" placeholder="Localisation de l'action"><br>
-        <input value="3" type="text" name="level"><br>
+        <label for="location">Localisation de l'action</label>
+        <input type="text" name="location" placeholder="Entrée le lieu où se déroulera la formation..." id="location"><br>
+    </div>
+    <div class="form-group">
+        <label for="labels">Labels de l'action</label>
+        <select multiple name="label_id" id="">
+            @foreach($data['labels'] as $label)
+            <option style="padding:10px 0 10px 50px; background-image: url({{ $label->logo }});" value={{ $label->id }}>{{ $label->name }}</option>
+            @endforeach
+        </select>
+    </div>
+    <div class="form-group">
+        <div class="form-small-group">
+            <span><label for="level">Niveau obtenu</label><input placeholder="1, 2, 3, ..." type="number" name="level" id="level"><br></span>
+            <span><label for="date">Début</label><input type="date" name="date_start" id="date"></span>
+            <span><label for="date">Fin</label><input type="date" name="date_end" id="date"></span>
+        </div>
     </div>
     <button type="submit">Ajouter</button>
 </form>
@@ -38,31 +54,36 @@
 
 @section('edit')
 <table>
-    <tr>
-        <td>Libellé</td>
-        <td>Description</td>
-        <td>Programme</td>
-        <td>Début</td>
-        <td>Fin</td>
-        <td>Lieu</td>
-        <td>Pré requis</td>
-        <td>Niveau obtenu</td>
-        <td>Branche</td>
-    </tr>
-    <tr>
-    @if(!empty($data))
-        @foreach($data as $item)
+    <thead> 
+        <tr>
+            <th>Libellé</th>
+            <th>Début</th>
+            <th>Fin</th>
+            <th>Lieu</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tfoot> 
+        <tr>
+            <th>Libellé</th>
+            <th>Début</th>
+            <th>Fin</th>
+            <th>Lieu</th>
+            <th>Actions</th>
+        </tr>
+    </tfoot>
+    <tbody>
+        @if(!empty($data))
+        @foreach($data['fiches'] as $item)
+        <tr>
             <td>{{ $item->name }}</td>
-            <td>{{ $item->content }}</td>
-            <td>{{ $item->program }}</td>
             <td>{{ $item->date_start }}</td>
             <td>{{ $item->date_end }}</td>
             <td>{{ $item->location }}</td>
-            <td>{{ $item->pre_requisite }}</td>
-            <td>{{ $item->level }}</td>
-            <td>{{ $item->branche->name }}</td>
+            <td><a href="#" class="text-info">Editer</a> - <a onclick="if(confirm('Souhaitez vous réellement supprimer cette fiche de la base de données ?')){return true;}else{return false;}" href="/governator/delete/{{ $model }}/{{ $item->id }}" class="text-danger">Supprimer</a></td>
+        </tr>
         @endforeach
-    @endif
-    </tr>
+        @endif
+    </tbody>
 </table>
 @endsection
