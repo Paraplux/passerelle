@@ -24,7 +24,7 @@ class Article extends Model
             'articles.title' => 20,
             'articles.content' => 10,
             'articles.author' => 10,
-            'tags.name' => 10
+            'tags.name' => 20
         ],
         'joins' => [
             'article_tag' => ['articles.id','article_tag.article_id'],
