@@ -5,7 +5,8 @@
         <link rel="shortcut icon" href="/images/logos/favicon-bis.png" type="image/x-icon">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <meta name="description" content="Site officielle de la Passerelle Numérique des Hauts de France">
+        <meta name="keywords" content="web dev, web, dev, design, website, developper, site, internet, devis, professionnel, numérique, passerelle, passerelle numérique, insertion, aide, accompagnement, entreprises">
         <title>@yield('title')</title>
 
         
@@ -32,7 +33,6 @@
         <i id="quickActionOpen" class="fas fa-plus"></i>
         <div class="quick-actions">
             <div id="searchOpen" class="quick-item"><i class="fas fa-search"></i></div>
-            <a href="{{ route('faq') }}" class="quick-item"><i class="fas fa-question"></i></a>
             <a href="{{ route('contact') }}" class="quick-item"><i class="far fa-envelope"></i></a>
             <div id="proModalOpen" class="quick-item"><i class="fas fa-exchange-alt"></i></div>
         </div>
@@ -46,13 +46,21 @@
         <a href="{{ route('partenaire') }}" class="head-link">Le groupe Passerelle</a>
     </div>
     <div class="lateral-body">
+
         <a title="S'informer sur les métiers d'aujourd'hui et de demain" href="{{ route('sensibiliser') }}" class="body-link">Sensibiliser<i class="fas fa-bullhorn"></i></a>
+
         <a title="Se former sur les différents métiers d'aujourd'hui et de demain" href="{{ route('se-former') }}" class="body-link">Se former<i class="fas fa-graduation-cap"></i></a>
+
         <a title="Vous accompagner de manière individualisée selon vos besoins" href="{{ route('accompagner') }}" class="body-link">Accompagner<i class="far fa-handshake"></i></a>
-        <a title="L'innovation numérique au coeur de l'avenir" href="" class="body-link">Innover<i class="far fa-lightbulb"></i></a>
+
+        <a title="L'innovation numérique au coeur de l'avenir" href="{{ route('innover') }}" class="body-link">Innover<i class="far fa-lightbulb"></i></a>
+
         <a title="Découvrir les nouvelles modalités d'apprentissage" href="{{ route('apprendre') }}" class="body-link">Apprendre<i class="fas fa-brain"></i></a>
-        <a title="S'initier au numérique du quotidien" href="" class="body-link">Utiliser<i class="far fa-hand-pointer"></i></a>
-        <a title="A définir" href="" class="body-link">Partager<i class="fas fa-hands"></i></a>
+
+        <a title="S'initier au numérique du quotidien" href="{{ route('utiliser') }}" class="body-link">Utiliser<i class="far fa-hand-pointer"></i></a>
+
+        <a title="A définir" href="{{ route('partager') }}" class="body-link">Partager<i class="fas fa-hands"></i></a>
+
     </div>
 </div>
 
@@ -106,16 +114,15 @@
         <div class="navigation-numerique">
             <h4>Agir</h4>
             <a href="{{ route('se-former') }}" class="">Se former</a>
-            <a href="" class="">Innover</a>
-            <a href="" class="">Utiliser</a>
+            <a href="{{ route('innover') }}" class="">Innover</a>
+            <a href="{{ route('utiliser') }}" class="">Utiliser</a>
             <a href="{{ route('apprendre') }}" class="">Apprendre</a>
         </div>
         <div class="navigation-passerelle">
             <h4>Coopérer</h4>
-            <a href="" class="">Accompagner</a>
-            <a href="" class="">Partager</a>
+            <a href="{{ route('accompagner') }}" class="">Accompagner</a>
             <a href="{{ route('sensibiliser') }}" class="">Sensibiliser</a>
-            <a href="{{ route('faq') }}" class="">Foire aux questions</a>
+            <a href="{{ route('partager') }}" class="">Partager</a>
         </div>
         <div class="navigation-more">
             <h4>Qui sommes nous ?</h4>

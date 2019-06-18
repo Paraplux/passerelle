@@ -15,6 +15,7 @@ Route::get('/test', 'AccueilController@test');
 
 
 //* GLOBALS ROUTES
+
     //? Routes de récupération
     Route::get('/', 'AccueilController@index')->name('/');
 
@@ -25,18 +26,14 @@ Route::get('/test', 'AccueilController@test');
     Route::get('/choix-category/pro', 'ChoixCategoryController@pro');
     Route::get('/choix-category/part', 'ChoixCategoryController@part');
 
-//* PARTENAIRES ROUTES
+
+//* SENSIBILISER ROUTES
 
     //? Route de récupération
-    Route::get('/nos-partenaires', 'PartenaireController@index')->name('partenaire');
-
-//* APPRENDRE ROUTES
-
-    //? Route de récupération
-    Route::get('/apprendre-autrement', 'ApprendreController@index')->name('apprendre');
+    Route::get('/sensibiliser', 'SensibiliserController@index')->name('sensibiliser');
 
 
-//* FORMATIONS ROUTES
+//* SE FORMER ROUTES
 
     //? Routes de récupération
     Route::get('/se-former', 'FormationController@index')->name('se-former');
@@ -45,51 +42,71 @@ Route::get('/test', 'AccueilController@test');
     //? Route de recherche
     Route::get('/se-former/search', 'FormationController@search');
 
-    
-//* ARTICLES ROUTES
-
-    //? Route de récupération
-    Route::get('/article/{id}', 'ArticleController@getArticle');
-
-
-//* SENSIBILISER ROUTES
-
-    //? Route de récupération
-    Route::get('/sensibiliser', 'SensibiliserController@index')->name('sensibiliser');
-
-//* INNOVER ROUTES
-
-    //? Route de récupération
-    Route::get('/innover', 'InnoverController@index')->name('innover');
 
 //* ACCOMPAGNER ROUTES
 
     //? Route de récupération
     Route::get('/accompagner', 'AccompagnerController@index')->name('accompagner');
 
+
+//* INNOVER ROUTES
+
+    //? Route de récupération
+    Route::get('/innover', 'InnoverController@index')->name('innover');
+
+
+//* APPRENDRE ROUTES
+
+    //? Route de récupération
+    Route::get('/apprendre-autrement', 'ApprendreController@index')->name('apprendre');
+
+
 //* UTILISER ROUTES
 
     //? Route de récupération
     Route::get('/utiliser', 'UtiliserController@index')->name('utiliser');
+
+
+//* PARTAGER ROUTES
+
+    //? Routes de récupération
+    Route::get('/partager', 'PartagerController@index')->name('partager');
+    Route::get('/partager/{id}', 'PartagerController@getQuestion');
+
+    //? Routes de modification
+    Route::post('/partager/add', 'PartagerController@addQuestion');
+    Route::post('/partager/{id}', 'PartagerController@addReponse');
+    Route::get('/partager/{vote}/{id}', 'PartagerController@vote');
+
+
+//* ENGAGEMENTS ROUTES
+
+    //? Routes de récupération
+    Route::get('/nos-engagements', 'EngagementsController@index');
+    
+
+//* PARTENAIRES ROUTES
+
+    //? Route de récupération
+    Route::get('/nos-partenaires', 'PartenaireController@index')->name('partenaire');
+
+
+//* ARTICLES ROUTES
+
+    //? Route de récupération
+    Route::get('/article/{id}', 'ArticleController@getArticle');
+
 
 //* CONTACT ROUTES
 
     //? Route de récupération
     Route::get('/nous-contacter', 'ContactController@index')->name('contact');
 
-    
 
+//* CARTOGRAPHIE ROUTES
 
-//* FAQ ROUTES
-
-    //? Routes de récupération
-    Route::get('/foire-aux-questions', 'FaqController@index')->name('faq');
-    Route::get('/foire-aux-questions/{id}', 'FaqController@getQuestion');
-
-    //? Routes de modification
-    Route::post('/foire-aux-questions/add', 'FaqController@addQuestion');
-    Route::post('/foire-aux-questions/{id}', 'FaqController@addReponse');
-    Route::get('/foire-aux-questions/{vote}/{id}', 'FaqController@vote');
+    //? Route de récupération
+    Route::get('/cartographie', 'MapController@index')->name('map');
 
 
 //* ADMINISTRATION ROUTES

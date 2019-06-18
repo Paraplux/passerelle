@@ -12,7 +12,7 @@
 @section('content')
 <div class="question-page">
     <div class="question-main-content">
-        <a href="/foire-aux-questions"><i class="far fa-arrow-alt-circle-left"></i> Retour à la liste des questions</a>
+        <a href="/partager"><i class="far fa-arrow-alt-circle-left"></i> Retour à la liste des questions</a>
 
             <!-- QUESTION -->
             <div class="question-item">
@@ -27,7 +27,7 @@
             <!-- REPONSES -->
             <h2 class="title-2">Proposer ma réponse</h2>
 
-            <form action="/foire-aux-questions/{{ $question->id }}" method="POST">
+            <form action="/partager/{{ $question->id }}" method="POST">
             {{ csrf_field() }}
                 <input name="pseudo" type="text" placeholder="Pseudo">
                 <input name="mail" type="text" placeholder="Adresse mail">
@@ -43,8 +43,8 @@
                 <h3 class="text-muted">{{ $reponse->created_at }}</h3>
                 <p class="main-text">{{ $reponse->reponse }}</p>
                 <div class="vote">
-                    <a href="/foire-aux-questions/up/{{ $reponse->id }}"><i data-thumb="up" class="far fa-thumbs-up"></i><span data-thumb="up">{{ $reponse->thumbs_up }}</span></a>
-                    <a href="/foire-aux-questions/down/{{ $reponse->id }}"><i data-thumb="down" class="far fa-thumbs-down"></i><span data-thumb="down">{{ $reponse->thumbs_down }}</span></a>
+                    <a href="/partager/up/{{ $reponse->id }}"><i data-thumb="up" class="far fa-thumbs-up"></i><span data-thumb="up">{{ $reponse->thumbs_up }}</span></a>
+                    <a href="/partager/down/{{ $reponse->id }}"><i data-thumb="down" class="far fa-thumbs-down"></i><span data-thumb="down">{{ $reponse->thumbs_down }}</span></a>
                 </div>
             </div>
             @endforeach

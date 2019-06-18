@@ -7,13 +7,13 @@ use App\Faq;
 use App\Reponse;
 use Illuminate\Support\Facades\Cookie;
 
-class FaqController extends Controller
+class PartagerController extends Controller
 {
     public function index()
     {
         $questions = Question::all();
         $faqs = Faq::all();
-        return view('faq.index', [
+        return view('partager.index', [
             'questions' => $questions,
             'faqs' => $faqs
         ]);
@@ -37,7 +37,7 @@ class FaqController extends Controller
         $question = Question::where('id', $id)->first();
         $reponses = Reponse::where('question_id', $id)->orderByDesc('thumbs_up')->get();
 
-        return view('faq.question', [
+        return view('partager.question', [
             'question' => $question,
             'reponses' => $reponses
         ]);

@@ -1,6 +1,6 @@
 @extends('public-layout')
 
-@section('title', 'Se Former')
+@section('title', 'Partager')
 
 @section('style')
     <link rel="stylesheet" href="/css/navigation.no-transparent.css">
@@ -35,7 +35,7 @@
             <div class="question-item">
                 <p class="question-pseudo">{{ $question->pseudo }} demande :</p>
                 <div class="question">{{ $question->question }}</div>
-                <a href="/foire-aux-questions/{{ $question->id }}" class="question-link">Voir les réponses</a>
+                <a href="/partager/{{ $question->id }}" class="question-link">Voir les réponses</a>
             </div>
             @endforeach
         </div>
