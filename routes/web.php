@@ -52,12 +52,12 @@ Route::get('/test', 'AccueilController@test');
     Route::get('/article/{id}', 'ArticleController@getArticle');
 
 
-//* SENSIBILISER ROUUTES
+//* SENSIBILISER ROUTES
 
     //? Route de récupération
     Route::get('/sensibiliser', 'SensibiliserController@index')->name('sensibiliser');
 
-//* INNOVER ROUUTES
+//* INNOVER ROUTES
 
     //? Route de récupération
     Route::get('/innover', 'InnoverController@index')->name('innover');
@@ -67,10 +67,17 @@ Route::get('/test', 'AccueilController@test');
     //? Route de récupération
     Route::get('/accompagner', 'AccompagnerController@index')->name('accompagner');
 
-//* CONTACT ROUUTES
+//* UTILISER ROUTES
+
+    //? Route de récupération
+    Route::get('/utiliser', 'UtiliserController@index')->name('utiliser');
+
+//* CONTACT ROUTES
 
     //? Route de récupération
     Route::get('/nous-contacter', 'ContactController@index')->name('contact');
+
+    
 
 
 //* FAQ ROUTES
