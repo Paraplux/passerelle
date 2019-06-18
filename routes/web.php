@@ -102,3 +102,6 @@ Route::get('/test', 'AccueilController@test');
 
     //? Routes de suppression
     Route::get('/governator/delete/{model}/{id}', 'AdministrationController@deleteData');
+
+    //? Routes de modification
+    Route::get('/governator/edit/{category}/{model}/{id}', 'AdministrationController@editData');
