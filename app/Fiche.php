@@ -38,11 +38,16 @@ class Fiche extends Model
         'program',
         'date_start',
         'date_end',
-        'location',
+        'duree',
+        'structure_id',
         'pre_requisite',
         'level',
         'branche_id'
     ];
+
+    public function structure() {
+        return $this->belongsTo('App\Structure');
+    }
 
     public function branche() {
         return $this->belongsTo('App\Branche');

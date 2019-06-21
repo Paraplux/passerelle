@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Commune;
 
 class Structure extends Model
 {
@@ -13,6 +14,10 @@ class Structure extends Model
         'logo', 
         'phone', 
         'adress', 
-        'city'
+        'commune_id'
     ];
+
+    public function commune () {
+        return $this->belongsTo('App\Commune');
+    }
 }

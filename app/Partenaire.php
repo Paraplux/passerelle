@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Commune;
 
 class Partenaire extends Model
 {
@@ -16,4 +17,8 @@ class Partenaire extends Model
         'city',
         'type'
     ];
+
+    public function commune () {
+        return $this->belongsTo('App\Commune');
+    }
 }

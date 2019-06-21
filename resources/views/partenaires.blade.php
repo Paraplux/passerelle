@@ -19,14 +19,14 @@ Nos partenaires
         @foreach($fondateurs as $fondateur)
         <div class="card" aria-expanded="false">
             <div class="thumb">
-                <img src="{{ $fondateur->logo }}" alt="">
+                <a href="/groupe-passerelle/{{ $fondateur->id }}"><img src="{{ $fondateur->logo }}" alt=""></a>
             </div>
             <div class="body">
-                    <h1 class="card-title">{{ $fondateur->name }}</h1>
-                    <div class="fondateurs-info"><i class="fas fa-globe"></i>{{ $fondateur->website }}</div>
-                    <div class="fondateurs-info"><i class="fas fa-at"></i>{{ $fondateur->mail }}</div>
-                    <div class="fondateurs-info"><i class="fas fa-city"></i>{{ $fondateur->adress }} - {{ $fondateur->city }}</div>
-                    <div class="fondateurs-info"><i class="fas fa-phone"></i>{{ $fondateur->phone }}</div>
+                <h1 class="card-title title-3">{{ $fondateur->name }}</h1>
+                <div class="fondateurs-info"><i class="fas fa-globe"></i><a href="{{ $fondateur->website }}">Visitez le site</a></div>
+                <div class="fondateurs-info"><i class="fas fa-at"></i>{{ $fondateur->mail }}</div>
+                <div class="fondateurs-info"><i class="fas fa-city"></i>{{ $fondateur->adress }} - {{ $fondateur->commune->nom_commune }}</div>
+                <div class="fondateurs-info"><i class="fas fa-phone"></i>{{ $fondateur->phone }}</div>
             </div>
         </div>
         @endforeach
@@ -34,39 +34,13 @@ Nos partenaires
     <h1 class="title-2 page-subtitle">Nos signataires</h1>
     <div class="cards-container signataires">
         @foreach($signataires as $signataire)
-        <div class="card" aria-expanded="false">
-            <div class="thumb">
-                <img src="{{ $signataire->logo }}" alt="">
-            </div>
-            <div class="body">
-                    <h1 class="card-title">{{ $signataire->name }}</h1>
-                <ul>
-                    <li><i class="fas fa-globe"></i> : {{ $signataire->website }}</li>
-                    <li><i class="fas fa-at"></i> : {{ $signataire->mail }}</li>
-                    <li><i class="fas fa-city"></i> :  {{ $signataire->adress }} - {{ $signataire->city }}</li>
-                    <li><i class="fas fa-phone"></i> : {{ $signataire->phone }}</li>
-                </ul>
-            </div>
-        </div>
+        <a href="/groupe-passerelle/{{ $signataire->id }}"><img src="{{ $signataire->logo }}" alt=""></a>
         @endforeach
     </div>
     <h1 class="title-2 page-subtitle">Nos partenaires</h1>
     <div class="cards-container partenaires">
         @foreach($partenaires as $partenaire)
-        <div class="card" aria-expanded="false">
-            <div class="thumb">
-                <img src="{{ $partenaire->logo }}" alt="">
-            </div>
-            <div class="body">
-                    <h1 class="card-title">{{ $partenaire->name }}</h1>
-                <ul>
-                    <li><i class="fas fa-globe"></i> : {{ $partenaire->website }}</li>
-                    <li><i class="fas fa-at"></i> : {{ $partenaire->mail }}</li>
-                    <li><i class="fas fa-city"></i> :  {{ $partenaire->adress }} - {{ $partenaire->city }}</li>
-                    <li><i class="fas fa-phone"></i> : {{ $partenaire->phone }}</li>
-                </ul>
-            </div>
-        </div>
+        <a href="/groupe-passerelle/{{ $partenaire->id }}"><img src="{{ $partenaire->logo }}" alt=""></a>
         @endforeach
     </div>
 </div>

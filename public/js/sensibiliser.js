@@ -10,6 +10,12 @@ new Carousel(document.querySelector('#carousel-communication'), {
 })
 
 
+new Carousel(document.querySelector('#sliderCarousel'), {
+    slidesVisible: 6,
+    slidesToScroll: 3,
+    touch: true
+})
+
 /*
  * CALENDAR INIT 
  */

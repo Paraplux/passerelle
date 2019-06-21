@@ -25,7 +25,7 @@
         
             <p class="article-main">
             <img class="article-main-picture" src="{{ $article->thumb_1 }}" alt="">
-            {{ $article->content }}
+            {!! $article->content !!}
             </p>
             <p class="article-signature">{{ $article->author }} - {{ $article->getDate('d/m/Y') }}</p>
     </div>

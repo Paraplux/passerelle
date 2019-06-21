@@ -18,4 +18,12 @@ class PartenaireController extends Controller
             'partenaires' => $partenaires
         ]);
     }
+
+    public function get($id) {
+        $data = Partenaire::where('id', $id)->firstOrFail();
+
+        return view('partenaire', [
+            'data' => $data
+        ]);
+    }
 }

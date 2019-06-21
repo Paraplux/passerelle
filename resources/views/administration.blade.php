@@ -2,6 +2,7 @@
 
 @section('style')
 <link rel="stylesheet" href="/css/administration.css">
+<link rel="stylesheet" href="/css/flexdatalist.css">
 @endsection
 
 @section('content')
@@ -39,4 +40,5 @@
 <script>CKEDITOR.replace( 'faq_ckeditor' );</script>
 
 <script src='/js/tags.js'></script>
+<script src="/js/flexdatalist.js"></script>
 @endsection

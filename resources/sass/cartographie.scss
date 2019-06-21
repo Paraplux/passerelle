@@ -1,0 +1,23 @@
+@import '_variables.scss';
+
+.cartographie-page {
+    padding: 50px;
+
+    h1 {
+        text-align: center;
+    }
+
+    strong {
+        font-size: 1.5rem;
+        display: block;
+        text-align: center;
+    }
+}
+
+#map {
+    margin: 50px auto;
+    height: 70vh;
+    width: 70vw;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba($dark, 0.3);
+}

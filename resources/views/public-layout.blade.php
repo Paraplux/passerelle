@@ -44,6 +44,7 @@
     <div class="lateral-head">
         <a href="{{ route('governator') }}" class="head-link">Page d'administration</a>
         <a href="{{ route('partenaire') }}" class="head-link">Le groupe Passerelle</a>
+        <a href="{{ route('map') }}" class="head-link">Cartographie</a>
     </div>
     <div class="lateral-body">
 

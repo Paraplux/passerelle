@@ -38,25 +38,19 @@
             }
         }
 
-        .logos {
+        .structure {
             margin-top: 25px;
+            padding: 10px;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            background-color: rgba($light, 0.7);
-            border-radius: 10px;
+            background-color: rgba($light, 0.6);
+            border-radius: 5px;
             box-shadow: 0 0 6px rgba($dark, 0.5);
 
             img {
-                width: 60px;
-                margin: 5px;
-            }
-
-            .structure {
-                padding-right: 25px;
-                margin-right: 25px;
-                border-right: 1px solid rgba($dark, 0.5);
+                width: 120px;
             }
         }
     }
@@ -132,6 +126,11 @@
             overflow: hidden;
             text-align: center;
 
+        
+            .accordion-title-1 + .accordion-content {
+                display: block;
+            }
+
             .accordion-item {
                 width: 100%;
                 font-size: 1.2rem;
@@ -144,8 +143,7 @@
                 cursor: pointer;
             }
 
-            .accordion-content,
-            .accordion-content ul {
+            .accordion-content {
                 display: none;
             }
 
@@ -170,67 +168,10 @@
         color: $light;
     }
 
-    /*MAP*/
-    .map-button {
-        display: none;
-        position: absolute;
-        right: 10vh;
-        top: 110px;
-        font-size: 4rem;
-        color: $orange;
-        cursor: pointer;
-        text-align: center;
-        filter: drop-shadow(0 0 12px rgba($dark, 0.5));
-    }
-
-    .map-button h5 {
-        margin: 1rem;
-        padding: 0;
-        font-size: 1rem;
-        filter: drop-shadow(0 0 12px rgba($dark, 0.5));
-        color: $light;
-    }
-
-    .map {
-        position: absolute;
-        width: 100%;
-        top: -5px;
-        right: -200%;
-        bottom: 0;
-        z-index: 1;
-        box-shadow: 0 0 20px $dark;
-        border-top: 5px solid $orange;
-    }
-
-    .map-close {
-        display: none;
-        position: absolute;
-        right: 2.5%;
-        top: 5%;
-
-        font-size: 2rem;
-        color: $dark;
-        z-index: 2;
-        cursor: pointer;
-    }
-
-    #mapid {
+    #ficheMap {
         display: block;
+        height: 300px;
         width: 100%;
-        height: 100%;
-        z-index: 0;
-    }
-
-    .leaflet-top {
-        top: 10px;
-    }
-
-    .leaflet-left {
-        left: 15px;
-    }
-
-    .leaflet-control-attribution {
-        bottom: 10px;
     }
 }
 

@@ -30,14 +30,14 @@ class AdministrationController extends Controller
     public function getPanel (AdministrationRepository $repository)
     {
         $category = request('category');
-        $type = request('type');
         $model = request('type');
-        $data = $this->repository->getData($type);
+        $data = $this->repository->getData($model);
         
-        $panel = "admin.$category.$type";
+        $panel = "admin.$category.$model";
         return view($panel, [
             'data' => $data,
-            'model' => $model
+            'model' => $model,
+            'category' => $category
         ]);
     }
 
@@ -47,6 +47,23 @@ class AdministrationController extends Controller
         $this->repository->deleteData(request('model'), request('id'));
 
         return back();
+    }
+
+    public function editData(AdministrationRepository $repository)
+    {
+        $category = request('category');
+        $model = request('model');
+        $id = request('id');
+        $data = $this->repository->getData($model);
+        $input = $this->repository->editData($model, $id);
+
+        $panel = "admin.$category.$model";
+        return view($panel, [
+            'input' => $input,
+            'data' => $data,
+            'model' => $model,
+            'category' => $category
+        ]);
     }
 
     public function addFiche()
@@ -60,18 +77,12 @@ class AdministrationController extends Controller
             'program' => request('program'),
             'date_start' => request('date_start'),
             'date_end' => request('date_end'),
-            'location' => request('location'),
+            'duree' => request('duree'),
+            'structure_id' => request('structure_id'),
             'pre_requisite' => request('pre_requisite'),
             'level' => request('level'),
             'branche_id' => request('branche_id')
         ]);
-
-        foreach($labels as $label) {
-            FicheLabel::create([
-                'fiche_id' => $createdFiche->id,
-                'label_id' => $label->id
-            ]);
-        }
 
         return back();
     }
@@ -105,14 +116,29 @@ class AdministrationController extends Controller
 
     public function addStructure() 
     {
+        $logo = new UploadFile(request('logo')->path());
+        if ($logo->uploaded) {
+            $logosha1 = 'logo_' . sha1(base64_encode(openssl_random_pseudo_bytes(30)));
+            $logo->file_new_name_body = $logosha1;
+            $logo->image_resize = true;
+            $logo->image_x = 400;
+            $logo->image_convert = 'png';
+            $logo->image_ratio_y = true;
+            $logo->Process('../public/images/labels/logos');
+            $logolink = '/images/labels/logos/' . $logosha1 . '.png';
+            if ($logo->processed) {
+                $logo->Clean();
+            }
+        }
+
         Structure::create([
             'name' => request('name'),
             'mail' => request('mail'),
             'website' => request('website'), 
-            'logo' => request('logo'), 
+            'logo' => $logolink, 
             'phone' => request('phone'), 
             'adress' => request('adress'), 
-            'city' => request('city')
+            'commune_id' => intval(request('commune_id'))
         ]);
 
         return back();

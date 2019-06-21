@@ -78,3 +78,10 @@ form {
         outline: none;
     }
 }
+
+
+@media all and (max-width: 780px) {
+    form {
+        width: 90%;
+    }
+}

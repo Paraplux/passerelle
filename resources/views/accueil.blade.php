@@ -20,9 +20,8 @@
             </div>
             <div class="feature-body">
                 <div class="feature-carousel" id="carousel-feature">
-                    <iframe src="https://www.youtube.com/embed/ra3rF4b6O3E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <iframe src="https://www.youtube.com/embed/ra3rF4b6O3E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <iframe src="https://www.youtube.com/embed/ra3rF4b6O3E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/6ALDzbxuk3g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/hdQebrdkpm0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
             <div class="feature-footer"></div>
@@ -40,7 +39,7 @@
                     <div class="dynamic-post event">
                         <div class="post-content">
                             <h3 class="title-4 text-italic">{{ $articles[$i]->title }}</h3>
-                            <p class="text-main">{{ $articles[$i]->getExtrait() }}</p>
+                            <p class="text-main">{!! $articles[$i]->getExtrait() !!}</p>
                             <a href="/article/{{ $articles[$i]->id }}" class="text-muted">Lire la suite...</a>
                         </div>
                         <div class="post-thumb">
@@ -56,6 +55,7 @@
                     <h2 class="title-2">Nos formations débutent bientôt...</h2>
                 </div>
                 <div class="formations-body" id="carousel-formations">
+                    
                     @foreach($formations as $formation)
                     <div class="formations-tile">
                         <div class="tile-head">
@@ -69,7 +69,7 @@
                                 <i class="far fa-calendar-alt"></i> {{ $formation->getDate('d/m/y') }}
                             </div>
                             <div class="tile-info">
-                                <i class="fas fa-map-marker-alt"></i> {{ $formation->location }}
+                                <i class="fas fa-map-marker-alt"></i> {{ $formation->structure->commune->nom_commune }}
                             </div>
                             <div class="tile-info">
                                 <i class="fas fa-chevron-right"></i><a href="/formation/{{ $formation->id }}">Voir...</a>

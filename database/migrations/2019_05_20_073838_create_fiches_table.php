@@ -20,9 +20,10 @@ class CreateFichesTable extends Migration
             $table->text('program');
             $table->date('date_start');
             $table->date('date_end');
-            $table->string('location');
+            $table->float('duree');
             $table->text('pre_requisite');
             $table->integer('level');
+            $table->integer('structure_id');
             $table->integer('branche_id');
             $table->timestamps();
         });

@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Partenaire;
 
 class SensibiliserController extends Controller
 {
     public function index()
     {
-        return view('sensibiliser');
+        $partenaires = Partenaire::all()->shuffle();
+        return view('sensibiliser', [
+            'partenaires' => $partenaires
+        ]);
     }
 }

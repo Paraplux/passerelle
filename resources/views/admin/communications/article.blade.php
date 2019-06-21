@@ -26,38 +26,55 @@
     <div class="tags form-group">
         <label for="taginput">Tags</label><br>
         <div class="validated-tags"></div>
-        <input id="taginput" name="taginput" type="text" placeholder="Entrez vos tags...">
+        <input list="tagList" class="flexdatalist" id="taginput" name="taginput" type="text" placeholder="Entrez vos tags...">
+        <datalist id="tagList">
+            @foreach($data['tags'] as $tag)
+            <option value="{{ $tag->name }}"></option>
+            @endforeach
+        </datalist>    
         <button id="addtag">Ajouter un tag</button>
     </div>
     <button type="submit">Publier</button>
 </form>
+
+
 @endsection
 
 @section('edit')
 <table>
-    <tr>
-        <td>Titre</td>
-        <td>Contenu</td>
-        <td>Auteur</td>
-        <td>Illustration 1</td>
-        <td>Illustration 2 (opt)</td>
-        <td>Publié le</td>
-        <td>Edité le</td>
-        <td>Dernier éditeur</td>
-    </tr>
-    @if(!empty($data))
-    @foreach($data as $item)
-    <tr>
+    <thead> 
+        <tr>
+            <th>Titre</th>
+            <th>Auteur</th>
+            <th>Publié le</th>
+            <th>Edité le</th>
+            <th>Dernier éditeur</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tfoot> 
+        <tr>
+            <th>Titre</th>
+            <th>Auteur</th>
+            <th>Publié le</th>
+            <th>Edité le</th>
+            <th>Dernier éditeur</th>
+            <th>Actions</th>
+        </tr>
+    </tfoot>
+    <tbody>
+        @if(!empty($data))
+        @foreach($data['articles'] as $item)
+        <tr>
             <td>{{ $item->title }}</td>
-            <td>{{ $item->getExtrait(50) }}</td>
             <td>{{ $item->author }}</td>
-            <td>{{ $item->thumb_1 }}</td>
-            <td>{{ $item->thumb_2 }}</td>
             <td>{{ $item->created_at }}</td>
-            <td>{{ $item->edited_at }}</td>
-            <td>{{ $item->edited_by }}</td>
-    </tr>
-    @endforeach
-    @endif
+            <td>{{ $item->updated_at == $item->created_at ? '-' : $item->updated_at}}</td>
+            <td>{{ $item->updated_by ?? $item->author }}</td>
+            <td><a href="#" class="text-info">Editer</a> - <a onclick="if(confirm('Souhaitez vous réellement supprimer cette fiche de la base de données ?')){return true;}else{return false;}" href="/governator/delete/{{ $model }}/{{ $item->id }}" class="text-danger">Supprimer</a></td>
+        </tr>
+        @endforeach
+        @endif
+    </tbody>
 </table>
 @endsection

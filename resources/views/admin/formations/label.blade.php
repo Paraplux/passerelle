@@ -22,19 +22,31 @@
 
 @section('edit')
 <table>
-    <tr>
-        <td>Label</td>
-        <td>Logo</td>
-        <td>Site</td>
-    </tr>
-    <tr>
-    @if(!empty($data))
-        @foreach($data as $item)
+    <thead> 
+        <tr>
+            <th>Nom</th>
+            <th>Site Internet</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tfoot> 
+        <tr>
+            <th>Nom</th>
+            <th>Site Internet</th>
+            <th>Actions</th>
+        </tr>
+    </tfoot>
+    <tbody>
+        @if(!empty($data))
+        @foreach($data['labels'] as $item)
+        <tr>
             <td>{{ $item->name }}</td>
-            <td>{{ $item->logo }}</td>
             <td>{{ $item->website }}</td>
+            <td><a href="/governator/edit/{{ $category }}/{{ $model }}/{{ $item->id }}" class="text-info">Editer</a> - 
+                <a onclick="if(confirm('Souhaitez vous réellement supprimer cette élément de la base de données ?')){return true;}else{return false;}" href="/governator/delete/{{ $model }}/{{ $item->id }}" class="text-danger">Supprimer</a></td>
+        </tr>
         @endforeach
-    @endif
-    </tr>
+        @endif
+    </tbody>
 </table>
 @endsection

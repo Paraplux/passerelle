@@ -6,12 +6,19 @@
 <link rel="stylesheet" href="/css/sensibiliser.css">
 <link rel="stylesheet" href="/css/carousel.css">
 <link rel="stylesheet" href="/css/navigation.no-transparent.css">
+<link rel="stylesheet" href="/css/partenaires-slider.css">
 @endsection
 
 @section('content')
 
 <div class="decouvrir-page">
     <div class="header">
+        <div class="megaphone-container">
+            <img class="megaphone" src="/images/sensibiliser-2.png" alt="">
+            <div class="megaphone-sound top"></div>
+            <div class="megaphone-sound center"></div>
+            <div class="megaphone-sound bottom"></div>
+        </div>
         <!-- ^flex -->
         <div class="title">
             <!-- ^width 50% -->
@@ -111,8 +118,8 @@
 
             <img src="/images/template/background-1.jpg" alt="">
             <div class="decouvrir-article-text">
-                <h1>Sensibiliser</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias molestias corporis vero cupiditate a
+                <h1 class="title-1">Sensibiliser</h1>
+                <p class="text-main">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias molestias corporis vero cupiditate a
                     illo molestiae expedita neque similique eveniet? Lorem ipsum dolor sit amet consectetur adipisicing
                     elit. Alias molestias corporis vero cupiditate a illo molestiae expedita neque similique
                     eveniet?Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem ipsum dolor sit amet
@@ -121,33 +128,38 @@
             </div>
         </div>
 
+        
+    <div class="dynamic-post-container" id="carousel-communication">
+            <div class="dynamic-post event">
+                <div class="post-content">
+                    <h3 class="title-4 text-italic">Titre de l'événement</h3>
+                    <p class="text-main">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa
+                        harum quam ullam corrupti, nobis abodit ipsa! Est corrupti voluptates consectetur,
+                        expedita eius facere saepe quam nostrum quos.</p>
+                </div>
+                <div class="post-thumb">
+                    <img src="/images/landscape01.jpg" alt="">
+                </div>
+            </div>
+            <div class="dynamic-post news">
+                <div class="post-content">
+                    <h3 class="title-4 text-italic">Titre de l'actualité</h3>
+                    <p class="text-main">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa
+                        harum quam ullam corrupti, nobis aboditipsa! Est corrupti voluptates consectetur,
+                        expedita eius facesaepe quam nostrum quos repellat.</p>
+                </div>
+                <div class="post-thumb">
+                    <img src="/images/landscape02.jpg" alt="">
+                </div>
+            </div>
+        </div>
             
     </div>
-
-    <div class="dynamic-post-container" id="carousel-communication">
-        <div class="dynamic-post event">
-            <div class="post-content">
-                <h3 class="title-4 text-italic">Titre de l'événement</h3>
-                <p class="text-main">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa
-                    harum quam ullam corrupti, nobis abodit ipsa! Est corrupti voluptates consectetur,
-                    expedita eius facere saepe quam nostrum quos.</p>
-            </div>
-            <div class="post-thumb">
-                <img src="/images/landscape01.jpg" alt="">
-            </div>
-        </div>
-        <div class="dynamic-post news">
-            <div class="post-content">
-                <h3 class="title-4 text-italic">Titre de l'actualité</h3>
-                <p class="text-main">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa
-                    harum quam ullam corrupti, nobis aboditipsa! Est corrupti voluptates consectetur,
-                    expedita eius facesaepe quam nostrum quos repellat.</p>
-            </div>
-            <div class="post-thumb">
-                <img src="/images/landscape02.jpg" alt="">
-            </div>
-        </div>
-    </div>
+</div>
+<div class="partenaires-slider" id="sliderCarousel">
+    @foreach($partenaires as $partenaire)
+    <img src="{{ $partenaire->logo }}" alt="">
+    @endforeach
 </div>
 @endsection
 

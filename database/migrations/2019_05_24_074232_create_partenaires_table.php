@@ -21,7 +21,7 @@ class CreatePartenairesTable extends Migration
             $table->string('logo');
             $table->string('phone');
             $table->string('adress');
-            $table->string('city');
+            $table->string('commune_id');
             $table->string('type');
             $table->timestamps();
         });

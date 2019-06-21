@@ -9,27 +9,38 @@ use App\Branche;
 use App\Faq;
 use App\Article;
 use App\Partenaire;
+use App\Commune;
+use App\Tag;
 
 class AdministrationRepository {
 
-    public function getData($type) {
-        switch ($type) {
+    public function getData($model) {
+        switch ($model) {
             case 'fiche':
                 $data['fiches'] = Fiche::all();
                 $data['labels'] = Label::all();
                 $data['branches'] = Branche::all();
+                $data['structures'] = Structure::all();
                 break;
             case 'label':
-                $data = Label::all();
+                $data['labels'] = Label::all();
                 break;
             case 'structure':
-                $data = Structure::all();
+                $data['structures'] = Structure::all();
+                $data['communes'] = Commune::where('code_postale', 'LIKE', '02%')
+                                         ->orWhere('code_postale', 'LIKE', '59%')
+                                         ->orWhere('code_postale', 'LIKE', '60%')
+                                         ->orWhere('code_postale', 'LIKE', '62%')
+                                         ->orWhere('code_postale', 'LIKE', '80%')
+                                         ->orderBy('nom_commune')
+                                         ->get();
                 break;
             case 'branche':
                 $data = Branche::all();
                 break;
             case 'article':
-                $data = Article::all();
+                $data['tags'] = Tag::all();
+                $data['articles'] = Article::all();
                 break;
             case 'faq':
                 $data = Faq::all();
@@ -54,7 +65,8 @@ class AdministrationRepository {
                 
                 break;
             case 'structure':
-                
+                $item = Structure::findOrFail($id);
+                $status = $item->delete();
                 break;
             case 'branche':
                 
@@ -69,6 +81,33 @@ class AdministrationRepository {
                 $status = false;
         }
         return $status;
+    }
+
+    public function editData($model, $id)
+    {
+        switch ($model) {
+            case 'fiche':
+                $input = Fiche::findOrFail($id);
+                break;
+            case 'label':
+                
+                break;
+            case 'structure':
+                $input = Structure::findOrFail($id);
+                break;
+            case 'branche':
+                
+                break;
+            case 'article':
+                
+                break;
+            case 'faq':
+                
+                break;
+            default:
+                $input = '';
+        }
+        return $input;
     }
 
 }

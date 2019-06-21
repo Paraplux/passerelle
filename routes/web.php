@@ -89,6 +89,7 @@ Route::get('/test', 'AccueilController@test');
 
     //? Route de récupération
     Route::get('/nos-partenaires', 'PartenaireController@index')->name('partenaire');
+    Route::get('/groupe-passerelle/{id}', 'PartenaireController@get');
 
 
 //* ARTICLES ROUTES
@@ -129,3 +130,5 @@ Route::get('/test', 'AccueilController@test');
 
     //? Routes de modification
     Route::get('/governator/edit/{category}/{model}/{id}', 'AdministrationController@editData');
+
+

@@ -67,7 +67,7 @@ class AccueilRepository {
     }
 
     public function getFormations () {
-        $formations = Fiche::all();
+        $formations = Fiche::with('structure.commune')->get();
 
         return $formations;
     }
