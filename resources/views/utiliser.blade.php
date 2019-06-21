@@ -1,6 +1,6 @@
 @extends('public-layout')
 
-@section('title', 'Innover')
+@section('title', 'Utiliser')
 
 @section('style')
 <link rel="stylesheet" href="/css/utiliser.css">
@@ -18,10 +18,10 @@
     <div class="title">
             <!-- ^width 50% -->
         <h1 class="title-1">Utiliser</h1>
-        <p class=text-title>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias molestias corporis vero cupiditate a illo
+        <p class="text-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias molestias corporis vero cupiditate a illo
                 molestiae expedita neque similique eveniet?</p>
           <img class="light-on light" src="/svg/light-on.svg" alt=""/>
-          <p class="neon">Clique ici -></p>
+          <p class="click">Clique ici ></p>
           <img id="b1" class="phone-on phone" src="/svg/smartphone-light-on.svg" alt=""/>
           <img class="light-off light" src="/svg/light-off.svg" alt=""/>
 
@@ -127,7 +127,6 @@
         </div>
 
             
-    </div>
 
     <div class="dynamic-post-container" id="carousel-communication">
         <div class="dynamic-post event">
@@ -152,6 +151,7 @@
                 <img src="/images/landscape02.jpg" alt="">
             </div>
         </div>
+    </div>
     </div>
 </div>
 @endsection
