@@ -160,3 +160,6 @@
 <script src="/js/carousel.js"></script>
 <script src="/js/utiliser.js"></script>
 @endsection
+
+
+
