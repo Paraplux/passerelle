@@ -82,7 +82,7 @@ Route::get('/test', 'AccueilController@test');
 //* ENGAGEMENTS ROUTES
 
     //? Routes de récupération
-    Route::get('/nos-engagements', 'EngagementsController@index');
+    Route::get('/nos-engagements', 'EngagementsController@index')->name('engagements');
     
 
 //* PARTENAIRES ROUTES

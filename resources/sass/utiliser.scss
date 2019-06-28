@@ -223,7 +223,7 @@
     .calendar-container {
         position: sticky;
         top: 200px;
-        margin-left: 68%;
+        left: 900px;
         width: 400px;
         height: 200px;
         transform: translateY(calc(-50%));
@@ -402,17 +402,16 @@
     }
 
     .body {
-        justify-content: space-between;
-        padding-top: 2rem;
         margin-top: -200px;
+        padding-bottom: 100px;
+        padding-left: 50px;
         background-color: #ffffff;
-        border-top: solid 2px #DBE2E8;
 
         
         .decouvrir-article{
-            margin-top: 2%;
             width: 60%;
-            margin-left: 2%;
+            display: flex;
+            justify-content: space-between;
 
             h1 {
                 border-bottom: solid 3px $orange;
@@ -424,15 +423,16 @@
 
             p {
                 text-align: justify;
+                font-size: 1rem;
             }
 
             .decouvrir-article-text {
-                margin-left: 30%;
-                margin-top: -25%;
+                width: 60%;
             }
 
             img {
-                width: 25%;
+                width: 35%;
+                object-fit: contain;
             }
 
         }
@@ -485,8 +485,14 @@
         align-items: center;
         margin-top: 5%;
         color: $dark !important;
+        
+        .carouselPrev, .carouselNext{
+            background-size: 25px 25px;
+            width: 25px;
+            color: #232227;
+        }
     }
-
+    
     .dynamic-post {
         position: static;
         margin: auto;
@@ -510,7 +516,7 @@
         overflow: auto;
     }
 
-    .dynamic-post .post-content h2 {
+    .dynamic-post .post-content h3 {
         margin-top: 0;
         display: inline-block;
         padding: 0 20px;
@@ -518,8 +524,8 @@
         height: 50px;
         line-height: 50px;
         font-family: 'Montserrat', sans-serif;
-        font-weight: 400;
     }
+    
 
     .dynamic-post .post-thumb {
         z-index: 100;
@@ -578,225 +584,6 @@
 
 
 
-@media only screen and (max-width: 1024px){
-    .decouvrir-page.white, .decouvrir-page {
-       
-        .header {
-            
-            .title {
-    
-                h1 {
-                
-                }
-    
-                .text-title {
-               
-                }
-                .light{
-            
-                }
-                .phone{
-             
-                }
-                .phone-off{
-          
-                }
-                .light-off{
-               
-                }
-            }
-        }
-    
-        .calendar-container {
-    
-            .card {
-       
-            }
-            
-            .back,
-            .front {
-        
-            }
-            
-            .contentfront {
-            
-            }
-            
-            .contentback {
-            
-            }
-            
-            .back {
-           
-            }
-            
-            .front {
-           
-            }
-            
-            .date {
-    
-            }
-            
-            .datecont {
-      
-            }
-            
-            #date {
-    
-            }
-            
-            #day {
-      
-            }
-            
-            #month {
-          
-            }
-            
-            .date i {
- 
-            }
-            
-            .date i:hover {
- 
-            }
-            
-            .month {
-
-            }
-            
-            .month table {
-          
-            }
-            
-            .orangeTr {
-           
-            }
-            
-            .whiteTr {
-            
-            }
-            
-            .whiteTr th:hover {
-            
-            }
-            
-            .month tr {
-        
-            }
-            
-            .month th {
-            
-            }
-            
-            .flipped {
-        
-            }
-            
-            .backcontainer {
-    
-            }
-        }
-    
-        .body {    
-            
-            .decouvrir-article{
-    
-                h1 {
-                  
-                }
-    
-                p {
-     
-                }
-    
-                .decouvrir-article-text {
-             
-                }
-    
-                img {
-         
-                }
-    
-            }
-    
-    
-        }
-    
-        /*
-        * ──────────────────────────────────────────────────────────────────────────
-        *   ::    :     :   :    : N E O N : :  :   :    :     :        :          :
-        * ──────────────────────────────────────────────────────────────────────────
-        */
-    
-        .click {
-            
-        }    
-    
-    
-        /*
-        * ──────────────────────────────────────────────────────────────────────────
-        *   :::::: D Y N A M I C   P O S T : :  :   :    :     :        :          :
-        * ──────────────────────────────────────────────────────────────────────────
-        */
-    
-    
-        .dynamic-post-container {
-
-        }
-    
-        .dynamic-post {
-
-        }
-    
-        .dynamic-post .post-content {
-
-        }
-    
-        .dynamic-post .post-content h2 {
-
-        }
-    
-        .dynamic-post .post-thumb {
-
-        }
-    
-        .dynamic-post .post-thumb img {
-
-        }
-    
-        .dynamic-post.event {
-    
-            .post-content {
-    
-                a {
- 
-                }
-            }
-        
-            .post-thumb img {
- 
-            }
-        }
-    
-        .dynamic-post.news {
-    
-            .post-content {
-                
-                a {
-        
-                }
-            }
-            
-            .post-thumb img {
-
-            }
-        }
-    }  
-}
-
-
 @media only screen and (max-width: 768px){
     .decouvrir-page.white, .decouvrir-page {
 
@@ -804,395 +591,118 @@
             
             .title {
     
-                h1 {
-                
-                }
-    
-                .text-title {
-            
-                }
                 .light{
                     display: none;
                 }
                 .phone{
              
                 }
-                .phone-off{
-          
-                }
-                .light-off{
-               
-                }
             }
         }
     
         .calendar-container {
-            .card {
-                margin-left: -200px;
-            }
-            
-            .back,
-            .front {
-        
-            }
-            
-            .contentfront {
-
-            }
-            
-            .contentback {
-            
-            }
-            
-            .back {
-           
-            }
-            
-            .front {
-           
-            }
-            
-            .date {
-    
-            }
-            
-            .datecont {
-      
-            }
-            
-            #date {
-    
-            }
-            
-            #day {
-      
-            }
-            
-            #month {
-          
-            }
-            
-            .date i {
- 
-            }
-            
-            .date i:hover {
- 
-            }
-            
-            .month {
-
-            }
-            
-            .month table {
-          
-            }
-            
-            .orangeTr {
-           
-            }
-            
-            .whiteTr {
-            
-            }
-            
-            .whiteTr th:hover {
-            
-            }
-            
-            .month tr {
-        
-            }
-            
-            .month th {
-            
-            }
-            
-            .flipped {
-        
-            }
-            
-            .backcontainer {
-    
-            }
+            top: 450px;
+            left: 350px;
+            position: absolute;
         }
     
-        .body {    
+        .body {   
+            padding-top: 225px; 
             
             .decouvrir-article{
-    
-                h1 {
-                  width: 35%;
-                }
-    
-                p {
-     
-                }
-    
+                display: initial;
+                
                 .decouvrir-article-text {
-             
-                }
-    
-                img {
-         
+                    width: 93%;
                 }
     
             }
-    
     
         }
     
         .click {
             display: none;
         }   
- 
-    
-    
-        /*
-        * ──────────────────────────────────────────────────────────────────────────
-        *   :::::: D Y N A M I C   P O S T : :  :   :    :     :        :          :
-        * ──────────────────────────────────────────────────────────────────────────
-        */
-    
-        .dynamic-post {
-            flex-direction: row;
-        }
 
-        .dynamic-post .post-content {
+        .dynamic-post-container{
             width: 100%;
-            font-size: 1.1rem;
+            margin-left: -25px;
         }
-
-        .dynamic-post .post-content h2 {
-            font-size: 1.3rem;
-        }
-
-        .dynamic-post .post-thumb {
-            width: 70%;
-        }
-
-        .dynamic-post .post-thumb img {
-            width: 100%;
-            margin-left: 0;
-        }
+    
     }
 }
 
 
 @media only screen and (max-width: 425px){
     .decouvrir-page.white, .decouvrir-page {
-       
+
         .header {
+            background-color: $light;
             
             .title {
-    
-                h1 {
-                
-                }
-    
-                .text-title {
-               
-                }
+                width: 100%;
+                z-index: 1000;
                 .light{
-            
+                    display: none;
                 }
                 .phone{
-             
-                }
-                .phone-off{
-          
-                }
-                .light-off{
-               
-                }
+                    width: 65px;
+                    top: 60px;
+                }                 
+                
+                .text-title {
+                    font-size: 0.8rem;
             }
         }
+    }
     
         .calendar-container {
-    
-            .card {
-       
-            }
-            
-            .back,
-            .front {
-        
-            }
-            
-            .contentfront {
-            
-            }
-            
-            .contentback {
-            
-            }
-            
-            .back {
-           
-            }
-            
-            .front {
-           
-            }
-            
-            .date {
-    
-            }
-            
-            .datecont {
-      
-            }
-            
-            #date {
-    
-            }
-            
-            #day {
-      
-            }
-            
-            #month {
-          
-            }
-            
-            .date i {
- 
-            }
-            
-            .date i:hover {
- 
-            }
-            
-            .month {
-
-            }
-            
-            .month table {
-          
-            }
-            
-            .orangeTr {
-           
-            }
-            
-            .whiteTr {
-            
-            }
-            
-            .whiteTr th:hover {
-            
-            }
-            
-            .month tr {
-        
-            }
-            
-            .month th {
-            
-            }
-            
-            .flipped {
-        
-            }
-            
-            .backcontainer {
-    
-            }
+            top: 400px;
+            left: 10px;
+            position: absolute;
         }
     
-        .body {    
+        .body {   
+            padding: 10px;
+            padding-top: 325px; 
             
             .decouvrir-article{
-    
-                h1 {
-                  
-                }
-    
-                p {
-     
-                }
-    
+                display: initial;
+                
                 .decouvrir-article-text {
-             
+                    width: 93%;
                 }
-    
+
                 img {
-         
+                    height: 50px;
+                    width: 100%;
+                    object-fit: cover;
                 }
     
             }
     
-    
         }
-    
-        /*
-        * ──────────────────────────────────────────────────────────────────────────
-        *   ::    :     :   :    : N E O N : :  :   :    :     :        :          :
-        * ──────────────────────────────────────────────────────────────────────────
-        */
     
         .click {
-            
-        }    
-    
-    
-        /*
-        * ──────────────────────────────────────────────────────────────────────────
-        *   :::::: D Y N A M I C   P O S T : :  :   :    :     :        :          :
-        * ──────────────────────────────────────────────────────────────────────────
-        */
-    
-    
-        .dynamic-post-container {
+            display: none;
+        }   
 
-        }
-    
-        .dynamic-post {
-
-        }
-    
-        .dynamic-post .post-content {
-
-        }
-    
-        .dynamic-post .post-content h2 {
-
-        }
-    
-        .dynamic-post .post-thumb {
-
-        }
-    
-        .dynamic-post .post-thumb img {
-
-        }
-    
-        .dynamic-post.event {
-    
-            .post-content {
-    
-                a {
- 
-                }
+        .dynamic-post-container{
+            display: flex;
+            margin-left: 0px;
+            width: 100%;
+            h3{
+                font-size: 1rem;
             }
-        
-            .post-thumb img {
- 
+            p{
+                font-size: 0.8rem;
             }
-        }
-    
-        .dynamic-post.news {
-    
-            .post-content {
-                
-                a {
-        
-                }
+            .carouselPrev, .carouselNext{
+                background-size: 25px 25px;
+                width: 25px;
             }
-            
-            .post-thumb img {
 
-            }
         }
+    
     }
 }
