@@ -32,7 +32,7 @@
     width: 48px;
     height: 48px;
     background: transparent url('../images/icons/right-big.svg') center center no-repeat;
-    background-size: 48px 48px;
+    background-size: 25px 25px;
     border-radius: 50%;
     top: 50%;
     margin-top: -20px;
@@ -40,6 +40,7 @@
     /* box-shadow: 0 0 12px #202020; */
     cursor: pointer;
     transition: transform 0.1s;
+    filter: brightness(0);
 }
 
 .carouselNext:hover,
@@ -49,9 +50,10 @@
 
 .carouselPrev {
     background: transparent url('../images/icons/left-big.svg') center center no-repeat;
-    background-size: 48px 48px;
+    background-size: 25px 25px;
     right: auto;
     left: 0px;
+    filter: brightness(0);
 }
 
 .carouselPrev-hidden,

@@ -5,10 +5,10 @@
 $(document).ready(function(){
 
     function phoneSwitch() {
-        if($('#b1').attr('src') === '/svg/smartphone-light-on.svg') {
-            $('#b1').attr('src', '/svg/smartphone-light-off.svg')
+        if($('#b1').attr('src') === '../images/icons/smartphone-light-off.svg') {
+            $('#b1').attr('src', '../images/icons/smartphone-light-on.svg')
         } else {
-            $('#b1').attr('src', '/svg/smartphone-light-on.svg')
+            $('#b1').attr('src', '../images/icons/smartphone-light-off.svg')
         }
     }
 
@@ -21,10 +21,10 @@ $(document).ready(function(){
     }
 
     function lightSwitch() {
-        if($('.light').attr('src') === '/svg/light-on.svg') {
-            $('.light').attr('src', '/svg/light-off.svg')
+        if($('.light').attr('src') === '../images/icons/light-off.svg') {
+            $('.light').attr('src', '../images/icons/light-on.svg')
         } else {
-            $('.light').attr('src', '/svg/light-on.svg')
+            $('.light').attr('src', '../images/icons/light-off.svg')
         }
     }
 

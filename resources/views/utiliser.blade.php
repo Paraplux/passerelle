@@ -20,10 +20,10 @@
         <h1 class="title-1">Utiliser</h1>
         <p class="text-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias molestias corporis vero cupiditate a illo
                 molestiae expedita neque similique eveniet?</p>
-          <img class="light-on light" src="/svg/light-on.svg" alt=""/>
+          <img class="light-on light" src="/images/icons/light-on.svg" alt=""/>
           <p class="click">Clique ici ></p>
-          <img id="b1" class="phone-on phone" src="/svg/smartphone-light-on.svg" alt=""/>
-          <img class="light-off light" src="/svg/light-off.svg" alt=""/>
+          <img id="b1" class="phone-on phone" src="/images/icons/smartphone-light-on.svg" alt=""/>
+          <img class="light-off light" src="/images/icons/light-off.svg" alt=""/>
 
         </div>
       </div>
@@ -131,7 +131,7 @@
     <div class="dynamic-post-container" id="carousel-communication">
         <div class="dynamic-post event">
             <div class="post-content">
-                <h3 text-italic">Titre de l'événement</h3>
+                <h3 text-italic>Titre de l'événement</h3>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa
                     harum quam ullam corrupti, nobis abodit ipsa! Est corrupti voluptates consectetur,
                     expedita eius facere saepe quam nostrum quos.</p>
@@ -142,7 +142,7 @@
         </div>
         <div class="dynamic-post news">
             <div class="post-content">
-                <h3 text-italic">Titre de l'actualité</h3>
+                <h3 text-italic>Titre de l'actualité</h3>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa
                     harum quam ullam corrupti, nobis aboditipsa! Est corrupti voluptates consectetur,
                     expedita eius facesaepe quam nostrum quos repellat.</p>
