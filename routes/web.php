@@ -112,18 +112,39 @@ Route::get('/test', 'AccueilController@test');
 
 //* ADMINISTRATION ROUTES
 
-    //? Routes de récupération
-    Route::get('/governator', 'AdministrationController@index')->name('governator');
-    Route::get('/governator/{category}/{type}', 'AdministrationController@getPanel');
 
-    //? Routes de création
-    Route::post('/governator/formations/fiche/create', 'AdministrationController@addFiche');
-    Route::post('/governator/formations/label/create', 'AdministrationController@addLabel');
-    Route::post('/governator/formations/structure/create', 'AdministrationController@addStructure');
-    Route::post('/governator/formations/branche/create', 'AdministrationController@addBranche');
-    Route::post('/governator/communications/article/create', 'AdministrationController@addArticle');
-    Route::post('/governator/communications/faq/create', 'AdministrationController@addFaq');
-    Route::post('/governator/communications/partenaire/create', 'AdministrationController@addPartenaire');
+//? Routes de connexion
+    
+    Route::auth(); 
+    
+    Route::post('/governator/connexion', 'AdministrationController@connexion');
+    Route::get('/governator/logout', 'AdministrationController@logout');
+    
+    Route::get('/governator/manager', 'AdministrationController@manager');
+    Route::get('/governator/master', 'AdministrationController@master');
+
+    Route::get('/governator/manager/{model}/create', 'AdministrationController@managerCreate');
+    Route::get('/governator/manager/{model}/list', 'AdministrationController@managerList');
+
+    Route::get('/governator/master/{model}/create', 'AdministrationController@masterCreate');
+    Route::get('/governator/master/{model}/list', 'AdministrationController@masterList');
+    
+    Route::get('/governator', 'AdministrationController@index')->name('governator');
+
+    //? Routes de création Manager
+    Route::post('/governator/manager/fiche/add', 'AdministrationController@addFiche');
+    Route::post('/governator/manager/article/add', 'AdministrationController@addArticle');
+    Route::post('/governator/manager/event/add', 'AdministrationController@addEvent');
+    
+    //? Routes de création Master
+    Route::post('/governator/master/partenaire/add', 'AdministrationController@addPartenaire');
+    Route::post('/governator/master/label/add', 'AdministrationController@addLabel');
+    Route::post('/governator/master/structure/add', 'AdministrationController@addStructure');
+    Route::post('/governator/master/secteur/add', 'AdministrationController@addSecteur');
+    Route::post('/governator/master/fiche/add', 'AdministrationController@addFiche');
+    Route::post('/governator/master/article/add', 'AdministrationController@addArticle');
+    Route::post('/governator/master/event/add', 'AdministrationController@addEvent');
+    Route::post('/governator/master/faq/add', 'AdministrationController@addFaq');
 
     //? Routes de suppression
     Route::get('/governator/delete/{model}/{id}', 'AdministrationController@deleteData');
