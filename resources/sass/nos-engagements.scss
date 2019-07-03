@@ -96,6 +96,10 @@ body{
     */
 
 @media only screen and (max-width: 768px){
+    body {
+        
+        overflow-X: hidden;
+    }
     .title{
         font-size: 3rem;
         padding-bottom: 5%;
@@ -107,7 +111,7 @@ body{
         width: 150%;
         margin-left: -25%;
         position: relative;
-        overflow: hidden;
+        object-fit: cover;
 
         .title-top{
             top: 5px;

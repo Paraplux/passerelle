@@ -135,15 +135,11 @@ $(function(){
     /*POP UP PRO*/
     
     function hideProModal () {
-        $('.pro-modal').animate({
-            'right': '-101%'
-        }, 600)
+        $('.pro-modal').hide(600)
     }
 
     function showProModal () {
-        $('.pro-modal').animate({
-            'right': '10px'
-        }, 600)
+        $('.pro-modal').show(600)
     }
 
     $('#proModalOpen').on('click', function() {
