@@ -1,0 +1,37 @@
+@import '_variables.scss';
+
+.tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .validated-tags {
+        width: 100%;
+        height: auto;
+        margin-top: 10px;
+        margin-bottom: 20px;
+
+        span {
+            position: relative;
+            padding: 5px;
+            margin: 5px;
+            padding-right: 30px;
+            color: $light;
+            background-color: lighten($dark, 30);
+            border-radius: 5px;
+
+            .fas {
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                opacity: 0.8;
+            }
+
+            .fas:hover {
+                cursor: pointer;
+                opacity: 1;
+            }
+        }
+    }
+}

@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Tag;
+use App\ArticleTag;
 use Nicolaslopezj\Searchable\SearchableTrait;
 
 class Article extends Model
@@ -42,13 +43,19 @@ class Article extends Model
     ];
     
     public function tags() {
-        return $this->belongsToMany('Tag');
+        return $this->belongsToMany('App\Tag');
     }
 
     public function getDate($format)
     {
         $this->created_at = new \DateTime($this->created_at);
         return $this->created_at->format($format);
+    }
+
+    public function getUpdate($format)
+    {
+        $this->updated_at = new \DateTime($this->updated_at);
+        return $this->updated_at->format($format);
     }
 
     public function getExtrait($length = 150)

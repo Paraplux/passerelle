@@ -1,18 +1,28 @@
 @import './variables.scss';
-
+@import './carousel.scss';
+@import './keyword-section.scss';
+@import './dynamic-post.scss';
+@import './calendar.scss';
 @import url('https://fonts.googleapis.com/css?family=Homemade+Apple|Pangolin&display=swap');
 
+
 body {
-    background-color: #d5ddf1;
+    background-color: $light;
 }
 
 .apprendre-page {
+    padding-bottom: 50px;
+    
+    * {
+        box-sizing: border-box;
+    }
     .header {
         position: relative;
         top: -60px;
+        margin-bottom: -60px;
         padding-top: 80px;
         width: 100%;
-        height: 410px;
+        height: 500px;
 
         display: flex;
 
@@ -92,214 +102,69 @@ body {
         }
     }
 
-    .body {
-
-        display: flex;
-        justify-content: space-evenly;
-        padding-top: 2rem;
-
-        .caldendar-container {
-            width: 35%;
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .apprendre-carousel-container {
-            width: 40%;
-            z-index: 100;
-            padding: 10px;
-            overflow: hidden;
-            background-color: #fff;
-            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.445);
-            padding-bottom: 50px;
-
+    @media all and (max-width: 768px) {
+        .header {
+        
+            display: block;
+            height: 500px;
+    
+            #pencil, #undo, #trash {
+                font-size: 1.5rem;
+    
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+    
+            #drawButtons {
+                display: none;
+                position: absolute;
+                flex-direction: column;
+    
+                i {
+                    padding: 20px;
+                }
+            }
+    
+            #canvasDiv {
+                display: none;
+                position: absolute;
+                z-index: -1;
+    
+                &:hover {
+                    cursor: crosshair;
+                }
+            }
+    
             img {
+                width: 70%;
+                position: absolute;
+                left : 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                filter: contrast(0) brightness(0) invert(1) opacity(0.05);
+            }
+
+    
+            .title {
                 width: 100%;
-                height: 100%;
+                color: rgba($light, 0.7);
+                text-align: center;
+    
+                h1 {
+                    margin: 0;
+                    font-size: 2rem;
+                    padding-top: 50px;
+                }
+    
+                p {
+                    width: 100%;
+                    font-family: 'Homemade Apple',
+                    cursive;
+                    font-size: 18px;
+                    border-right: none;
+                }
             }
         }
     }
-
-}
-
-.container {
-    width: 400px;
-    height: 200px;
-    position: sticky;
-    top: calc(240px + 2rem);
-    perspective: 1000px;
-    z-index: 100;
-
-    transform: translateY(calc(-50% - 2rem - 60px));
-
-}
-
-.card {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    transform-style: preserve-3d;
-    transition: transform 1s ease;
-    cursor: pointer;
-}
-
-.back,
-.front {
-    border-radius: 6px;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-}
-
-.contentfront {
-    width: 100%;
-    height: 100%;
-    float: left;
-    transform: translatez(60px);
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-
-}
-
-.contentback {
-    width: 100%;
-    height: 100%;
-    float: left;
-    transform: translatez(-60px);
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-
-}
-
-.back {
-    transform: rotateY(180deg);
-    background-color: #2c2b2e;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -o-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-
-.front {
-    text-transform: uppercase;
-    background-color: #2c2b2e;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -o-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-
-.date {
-    height: 100%;
-    width: 130px;
-    float: left;
-    background-color: $orange;
-    border-radius: 0 6px 6px 0;
-    text-align: right;
-    padding: 10px 30px;
-    box-sizing: border-box;
-    transform-style: preserve-3d;
-}
-
-.datecont {
-    height: 100%;
-    transform: translatez(60px) scale(.9);
-}
-
-#date {
-    font-size: 50px;
-    color: #ECECE7;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    float: right;
-}
-
-#day {
-    float: right;
-    font-size: 14px;
-    color: #2c2b2e;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-}
-
-#month {
-    float: right;
-    font-size: 10px;
-    color: #2c2b2e;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 200;
-}
-
-.date i {
-    color: #ECECE7;
-    position: absolute;
-    bottom: 10px;
-    right: 0;
-}
-
-.date i:hover {
-    color: #2c2b2e;
-    transition: .3s ease;
-}
-
-.month {
-    height: 100%;
-    width: 270px;
-    float: left;
-    padding: 20px 30px;
-    box-sizing: border-box;
-}
-
-.month table {
-    width: 100%;
-}
-
-.orangeTr {
-    color: $orange;
-}
-
-.whiteTr {
-    color: #ECECE7;
-
-}
-
-.whiteTr th:hover {
-    color: $orange;
-    transition: .3s ease;
-}
-
-.month tr {
-    height: 24px;
-}
-
-.month th {
-    width: 14%;
-    font-size: 10px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-}
-
-.flipped {
-    transform: rotateY(-180deg);
-    /*height:400px;
-  width:200px;
-  left:calc(50% - 100px);
-  top:calc(50vh - 200px);*/
-}
-
-.backcontainer {
-    color: $light;
-    font-weight: bold;
-    font-size: 1.5rem;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    width: calc(100% - 60px);
-    height: calc(100% - 40px);
-    float: left;
-    margin-left: 30px;
-    margin-top: 20px;
-    // border-left:solid red 5px;
-    // background-color:red;
-    transform: translatez(-60px) scale();
 }

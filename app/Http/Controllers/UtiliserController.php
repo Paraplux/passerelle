@@ -6,8 +6,17 @@ use Illuminate\Http\Request;
 
 class UtiliserController extends Controller
 {
-    public function index()
-    {
-        return view('utiliser');
+    private $repository;
+
+    public function __construct(AccueilRepository $repository) {
+        $this->repository = $repository;
+    }
+
+    public function index(AccueilRepository $repository) {
+        $events = $this->repository->getEvents();
+
+        return view('utiliser', [
+            'events' => $events
+        ]);
     }
 }

@@ -4,14 +4,24 @@
 
 @section('style')
 <link rel="stylesheet" href="/css/accueil.css">
-<link rel="stylesheet" href="/css/carousel.css">
 @endsection
 
 @section('content')
 <div class="home-wrap">
     <header class="header">
-        <div class="typewriter">Votre passerelle numérique, à votre service.</div>
-        <a href="{{ route('partenaire') }}" class="header-button">Qui sommes nous ?</a>
+        <div class="home-keywords">
+            <a href="{{ route('sensibiliser') }}"><div><i class="keyword-button fa fa-bullhorn"></i><div class="keyword-label">Sensibiliser</div></div></a>
+            <a href="{{ route('se-former') }}"><div><i class="keyword-button fa fa-graduation-cap"></i><div class="keyword-label">Se former</div></div></a>
+            <a href="{{ route('accompagner') }}"><div><i class="keyword-button far fa-handshake"></i><div class="keyword-label">Accompagner</div></div></a>
+            <a href="{{ route('innover') }}"><div><i class="keyword-button far fa-lightbulb"></i><div class="keyword-label">Innover</div></div></a>
+            <a href="{{ route('apprendre') }}"><div><i class="keyword-button fas fa-brain"></i><div class="keyword-label">Apprendre</div></div></a>
+            <a href="{{ route('utiliser') }}"><div><i class="keyword-button far fa-hand-pointer"></i><div class="keyword-label">Utiliser</div></div></a>
+            <a href="{{ route('partager') }}"><div><i class="keyword-button fas fa-hands"></i><div class="keyword-label">Partager</div></div></a>
+        </div>
+        <div class="header-buttons">
+            <a href="{{ route('partenaire') }}" class="header-button">Qui sommes nous ?</a>
+            <a href="{{ route('engagements') }}" class="header-button">Notre charte d'engagements</a>
+        </div>
         <div class="feature">
             <div class="feature-header">
                 <i id="feature-left" class="fas fa-chevron-left"></i>
@@ -56,27 +66,7 @@
                 </div>
                 <div class="formations-body" id="carousel-formations">
                     
-                    @foreach($formations as $formation)
-                    <div class="formations-tile">
-                        <div class="tile-head">
-                            <h1 class="title-4">{{ $formation->name }}</h1>
-                        </div>
-                        <div class="tile-body">
-                            <div class="tile-info">
-                                <i class="far fa-clock"></i> {{ $formation->duree }} H
-                            </div>
-                            <div class="tile-info">
-                                <i class="far fa-calendar-alt"></i> {{ $formation->getDate('d/m/y') }}
-                            </div>
-                            <div class="tile-info">
-                                <i class="fas fa-map-marker-alt"></i> {{ $formation->structure->commune->nom_commune }}
-                            </div>
-                            <div class="tile-info">
-                                <i class="fas fa-chevron-right"></i><a href="/formation/{{ $formation->id }}">Voir...</a>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
+                    
                 </div>
             </div>
         </div>
@@ -89,8 +79,20 @@
                 <div class="weather-text"><?= $currentWeather['description'] ?></div>
                 <div class="weather-city"><?= $currentWeather['city'] ?><i class="fas fa-map-marker-alt"></i></div>
             </div>
-            <div class="calendar">
-                <img src="images/test.png" alt="">
+            <div class="calendar-widget">
+                <div class="custom-calendar-wrap">
+                    <div id="custom-inner" class="custom-inner">
+                        <div class="custom-header clearfix">
+                            <nav>
+                                <span id="custom-prev" class="custom-prev"></span>
+                                <span id="custom-next" class="custom-next"></span>
+                            </nav>
+                            <h2 id="custom-month" class="custom-month"></h2>
+                            <h3 id="custom-year" class="custom-year"></h3>
+                        </div>
+                        <div id="calendar" class="fc-calendar-container"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -99,6 +101,8 @@
 
 @section('script')
 <script src="/js/carousel.js"></script>
-<script src="/js/typewriter.js"></script>
 <script src="/js/accueil.js"></script>
+
+<script> var codropsEvents = {!! json_encode($events) !!}; </script>
+<script src="/js/calendar.js"></script>
 @endsection

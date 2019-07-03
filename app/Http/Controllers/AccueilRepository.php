@@ -6,6 +6,7 @@ use App\Services\OpenWeather;
 use App\Services\Location;
 use App\Article;
 use App\Fiche;
+use App\Event;
 
 class AccueilRepository {
 
@@ -33,7 +34,8 @@ class AccueilRepository {
         return $weather;
     }
 
-    public function weatherAnimation($weahterStatus) {
+    public function weatherAnimation($weahterStatus)
+    {
 
         if($weahterStatus === 'Thunderstorm') {
 
@@ -60,16 +62,38 @@ class AccueilRepository {
         }
     }
 
-    public function getArticles() {
+    public function getArticles()
+    {
         $articles = Article::all();
 
         return $articles;
     }
 
-    public function getFormations () {
+    public function getFormations ()
+    {
         $formations = Fiche::with('structure.commune')->get();
 
         return $formations;
+    }
+
+    public function getEvents()
+    {
+        $events = Event::all();
+
+        $array = array();
+
+        foreach($events as $event) {
+            $date = $event->calendarDate();
+            $content = '<span>' . $event->name . '</span>';
+        
+            if(array_key_exists($date, $array)) {
+                $array[$date] .= $content;
+            } else {
+                $array[$date] = $content;
+            }
+        }
+
+        return $array;
     }
 
 }

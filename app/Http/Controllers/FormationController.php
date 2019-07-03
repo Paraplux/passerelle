@@ -9,15 +9,26 @@ use App\Fiche;
 
 class FormationController extends Controller
 {
-    public function index ()
+    private $repository;
+
+    public function __construct(AccueilRepository $repository) {
+        $this->repository = $repository;
+    }
+
+    public function index() 
     {
-        return view('formations');
+        $events = $this->repository->getEvents();
+
+        return view('formations', [
+            'events' => $events
+        ]);
     }
 
     public function getFormation ()
     {
         $id = request('id');
         $fiche = Fiche::where('id', $id)->first();
+        
         return view('gabarit-fiche', [
             'fiche' => $fiche
         ]);
@@ -27,10 +38,12 @@ class FormationController extends Controller
     public function search()
     {
         $search = Fiche::search(request('query'))->get()->all();
+        $events = $this->repository->getEvents();
 
         return view('formations', [
             'query' => request('query'),
-            'search' => $search
+            'search' => $search,
+            'events' => $events
         ]);
     }
 }

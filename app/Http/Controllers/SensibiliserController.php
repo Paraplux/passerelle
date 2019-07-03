@@ -7,10 +7,19 @@ use App\Partenaire;
 
 class SensibiliserController extends Controller
 {
-    public function index()
+    private $repository;
+
+    public function __construct(AccueilRepository $repository) {
+        $this->repository = $repository;
+    }
+
+    public function index() 
     {
         $partenaires = Partenaire::all()->shuffle();
+        $events = $this->repository->getEvents();
+
         return view('sensibiliser', [
+            'events' => $events,
             'partenaires' => $partenaires
         ]);
     }

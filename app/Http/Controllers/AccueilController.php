@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Event;
 
 class AccueilController extends Controller
 {
@@ -13,7 +14,10 @@ class AccueilController extends Controller
 
     public function test ()
     {
-        return view('article.two');
+        $events = Event::all();
+        return view('test', [
+            'events' => $events
+        ]);
     }
 
     public function index(AccueilRepository $repository)
@@ -23,12 +27,14 @@ class AccueilController extends Controller
         $weatherStatus = $this->repository->weatherAnimation($currentWeather['status']);
         $articles = $this->repository->getArticles();
         $formations = $this->repository->getFormations();
+        $events = $this->repository->getEvents();
 
         return view('accueil', [
             'currentWeather' => $currentWeather,
             'weatherStatus' => $weatherStatus,
             'articles' => $articles,
-            'formations' => $formations
+            'formations' => $formations,
+            'events' => $events
         ]);
     }
 }

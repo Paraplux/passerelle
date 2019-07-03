@@ -29,6 +29,7 @@ Nos partenaires
                 <div class="fondateurs-info"><i class="fas fa-phone"></i>{{ $fondateur->phone }}</div>
             </div>
         </div>
+
         @endforeach
     </div>
     <h1 class="title-2 page-subtitle">Nos signataires</h1>

@@ -19,7 +19,7 @@ class CreateArticlesTable extends Migration
             $table->text('content');
             $table->string('author');
             $table->string('thumb_1');
-            $table->string('thumb_2');
+            $table->string('thumb_2')->nullable();
             $table->string('updated_by');
             $table->timestamps();
         });

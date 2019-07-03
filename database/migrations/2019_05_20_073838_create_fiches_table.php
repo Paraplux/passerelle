@@ -18,13 +18,15 @@ class CreateFichesTable extends Migration
             $table->string('name');
             $table->text('content');
             $table->text('program');
+            $table->text('tools');
+            $table->text('pre_requisite');
+            $table->string('certification');
             $table->date('date_start');
             $table->date('date_end');
             $table->float('duree');
-            $table->text('pre_requisite');
-            $table->integer('level');
             $table->integer('structure_id');
-            $table->integer('branche_id');
+            $table->integer('keyword_id');
+            $table->integer('secteur_id');
             $table->timestamps();
         });
     }

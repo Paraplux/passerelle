@@ -25,10 +25,11 @@ class Fiche extends Model
             'fiches.name' => 10,
             'fiches.content' => 10,
             'fiches.program' => 10,
+            'fiches.pre_requisite' => 10,
+            'fiches.tools' => 10,
             'fiches.date_start' => 10,
             'fiches.date_end' => 10,
-            'fiches.pre_requisite' => 10,
-            'fiches.level' => 10
+            'fiches.certification' => 10
         ]
     ];
 
@@ -36,13 +37,15 @@ class Fiche extends Model
         'name',
         'content',
         'program',
+        'pre_requisite',
+        'tools',
         'date_start',
         'date_end',
         'duree',
         'structure_id',
-        'pre_requisite',
-        'level',
-        'branche_id'
+        'certification',
+        'secteur_id',
+        'keyword_id'
     ];
 
     public function structure() {
@@ -50,7 +53,7 @@ class Fiche extends Model
     }
 
     public function branche() {
-        return $this->belongsTo('App\Branche');
+        return $this->belongsTo('App\Secteur');
     }
 
     public function label() {

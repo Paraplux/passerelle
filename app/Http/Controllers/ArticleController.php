@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\ArticleTag;
+use App\Tag;
 
 class ArticleController extends Controller
 {

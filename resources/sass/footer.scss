@@ -1,3 +1,5 @@
+ @import './_variables';
+
 .footer {
     padding: 1rem;
     padding-top: 3rem;
@@ -44,6 +46,22 @@
             margin: 10px;
             text-decoration: none;
             color: #505050;
+        }
+    }
+}
+
+@media all and (max-width: 768px) {
+    .footer {
+        flex-wrap: wrap;
+    
+        .informations {
+            margin-bottom: 3rem;
+            width: 100%;
+        }
+    
+        .navigation {
+            width: 100%;
+            font-size: 0.9rem;
         }
     }
 }

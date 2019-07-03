@@ -29,12 +29,16 @@ crossorigin=""/>
         <nav class="informations-navigation">
             <span data-target="description" class="is-active"><i class="fas fa-info-circle"></i>Description</span>
             <span data-target="programme"><i class="fas fa-list-alt"></i> Programme</span>
+            <span data-target="outils"><i class="fas fa-toolbox"></i> Outils</span>
         </nav>
         <div target="description" visible>
             {!! $fiche->content !!}
         </div>
         <div target="programme">
             {!! $fiche->program !!}
+        </div>
+        <div target="outils">
+                
         </div>
     </div>
     <div class="fiche-content">
@@ -61,7 +65,7 @@ crossorigin=""/>
             </div>
             <div class="accordion-item">
                 <p class="accordion-title accordion-title-5"><i class="fas fa-user-check"></i>A définir</p>
-                <p class="accordion-content">A définir</p>
+                <p class="accordion-content">Certification / Document remis en fin de formation
             </div>
             <div class="accordion-item">
                 <p class="accordion-title accordion-title-6"><i class="far fa-envelope"></i> Contact</p>

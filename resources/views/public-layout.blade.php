@@ -9,12 +9,11 @@
         <meta name="keywords" content="web dev, web, dev, design, website, developper, site, internet, devis, professionnel, numérique, passerelle, passerelle numérique, insertion, aide, accompagnement, entreprises">
         <title>@yield('title')</title>
 
-        
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
         <link rel="stylesheet" href="/css/app.css">
         <link rel="stylesheet" href="/css/navigation.css">
         <link rel="stylesheet" href="/css/footer.css">
+        
         @yield('style')
 
     </head>
@@ -100,7 +99,9 @@
 </div>
 
 <!-- DYNAMIC CONTENT -->
+
 @yield('content')
+
 
 <footer class="footer">
     <div class="informations">
@@ -140,11 +141,19 @@
 
 <!-- EXTERNAL SCRIPTS -->
 <script src="/js/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+{{-- <script src="https://kit.fontawesome.com/728266044f.js"></script> --}}
+<script src="/js/fontawesome.js"></script>
 <!-- INTERNAL SCRIPTS -->
 <script src="/js/functions.js"></script>
 <script src="/js/navigation.js"></script>
 
+
+
+
 <!-- DYNAMIC SCRIPTS -->
+
 @yield('script')
+
 </body>
 </html>

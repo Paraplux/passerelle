@@ -1,5 +1,7 @@
 @import './variables.scss';
-
+@import './carousel.scss';
+@import './dynamic-post.scss';
+@import './calendar.scss';
 /* 
 * ────────────────────────────────────────────────────────────────────────────
 *   :::::: G L O B A L   S T Y L E S : :  :   :    :     :        :          :
@@ -22,6 +24,10 @@
 
 .home-wrap {
 
+    .header a {
+        color: $light;
+        text-decoration: none;
+    }
     .header {
         height: 100vh;
         position: relative;
@@ -32,75 +38,85 @@
         background-image: url('../images/template/home-background.jpg');
         background-attachment: fixed;
         background-size: cover;
-
     }
 
-
-    /*
-    * ─── TYPEWRITER ─────────────────────────────────────────────────────────────────
-    */
-
-    .typewriter {
-        display: none;
-    }
-
-    .typewriter-container,
-    .word {
+    .home-keywords {
         display: flex;
         justify-content: center;
-        align-items: flex-start;
-        font-size: 2.5rem;
+        margin-top: 50px;
+
+        label {
+            text-align: center;
+        }
+
+        div {
+            text-align:center;
+        }
+
+        .keyword-button {
+            font-size: 4rem;
+            margin: 10px 30px;
+            color: $light;
+            cursor: pointer;
+            filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.5));
+            opacity: 0.8;
+
+            &:hover {
+                color: $orange;
+            }
+        }
+        
+        .keyword-label {
+            font-size: 1rem;
+            font-weight: normal;
+            filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.5));
+        }
     }
 
-    .typewriter-container {
-        width: 50%;
-        height: 6rem;
-        margin: auto;
-        margin-bottom: 1rem;
+    @media all and (max-width: 768px) {
+        .header {
+            height: 500px !important;
+            margin-bottom: -60px !important;
+            padding-top: 100px !important;
 
-        font-family: 'Montserrat';
-        font-weight: 300;
-        flex-wrap: wrap;
-        color: $light;
+        }
+        .home-keywords {
+            margin-top: 20px;
+    
+            .keyword-button {
+                font-size: 2rem;
+                margin: 5px 15px;
+            }
+            
+            .keyword-label {
+                font-size: 0.7rem;
+            }
+        }
     }
 
-    .word {
-        /*Space after word*/
-        padding-right: 0.25em;
-    }
+    .header-buttons {
+        display: flex;
+        justify-content: center;
 
-    .letter {
-        display: none;
-    }
-
-    .word:last-of-type {
-        padding-right: 0;
-        border-right: 2px solid $light;
-        animation-name: blink;
-        animation-duration: 1s;
-        animation-iteration-count: infinite;
-        animation-play-state: paused;
+        margin-top: 75px;
     }
 
     .header-button {
-        display: flex;
-        width: 250px;
-        margin: auto;
-        justify-content: center;
-        align-items: center;
+        display: inline-block;
+        width: 300px;
         height: 50px;
-        padding: 10px;
-        margin-top: 3rem;
+        padding: 18px 10px;
+        margin: auto 50px;
 
         font-family: 'Quicksand';
-        font-size: 1.1rem;
+        font-size: 14px;
         font-weight: bold;
         text-transform: uppercase;
 
         border: none;
         border-radius: 5px;
         background-color: $orange;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
         color: $light;
         text-decoration: none;
 
@@ -108,6 +124,18 @@
         outline: none;
     }
 
+    @media all and (max-width: 768px) {
+
+        .header-buttons {
+            margin-top: 35px;
+        }
+    
+        .header-button {
+            margin: auto 25px;
+            font-size: 11px;
+        }
+        
+    }
 
     /*
     * ─── FEATURE ────────────────────────────────────────────────────────────────────
@@ -163,6 +191,34 @@
         height: 100%;
     }
 
+    @media all and (max-width: 768px) {
+        .feature {
+            bottom: 0 !important;
+            width: 95% !important;
+            height: calc(100vw / 2) !important;
+    
+            transform: translate(-50%, 50%) !important;
+        }
+    
+        .feature-header {
+            font-size: 2rem;
+        }
+    
+        .feature-body {
+            padding: 7px;
+        }
+    
+        .feature-body img {
+            width: 100%;
+            height: 100%;
+            transform: translateY(-20%);
+        }
+    
+        .feature-body iframe {
+            width: 100%;
+            height: 100%;
+        }
+    }
 
     /*
     * ──────────────────────────────────────────────────────────────────────────
@@ -177,6 +233,15 @@
         display: flex;
         color: $dark;
         padding-top: 15rem;
+        margin-bottom: 100px;
+    }
+
+    @media all and (max-width: 568px) {
+        .container {
+            flex-wrap: wrap;
+            padding: 0 1rem;
+            padding-top: 15rem;
+        }
     }
 
 
@@ -186,7 +251,7 @@
 
 
     .main-content {
-        width: 70%;
+        width: calc(95% - 450px);
     }
 
     .communication {
@@ -233,6 +298,37 @@
         width: 80%;
     }
 
+    @media all and (max-width: 768px) {
+        .main-content {
+            order: 2;
+            width: 95%;
+            margin-left: 2.5%;
+        }
+    
+        .communication-header i,
+        .formations-header i {
+            font-size: 2rem;
+            margin-right: 1rem;
+        }
+    
+        .communication-header h2,
+        .formations-header h2 {
+            font-size: 1.5rem;
+        }
+    
+        .formations {
+            width: 100%;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: darken($light, 40%) 1px solid;
+        }
+    
+        .formations img {
+            margin-left: 10%;
+            width: 80%;
+        }
+    }
+
 
     /*
     * ─── SIDE CONTENT ───────────────────────────────────────────────────────────────
@@ -240,10 +336,20 @@
 
 
     .side-content {
-        width: 25%;
+        width: 450px;
         margin-left: 50px;
         padding-left: 50px;
         border-left: darken($light, 40%) 1px solid;
+    }
+
+    @media all and (max-width: 568px) {
+        .side-content {
+            order: 1;
+            width: 95%;
+            margin-left: 2.5px;
+            padding-left: 0;
+            border-left: none;
+        }
     }
 
     .weather {
@@ -288,124 +394,6 @@
         text-transform: capitalize;
     }
 
-    .quick-actions {
-        display: flex;
-        flex-wrap: wrap;
-        align-content: space-around;
-        justify-content: center;
-
-        text-align: center;
-    }
-
-    .calendar {
-        object-fit: contain;
-    }
-
-    .calendar img {
-        width: 100%;
-    }
-
-
-
-    /*
-    * ──────────────────────────────────────────────────────────────────────────
-    *   :::::: D Y N A M I C   P O S T : :  :   :    :     :        :          :
-    * ──────────────────────────────────────────────────────────────────────────
-    */
-
-
-    .dynamic-post-container {
-        width: 100%;
-        position: relative;
-        display: flex;
-        align-content: center;
-        align-items: center;
-    }
-
-    .dynamic-post {
-        position: static;
-        margin: auto;
-        width: 90%;
-        display: flex;
-        align-items: center;
-        align-content: center;
-        /* border: 1px solid #FFFFFF; */
-        overflow: hidden;
-        /* background-color: rgba(0, 0, 0, 0.4); */
-    }
-
-    .dynamic-post .post-content {
-        position: relative;
-        width: 60%;
-        color: $dark;
-        font-size: 1.1rem;
-        font-weight: bold;
-        z-index: 3;
-        text-align: justify;
-        align-self: flex-start;
-        overflow: auto;
-    }
-
-    .dynamic-post .post-content h2 {
-        margin-top: 0;
-        display: inline-block;
-        padding: 0 20px;
-        text-align: center;
-        height: 50px;
-        line-height: 50px;
-        font-family: 'Montserrat';
-        font-weight: 400;
-    }
-
-    .dynamic-post .post-thumb {
-        z-index: 100;
-        width: 40%;
-    }
-
-    .dynamic-post .post-thumb img {
-        width: 90%;
-        margin-left: 5%;
-    }
-
-    .dynamic-post.event {
-
-        .post-content {
-            padding-left: 20px;
-            padding-right: 20px;
-            order: 1;
-
-            a {
-                display: block;
-                color: $dark;
-                text-align: right;
-            }
-        }
-    
-        .post-thumb img {
-            order: 2;
-            clip-path: polygon(100% 0%, 85% 50%, 100% 100%, 15% 100%, 0% 50%, 15% 0%);
-        }
-    }
-
-    .dynamic-post.news {
-
-        .post-content {
-            padding-left: 20px;
-            padding-right: 20px;
-            order: 2;
-
-            a {
-                display: block;
-                color: $dark;
-                text-align: left;
-            }
-        }
-
-        .post-thumb img {
-            order: 1;
-            clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
-        }
-    }
 
     /*
     * ────────────────────────────────────────────────────────────────────────────
@@ -672,122 +660,9 @@
 @media (max-width: 576px) {
 
     .home-wrap {
-        .header {
-            height: 50vh;
-            padding-top: 100px;
-        }
-
-        .typewriter-container,
-        .word {
-            font-size: 1.5rem !important;
-        }
-
-        .header-button {
-            height: calc(50px/1.2);
-            width: calc(150px/1.2);
-
-            font-size: 0.9rem;
-        }
-
-        .feature {
-            position: absolute;
-            left: 50%;
-            bottom: -35%;
-            width: 97%;
-            height: calc(97%/ 2);
-        }
-
-        .feature-header {
-            transform: translateY(-3rem);
-            font-size: 2rem;
-        }
-
-        .feature-body {
-            padding: 7px;
-        }
-
-        .container {
-            padding: 0 1.5rem;
-            display: flex;
-            flex-direction: column;
-            padding-top: 10rem;
-        }
-
-        .main-content {
-            width: 100%;
-            order: 2;
-        }
-
-        .communication-header,
-        .formations-header {
-            font-size: 1rem;
-        }
-
-        .communication-header i,
-        .formations-header i {
-            font-size: 2rem;
-            margin-right: 1rem;
-        }
-
-        .side-content {
-            order: 1;
-            width: 100%;
-            display: flex;
-            padding-top: 1rem;
-            margin-left: 0;
-            padding-left: 0;
-            border-left: none;
-        }
-
-        .weather {
-            width: 50%;
-            padding-bottom: 0;
-            margin-bottom: 0;
-            font-size: 1.5rem;
-            border-bottom: none;
-            overflow: hidden;
-        }
-
-        .weather-icon {
-            height: 3rem;
-        }
-
-        .weather-city {
-            font-size: 2rem;
-        }
-
-        .weather-city i {
-            font-size: 1rem;
-        }
-
-        .quick-actions {
-            display: none;
-        }
 
         .calendar {
             width: 50%;
-        }
-
-        .dynamic-post {
-            flex-direction: column;
-        }
-
-        .dynamic-post .post-content {
-            width: 100%;
-            font-size: 0.9rem;
-        }
-
-        .dynamic-post .post-content h2 {
-            font-size: 1.3rem;
-        }
-
-        .dynamic-post .post-thumb {
-            width: 100%;
-        }
-
-        .dynamic-post .post-thumb img {
-            width: 100%;
-            margin-left: 0;
         }
 
         .weather-icon #clouds-1 {
@@ -850,250 +725,12 @@
 
 @media (min-width: 575.98px) and (max-width: 767.98px) {
     .home-wrap {
-        .header {
-            height: 50vh;
-            padding-top: 100px;
-        }
-
-        .typewriter-container,
-        .word {
-            font-size: 2rem;
-        }
-
-        .header-button {
-            height: calc(50px/1.2);
-            width: calc(150px/1.2);
-
-            font-size: 0.9rem;
-        }
-
-        .feature {
-            position: absolute;
-            left: 50%;
-            bottom: -45%;
-            width: 97%;
-            height: calc(97%/ 1.5);
-        }
-
-        .feature-header {
-            transform: translateY(-3rem);
-            font-size: 2rem;
-        }
-
-        .feature-body {
-            padding: 10px;
-        }
-
-        .container {
-            padding: 0 1.5rem;
-            display: flex;
-            flex-direction: column;
-            padding-top: 15rem;
-        }
-
-        .main-content {
-            width: 100%;
-            order: 2;
-        }
-
-        .communication-header,
-        .formations-header {
-            font-size: 1.5rem;
-        }
-
-        .communication-header i,
-        .formations-header i {
-            font-size: 3rem;
-            margin-right: 1.5rem;
-        }
-
-        .side-content {
-            order: 1;
-            width: 100%;
-            display: flex;
-            padding-top: 1rem;
-            margin-left: 0;
-            padding-left: 0;
-            border-left: none;
-        }
-
-        .weather {
-            width: 50%;
-            padding-bottom: 0;
-            margin-bottom: 0;
-            font-size: 2.5rem;
-            border-bottom: none;
-            overflow: hidden;
-        }
-
-        .weather-icon {
-            height: 4rem;
-        }
-
-        .weather-city {
-            font-size: 2rem;
-        }
-
-        .weather-city i {
-            font-size: 1rem;
-        }
-
-        .quick-actions {
-            display: none;
-        }
-
-        .calendar {
-            width: 50%;
-        }
-
-        .dynamic-post {
-            flex-direction: column;
-        }
-
-        .dynamic-post .post-content {
-            width: 100%;
-            font-size: 1.1rem;
-        }
-
-        .dynamic-post .post-content h2 {
-            font-size: 1.3rem;
-        }
-
-        .dynamic-post .post-thumb {
-            width: 70%;
-        }
-
-        .dynamic-post .post-thumb img {
-            width: 100%;
-            margin-left: 0;
-        }
-
-        .weather-icon #clouds-1 {
-            font-size: 3rem;
-        }
-
-        .weather-icon #clouds-2 {
-            font-size: 4rem;
-        }
-
-        .weather-icon #thunder-1 {
-            font-size: 4rem;
-        }
-
-        .weather-icon #thunder-2 {
-            font-size: 4rem;
-        }
-
-        .weather-icon #thunder-3 {
-            font-size: 3.5rem;
-        }
-
-        .weather-icon #rain-1 {
-            font-size: 2rem;
-        }
-
-        .weather-icon #rain-2 {
-            font-size: 2.5rem;
-        }
-
-        .weather-icon #rain-3 {
-            font-size: 1.5rem;
-        }
-
-        .weather-icon #rain-4 {
-            font-size: 5rem;
-        }
-
-        .weather-icon #clear {
-            font-size: 4rem;
-        }
-
-        .weather-icon #snow-1 {
-            font-size: 3rem;
-        }
-
-        .weather-icon #snow-2 {
-            font-size: 2rem;
-        }
-
-        .weather-icon #snow-3 {
-            font-size: 2.5rem;
-        }
-
-        .weather-icon #special {
-            font-size: 2.5rem;
-        }
+        
     }
 }
 
 @media (min-width: 767.98px) and (max-width: 991.98px) {
     .home-wrap {
-        .header {
-            height: 70vh;
-            padding-top: 100px;
-        }
-
-        .typewriter-container,
-        .word {
-            font-size: 2rem !important;
-        }
-
-        .header-button {
-            height: calc(50px/1.2);
-            width: calc(150px/1.2);
-
-            font-size: 0.9rem;
-        }
-
-        .feature {
-            position: absolute;
-            left: 50%;
-            bottom: -25%;
-            width: 80%;
-            height: calc(80%/ 1.5);
-        }
-
-        .feature-header {
-            transform: translateY(-3rem);
-            font-size: 2rem;
-        }
-
-        .feature-body {
-            padding: 10px;
-        }
-
-        .container {
-            padding: 0 1.5rem;
-            display: flex;
-            flex-direction: column;
-            padding-top: 10rem;
-        }
-
-        .main-content {
-            width: 100%;
-            order: 2;
-        }
-
-        .communication-header,
-        .formations-header {
-            font-size: 1.5rem;
-        }
-
-        .communication-header i,
-        .formations-header i {
-            font-size: 3rem;
-            margin-right: 1.5rem;
-        }
-
-        .side-content {
-            order: 1;
-            width: 100%;
-            display: flex;
-            padding-top: 1rem;
-            margin-left: 0;
-            padding-left: 0;
-            border-left: none;
-        }
 
         .weather {
             width: 50%;
@@ -1119,33 +756,7 @@
         .quick-actions {
             display: none;
         }
-
-        .calendar {
-            width: 50%;
-        }
-
-        .dynamic-post {
-            flex-direction: row;
-        }
-
-        .dynamic-post .post-content {
-            width: 100%;
-            font-size: 1.1rem;
-        }
-
-        .dynamic-post .post-content h2 {
-            font-size: 1.3rem;
-        }
-
-        .dynamic-post .post-thumb {
-            width: 70%;
-        }
-
-        .dynamic-post .post-thumb img {
-            width: 100%;
-            margin-left: 0;
-        }
-
+        
         .weather-icon #clouds-1 {
             font-size: 3rem;
         }

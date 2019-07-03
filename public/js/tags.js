@@ -11,7 +11,7 @@ $(function() {
         addTag()
         e.preventDefault();
     })
-    $(document).on('keypress', '#taginput', function (e) {
+    $(document).on('keypress', '.form-group.tags', function (e) {
         if (e.which == 13 || e.which == 44) {
             addTag()
             e.preventDefault()
@@ -23,3 +23,10 @@ $(function() {
         $('input[value="' + tag + '"]').remove()
     })
 })
+
+
+
+
+let twitter = document.querySelector('.fa-twitter').parentNode.parentNode
+
+twitter.setAttribute('href') = 'ofezfopzejf'
