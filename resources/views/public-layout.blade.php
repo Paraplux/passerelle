@@ -45,6 +45,7 @@
         <a href="{{ route('governator') }}" class="head-link">Page d'administration</a>
         <a href="{{ route('partenaire') }}" class="head-link">Le groupe Passerelle</a>
         <a href="{{ route('map') }}" class="head-link">Cartographie</a>
+        <a href="{{ route('engagements') }}" class="head-link">Nos engagements</a>
     </div>
     <div class="lateral-body">
 
