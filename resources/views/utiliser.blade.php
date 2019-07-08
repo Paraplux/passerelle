@@ -4,6 +4,11 @@
 
 @section('style')
 <link rel="stylesheet" href="/css/utiliser.css">
+<link rel="stylesheet" href="/css/navigation.no-transparent.css">
+<link rel="stylesheet" href="/css/carousel.css">
+<link rel="stylesheet" href="/css/keyword-section.css">
+<link rel="stylesheet" href="/css/dynamic-post.css">
+<link rel="stylesheet" href="/css/calendar.css">
 <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
 @endsection
 

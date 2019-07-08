@@ -31,6 +31,5 @@
                 <a onclick="if(confirm('Souhaitez vous réellement supprimer cette fiche de la base de données ?')){return true;}else{return false;}" href="/governator/delete" class="text-danger">Supprimer</a></td>
         </tr>
         @endforeach
-
     </tbody>
 </table>

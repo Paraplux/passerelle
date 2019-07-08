@@ -1,9 +1,4 @@
 @import './variables.scss';
-@import './carousel.scss';
-@import './keyword-section.scss';
-@import './dynamic-post.scss';
-@import './calendar.scss';
-@import './navigation.no-transparent.scss';
 
 body {
     background-color: $light;
@@ -55,7 +50,7 @@ body {
         }
     }
 
-    @media all and (max-width: 768px) {
+    @media all and (max-width: 1100px) {
         .header {
         
             display: flex;

@@ -4,6 +4,10 @@
 
 @section('style')
 <link rel="stylesheet" href="/css/accueil.css">
+<link rel="stylesheet" href="/css/keyword-section.css">
+<link rel="stylesheet" href="/css/dynamic-post.css">
+<link rel="stylesheet" href="/css/calendar.css">
+<link rel="stylesheet" href="/css/carousel.css">
 @endsection
 
 @section('content')
@@ -46,7 +50,7 @@
                 </div>
                 <div class="dynamic-post-container" id="carousel-communication">
                     @for($i = 0; $i < 3; $i++)
-                    <div class="dynamic-post event">
+                    <div class="dynamic-post">
                         <div class="post-content">
                             <h3 class="title-4 text-italic">{{ $articles[$i]->title }}</h3>
                             <p class="text-main">{!! $articles[$i]->getExtrait() !!}</p>
