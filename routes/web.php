@@ -103,11 +103,26 @@ Route::get('/test', 'AccueilController@test');
     //? Route de récupération
     Route::get('/nous-contacter', 'ContactController@index')->name('contact');
 
+//* KONAMI CODE ROUTES
 
+    //? Route de récupération
+    Route::get('/konamicode', 'KonamiCodeController@index')->name('konamicode');
+
+//* MENTIONS LEGALES ROUTES
+    
+    //? Route de récupération
+    Route::get('/mentions-legales', 'MentionsLegalesController@index')->name('mentions-legales');
+
+//* ÉGALITÉ HOMME FEMME ROUTES
+    
+    //? Route de récupération
+    Route::get('/mixity', 'MixityController@index')->name('mixity');
+    
 //* CARTOGRAPHIE ROUTES
 
     //? Route de récupération
     Route::get('/cartographie', 'MapController@index')->name('map');
+
 
 
 //* ADMINISTRATION ROUTES

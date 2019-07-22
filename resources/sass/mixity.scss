@@ -1,0 +1,183 @@
+@import './variables.scss';
+@import './carousel.scss';
+@import './keyword-section.scss';
+@import './dynamic-post.scss';
+@import './calendar.scss';
+
+body {
+    background-color: $blue;
+}
+
+.mixity-page {
+    // padding-bottom: 50px;
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .header {
+        position: relative;
+        top: -60px;
+        margin-bottom: -60px;
+        padding-top: 80px;
+        width: 100%;
+        height: 500px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        background-color: $dark;
+		overflow: hidden;
+    }
+
+    .mixity-background {
+        position: absolute;
+        width: 100%;
+        height: 130vh;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        object-fit: cover;
+        filter: grayscale(0.2) opacity(0.9);
+        pointer-events: none;
+	}
+	
+	.grid{
+		display: flex;
+		width: 100%;
+		justify-content: space-evenly;
+		transform: translate(0%, -50%);
+		z-index: 10;
+		flex-wrap: wrap;
+	}
+
+    /*-------------------------*/
+	/*********** Zoe ***********/
+	/*-------------------------*/
+	figure.effect-zoe{
+  		height: 45vw;
+  		width: 90vw;
+		  max-width: 500px;
+		  max-height: 250px;
+  		overflow: hidden;
+	}
+	.image-mixity{
+		width: 100%;
+		height: 100%;
+	}
+	
+	figure.effect-zoe figcaption {
+		margin-top: -13%;
+		top: auto;
+		bottom: 0;
+		padding: 1em;
+		height: auto;
+		background: $light;
+		color: $dark;
+		-webkit-transition: -webkit-transform 0.35s;
+		transition: transform 0.35s;
+		-webkit-transform: translate3d(0,99%,0);
+		transform: translate3d(0,99%,0);
+		overflow: hidden;
+	}
+
+
+	figure.effect-zoe h2 {
+		float: left;
+		margin-top: -6px;
+	}
+
+	figure.effect-zoe p.icon-links a {
+		margin-top: -6%;
+		float: right;
+		color: $orange;
+		font-size: 1.4em;
+		padding: 7px;
+	}
+
+	figure.effect-zoe:hover p.icon-links a:hover,
+	figure.effect-zoe:hover p.icon-links a:focus {
+		color: $blue;
+	}
+
+	figure.effect-zoe p.description {
+		position: absolute;
+		bottom: 8em;
+		padding: 2em;
+		color: rgb(255, 255, 255);
+		text-transform: none;
+		font-size: 100%;
+		opacity: 0;
+		-webkit-backface-visibility: hidden; /* Fix for Chrome 37.0.2062.120 (Mac) */
+		-webkit-transition: opacity 0.35s;
+		transition: opacity 0.35s;
+		-webkit-backface-visibility: hidden; /* Fix for Chrome 37.0.2062.120 (Mac) */
+	}
+
+	figure.effect-zoe h2,
+	figure.effect-zoe p.icon-links a {
+		-webkit-transition: -webkit-transform 0.35s;
+		transition: transform 0.35s;
+		-webkit-transform: translate3d(0,200%,0);
+		transform: translate3d(0,200%,0);
+	}
+
+	figure.effect-zoe p.icon-links a span::before {
+		display: inline-block;
+		padding: 8px 10px;
+		font-family: 'feathericons';
+		speak: none;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	.icon-eye::before {
+		content: '\e000';
+	}
+
+	.icon-paper-clip::before {
+		content: '\e001';
+	}
+
+	.icon-heart::before {
+		content: '\e024';
+	}
+
+	figure.effect-zoe h2 {
+		display: inline-block;
+	}
+
+	figure.effect-zoe:hover p.description {
+		opacity: 1;
+	}
+
+	figure.effect-zoe:hover figcaption,
+	figure.effect-zoe:hover h2,
+	figure.effect-zoe:hover p.icon-links a {
+		-webkit-transform: translate3d(0,5%,0);
+		transform: translate3d(0,5%,0);
+	}
+
+	figure.effect-zoe:hover h2 {
+		-webkit-transition-delay: 0.05s;
+		transition-delay: 0.05s;
+	}
+
+	figure.effect-zoe:hover p.icon-links a:nth-child(3) {
+		-webkit-transition-delay: 0.1s;
+		transition-delay: 0.1s;
+	}
+
+	figure.effect-zoe:hover p.icon-links a:nth-child(2) {
+		-webkit-transition-delay: 0.15s;
+		transition-delay: 0.15s;
+	}
+
+	figure.effect-zoe:hover p.icon-links a:first-child {
+		-webkit-transition-delay: 0.2s;
+		transition-delay: 0.2s;
+	}
+}
