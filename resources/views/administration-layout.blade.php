@@ -35,9 +35,9 @@
 <script src="/js/functions.js"></script>
 
 <script src="//cdn.ckeditor.com/4.11.4/basic/ckeditor.js"></script>
-<script src='/js/tags.js'></script>
 <script src="/js/flexdatalist.js"></script>
 <script src="/js/administration.js"></script>
+<script src='/js/tags.js'></script>
 
 <!-- DYNAMIC SCRIPTS -->
 @yield('script')

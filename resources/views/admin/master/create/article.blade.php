@@ -26,7 +26,7 @@
         <div class="validated-tags"></div>
         <input list="tagList" class="flexdatalist" id="taginput" name="taginput" type="text" placeholder="Entrez vos tags...">
         <datalist id="tagList">
-            @foreach($tags as $tag)
+            @foreach($data['tag'] as $tag)
             <option value="{{ $tag->id }}">{{ $tag->name }}</option>
             @endforeach
         </datalist>    

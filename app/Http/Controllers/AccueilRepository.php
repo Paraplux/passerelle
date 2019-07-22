@@ -7,6 +7,7 @@ use App\Services\Location;
 use App\Article;
 use App\Fiche;
 use App\Event;
+use App\Contenu;
 
 class AccueilRepository {
 
@@ -94,6 +95,13 @@ class AccueilRepository {
         }
 
         return $array;
+    }
+
+    public function getContent()
+    {
+        $content = Contenu::firstOrFail()->get();
+
+        return $content[0];
     }
 
 }

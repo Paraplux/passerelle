@@ -24,7 +24,7 @@
         <label for="secteur">Secteur d'activité de la formation</label>
         <select name="secteur_id" id="secteur">
             <option value="">- Selectionnez un secteur -</option>
-            @foreach($secteurs as $secteur)
+            @foreach($data['secteur'] as $secteur)
             <option value="{{ $secteur->id }}">{{ $secteur->name }}</option>
             @endforeach
         </select>
@@ -49,7 +49,7 @@
         <label for="structure">Structure de l'action</label>
         <select name="structure_id" id="structure">
             <option value="">- Selectionnez une structure -</option>
-            @foreach($structures as $structure)
+            @foreach($data['structure'] as $structure)
             <option {{ old('structure_id') == $structure->id ? 'selected' : '' }} value="{{ $structure->id }}">{{ $structure->name }} - {{ $structure->commune->nom_commune }}</option>
             @endforeach
         </select>
@@ -58,7 +58,7 @@
         <label for="labels">Labels de l'action</label>
         <p class="text-muted"><i class="fas fa-exclamation-circle"></i> Vous pouvez selectionner plusieurs labels ! </p>
         <select multiple name="label_id" id="">
-            @foreach($labels as $label)
+            @foreach($data['label'] as $label)
             <option {{ old('label_id') == $label->id ? 'selected' : '' }} style="padding:10px 0 10px 50px; background-image: url({{ $label->logo }});" value="{{ $label->id }}">{{ $label->name }}</option>
             @endforeach
         </select>

@@ -12,7 +12,7 @@ Nos partenaires
 @section('content')
 <div class="partenaires-page">
     <h1 class="title-1 page-title">Notre groupe</h1>
-    <p class="text-muted page-intro">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum sed eveniet fugiat, atque consectetur ullam, officia dolore veniam doloremque optio, ducimus repudiandae deserunt. Saepe cum amet dolore culpa eius voluptatem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto sit hic illum pariatur placeat ipsum soluta? Doloremque dolor, unde libero perferendis inventore magni reprehenderit? Reprehenderit voluptatem aliquam et recusandae ipsam!</p><br>
+    <p class="text-muted page-intro">{{ $content->partenaires_text }}</p><br>
 
     <h1 class="title-2 page-subtitle">Les fondateurs de Passerelle Numérique</h1>
     <div class="cards-container fondateurs">

@@ -28,13 +28,15 @@ class AccueilController extends Controller
         $articles = $this->repository->getArticles();
         $formations = $this->repository->getFormations();
         $events = $this->repository->getEvents();
+        $content = $this->repository->getContent();
 
         return view('accueil', [
             'currentWeather' => $currentWeather,
             'weatherStatus' => $weatherStatus,
             'articles' => $articles,
             'formations' => $formations,
-            'events' => $events
+            'events' => $events,
+            'content' => $content,
         ]);
     }
 }

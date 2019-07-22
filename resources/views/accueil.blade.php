@@ -12,7 +12,7 @@
 
 @section('content')
 <div class="home-wrap">
-    <header class="header">
+    <header class="header" style="background-image: url('{{ $content->accueil_thumb }}')">
         <div class="home-keywords">
             <a href="{{ route('sensibiliser') }}"><div><i class="keyword-button fa fa-bullhorn"></i><div class="keyword-label">Sensibiliser</div></div></a>
             <a href="{{ route('se-former') }}"><div><i class="keyword-button fa fa-graduation-cap"></i><div class="keyword-label">Se former</div></div></a>
@@ -46,10 +46,10 @@
             <div class="communication">
                 <div class="communication-header">
                     <i class="far fa-comments"></i>
-                    <h2 class="title-2">Ne ratez pas...</h2>
+                    <h2 class="title-2">{{ $content->accueil_news_subtitle }}</h2>
                 </div>
                 <div class="dynamic-post-container" id="carousel-communication">
-                    @for($i = 0; $i < 3; $i++)
+                    @for($i = 0; $i < 2; $i++)
                     <div class="dynamic-post">
                         <div class="post-content">
                             <h3 class="title-4 text-italic">{{ $articles[$i]->title }}</h3>
@@ -66,7 +66,7 @@
             <div class="formations">
                 <div class="formations-header">
                     <i class="fas fa-fire-alt"></i>
-                    <h2 class="title-2">Nos formations débutent bientôt...</h2>
+                    <h2 class="title-2">{{ $content->accueil_formations_subtitle }}</h2>
                 </div>
                 <div class="formations-body" id="carousel-formations">
                     

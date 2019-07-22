@@ -13,7 +13,7 @@ crossorigin=""/>
 @section('content')
 <div class="cartographie-page">
     <h1 class="title-1">Cartographie Passerelle Numérique</h1>
-    <strong>Retrouvez nos actions, nos partenaires, nos signataires.</strong>
+    <strong>{{ $content->map_text }}</strong>
     <div id="map"></div>
 </div>
 @endsection

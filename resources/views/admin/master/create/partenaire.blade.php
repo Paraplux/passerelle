@@ -1,32 +1,39 @@
-<form action="/governator/master/partenaire/add" method="POST">
+<form action="/governator/master/partenaire/add" method="POST" enctype="multipart/form-data">
     {{ csrf_field() }}
     <br>
     <h1 class="title-3">Ajoutez des signataires ou des partenaires grâce à ce formulaire</h1>
     <div class="form-group">
         <label for="name">Nom du partenaire</label>
-        <input type="text" name="name" placeholder="Entrez le nom...">
+        <input value="{{ old('name') }}" type="text" name="name" placeholder="Entrez le nom...">
     </div>
     <div class="form-group">
         <label for="website">Site web du partenaire</label>
-        <input type="text" name="website" placeholder="Entrez l'url..." id="website">
+        <input value="{{ old('website') }}" type="text" name="website" placeholder="Entrez l'url..." id="website">
     </div>
     <div class="form-group">
         <label for="email">Adresse Mail</label>
-        <input type="text" name="mail" placeholder="Entrez le mail..." id="email">
+        <input value="{{ old('website') }}" type="text" name="mail" placeholder="Entrez le mail..." id="email">
     </div>
     <div class="form-group">
         <label for="phone">Téléphone</label>
-        <input type="tel" name="phone" placeholder="01-02-03-04-05" id="phone">
+        <input value="{{ old('website') }}" type="tel" name="phone" placeholder="01-02-03-04-05" id="phone">
     </div>
     <div class="form-group">
         <label for="adress">Adresse Postale</label>
-        <input type="text" name="adress" placeholder="Entrez l'adresse" id="adress">
+        <input value="{{ old('website') }}" type="text" name="adress" placeholder="Entrez l'adresse" id="adress">
     </div>
     <div class="form-group">
         <label for="city">Ville & Code Postal</label>
-        <input type="text" name="city" placeholder="Ville - 62000" id="city">
+        <input  data-data="/json/communes.json"
+                data-search-in='nom_commune'
+                data-visible-properties='["nom_commune","code_postale"]'
+                data-selection-required='true'
+                data-value-property='id',
+                data-text-property="{nom_commune}, {code_postale}"
+                data-min-length="1"
+                class="flexdatalist" type="text" name="commune_id" placeholder="Ville, CP..." id="commune_id"><br>
     </div>
-    <div class="form-group">
+    <div class="form-group choice">
         <p>Signataire <input type="radio" name="type" value="signataire"></p>
         <p>Partenaire <input type="radio" name="type" value="partenaire"></p>
     </div>

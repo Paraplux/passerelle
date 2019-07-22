@@ -21,6 +21,9 @@ use App\ArticleTag;
 use App\Partenaire;
 use App\Event;
 use App\Question;
+use App\Keyword;
+use App\Contenu;
+
 
 class AdministrationController extends Controller
 {
@@ -44,7 +47,7 @@ class AdministrationController extends Controller
         return view('admin.connexion');
     }
 
-    public function connexion() 
+    public function connexion()
     {
         $user = User::where('login', request('login'))
                     ->orWhere('mail', request('login'))
@@ -123,24 +126,136 @@ class AdministrationController extends Controller
 
     public function managerList()
     {
-        if(request('model') === 'fiche') {
-            $model = 'fiche';
-            $data = Fiche::all();
-        } else if(request('model') === 'article') {
-            $model = 'article';
-            $data = Article::all();
-        } else if(request('model') === 'event') {
-            $model = 'event';
-            $data = Event::all();
-        }
+        $data = $this->repository->getData(request('model'));
 
         return view('admin.manager.listing', [
             'data' => $data,
-            'model' => $model
+            'model' => request('model'),
         ]);
     }
 
     public function masterCreate()
+    {
+        $data = $this->repository->getData(request('model'));
+
+
+        return view('admin.master.create', [
+            'model' => request('model'),
+            'data' => $data,
+        ]);
+    }
+
+    public function masterList()
+    {
+
+        $data = $this->repository->getData(request('model'));
+
+
+        return view('admin.master.listing', [
+            'model' => request('model'),
+            'data' => $data
+        ]);
+
+    }
+
+    public function masterEdit()
+    {
+
+        $data = $this->repository->editData(request('model'), request('id'));
+
+
+        return view('admin.master.edit', [
+            'id' => request('id'),
+            'model' => request('model'),
+            'data' => $data
+        ]);
+
+    }
+
+    public function masterSave(Request $request)
+    {
+
+        $data = $this->repository->editData(request('model'), request('id'));
+
+        $data = $data[request('model')];
+        $data->fill($request->input())->save();
+
+        return back();
+        
+    }
+
+    public function editTheme(Request $request)
+    {
+        
+        if(count($request->file()) > 0) {
+
+            if($request->file('accueil_thumb')) {
+                $thumb = new UploadFile($request->file('accueil_thumb')->path());
+                if ($thumb->uploaded) {
+                    $thumbsha1 = 'thumb_' . sha1(base64_encode(openssl_random_pseudo_bytes(30)));
+                    $thumb->file_new_name_body = $thumbsha1;
+                    $thumb->image_resize = true;
+                    $thumb->image_x = 1200;
+                    $thumb->image_convert = 'jpg';
+                    $thumb->image_ratio_y = true;
+                    $thumb->Process('../public/images/theme/');
+                    $request->request->add(['accueil_thumb' => '/images/theme/' . $thumbsha1 . '.jpg']);
+
+                    if ($thumb->processed) {
+                        $thumb->Clean();
+                    }
+                }
+            }
+
+            if($request->file('formations_thumb')) {
+                $thumb = new UploadFile($request->file('formations_thumb')->path());
+                if ($thumb->uploaded) {
+                    $thumbsha1 = 'thumb_' . sha1(base64_encode(openssl_random_pseudo_bytes(30)));
+                    $thumb->file_new_name_body = $thumbsha1;
+                    $thumb->image_resize = true;
+                    $thumb->image_x = 1200;
+                    $thumb->image_convert = 'jpg';
+                    $thumb->image_ratio_y = true;
+                    $thumb->Process('../public/images/theme/');
+                    $request->request->add(['formations_thumb' => '/images/theme/' . $thumbsha1 . '.jpg']);
+
+                    if ($thumb->processed) {
+                        $thumb->Clean();
+                    }
+                }
+            }
+        }
+
+        $content = Contenu::find(1);
+        $content->fill($request->input())->save();
+
+        return back();
+        
+    }
+
+    public function getPanel (AdministrationRepository $repository)
+    {
+        $category = request('category');
+        $model = request('type');
+        $data = $this->repository->getData($model);
+
+        $panel = "admin.$category.$model";
+        return view($panel, [
+            'data' => $data,
+            'model' => $model,
+            'category' => $category
+        ]);
+    }
+
+    public function deleteData(AdministrationRepository $repository)
+    {
+
+        $this->repository->deleteData(request('model'), request('id'));
+
+        return back();
+    }
+
+    public function editData(AdministrationRepository $repository)
     {
         $labels = '';
         $structures = '';
@@ -163,34 +278,35 @@ class AdministrationController extends Controller
             $labels = Label::all();
             $structures = Structure::all();
             $secteurs = Secteur::all();
-            
+
         } else if(request('model') === 'article') {
             $model = 'article';
             $tags = Tag::all();
-            
+
         } else if(request('model') === 'event') {
             $model = 'event';
             $structures = Structure::all();
 
         } else if(request('model') === 'faq') {
             $model = 'faq';
-            
+
         } else if(request('model') === 'keyword') {
             $model = 'keyword';
-            
-        } else if(request('model') === 'theme') {
-            $model = 'theme';
-            
+
         } else if(request('model') === 'engagement') {
             $model = 'engagement';
-            
+
         } else if(request('model') === 'user') {
             $model = 'user';
-            
+
         }
 
+        $model = request('model');
+        $id = request('id');
+        $input = $this->repository->editData($model, $id);
 
-        return view('admin.master.create', [
+        $panel = "admin.manager.create.$model";
+        return view($panel, [
             'model' => $model,
             'labels' => $labels,
             'structures' => $structures,
@@ -199,104 +315,29 @@ class AdministrationController extends Controller
         ]);
     }
 
-    public function masterList()
-    {
-        if(request('model') === 'partenaire') {
-            $model = 'partenaire';
-            $data = Partenaire::all();
+    public function addUser(Request $request){
 
-        } else if(request('model') === 'label') {
-            $model = 'label';
-            $data = Label::all();
-
-        } else if(request('model') === 'structure') {
-            $model = 'structure';
-            $data = Structure::all();
-
-        } else if(request('model') === 'secteur') {
-            $model = 'secteur';
-            $data = Secteur::all();
-
-        } else if(request('model') === 'fiche') {
-            $model = 'fiche';
-            $data = Fiche::all();
-            
-        } else if(request('model') === 'article') {
-            $model = 'article';
-            $data = Article::all();
-            
-        } else if(request('model') === 'event') {
-            $model = 'event';
-            $data = Event::all();
-
-        } else if(request('model') === 'faq') {
-            $model = 'faq';
-            $data = Faq::all();
-            
-        } else if(request('model') === 'question') {
-            $model = 'question';
-            $data = Question::all();
-            
-        } else if(request('model') === 'keyword') {
-            $model = 'keyword';
-            $data = Keyword::all();
-            
-        } else if(request('model') === 'theme') {
-            $model = 'theme';
-            
-        } else if(request('model') === 'engagement') {
-            $model = 'engagement';
-            
-        } else if(request('model') === 'user') {
-            $model = 'user';
-            $data = User::all();
-            
-        }
-
-
-        return view('admin.master.listing', [
-            'model' => $model,
-            'data' => $data
+        $validatedData = request()->validate([
+            'nom' => 'required',
+            'prenom' => 'required',
+            'login' => 'required',
+            'mail' => 'required',
+            'password' => 'required',
+            'phone' => 'required',
+            'role' => 'required',
         ]);
-    }
 
-    public function getPanel (AdministrationRepository $repository)
-    {
-        $category = request('category');
-        $model = request('type');
-        $data = $this->repository->getData($model);
-        
-        $panel = "admin.$category.$model";
-        return view($panel, [
-            'data' => $data,
-            'model' => $model,
-            'category' => $category
+        User::create([
+            'nom' => request('nom'),
+            'prenom' => request('prenom'),
+            'login' => request('login'),
+            'mail' => request('mail'),
+            'password' => password_hash(request('password'), PASSWORD_BCRYPT),
+            'phone' => request('phone'),
+            'role' => request('role'),
         ]);
-    }
-
-    public function deleteData(AdministrationRepository $repository)
-    {
-
-        $this->repository->deleteData(request('model'), request('id'));
 
         return back();
-    }
-
-    public function editData(AdministrationRepository $repository)
-    {
-        $category = request('category');
-        $model = request('model');
-        $id = request('id');
-        $data = $this->repository->getData($model);
-        $input = $this->repository->editData($model, $id);
-
-        $panel = "admin.$category.$model";
-        return view($panel, [
-            'input' => $input,
-            'data' => $data,
-            'model' => $model,
-            'category' => $category
-        ]);
     }
 
     public function addFiche(Request $request)
@@ -351,9 +392,9 @@ class AdministrationController extends Controller
         return back();
     }
 
-    public function addArticle() 
+    public function addArticle()
     {
-        
+
         $validatedData = request()->validate([
             'title' => 'required',
             'content' => 'required',
@@ -396,12 +437,12 @@ class AdministrationController extends Controller
         } else {
             $thumb2link = NULL;
         }
-       
+
         $createdArticle = Article::create([
             'title' => request('title'),
             'content' => request('content'),
-            'author' => request('author'), 
-            'thumb_1' => $thumb1link, 
+            'author' => request('author'),
+            'thumb_1' => $thumb1link,
             'thumb_2' => $thumb2link
         ]);
 
@@ -410,14 +451,14 @@ class AdministrationController extends Controller
                 $createdTag = Tag::create([
                     'name' => $userTag
                 ]);
-                
+
                 ArticleTag::create([
                     'article_id' => $createdArticle->id,
                     'tag_id' => $createdTag->id
                 ]);
             }
         }
-        
+
 
         return back();
     }
@@ -446,9 +487,9 @@ class AdministrationController extends Controller
 
     }
 
-    public function addLabel() 
+    public function addLabel()
     {
- 
+
         $validatedData = request()->validate([
             'name' => 'required',
             'website' => 'required',
@@ -479,7 +520,7 @@ class AdministrationController extends Controller
         return back();
     }
 
-    public function addStructure() 
+    public function addStructure()
     {
 
         $validatedData = request()->validate([
@@ -510,17 +551,17 @@ class AdministrationController extends Controller
         Structure::create([
             'name' => request('name'),
             'mail' => request('mail'),
-            'website' => request('website'), 
-            'logo' => $logolink, 
-            'phone' => request('phone'), 
-            'adress' => request('adress'), 
+            'website' => request('website'),
+            'logo' => $logolink,
+            'phone' => request('phone'),
+            'adress' => request('adress'),
             'commune_id' => intval(request('commune_id'))
         ]);
 
         return back();
     }
 
-    public function addSecteur() 
+    public function addSecteur()
     {
 
         $validatedData = request()->validate([
@@ -549,7 +590,7 @@ class AdministrationController extends Controller
         return back();
     }
 
-    public function addPartenaire() 
+    public function addPartenaire()
     {
         $validatedData = request()->validate([
             'name' => 'required',
@@ -558,17 +599,33 @@ class AdministrationController extends Controller
             'logo' => 'required',
             'phone' => 'required',
             'adress' => 'required',
-            'city' => 'required',
+            'commune_id' => 'required',
         ]);
+
+        $logo = new UploadFile(request('logo')->path());
+        if ($logo->uploaded) {
+            $logosha1 = 'logo_' . sha1(base64_encode(openssl_random_pseudo_bytes(30)));
+            $logo->file_new_name_body = $logosha1;
+            $logo->image_resize = true;
+            $logo->image_x = 400;
+            $logo->image_convert = 'png';
+            $logo->image_ratio_y = true;
+            $logo->Process('../public/images/partenaires/logos');
+            $logolink = '/images/partenaires/logos/' . $logosha1 . '.png';
+            if ($logo->processed) {
+                $logo->Clean();
+            }
+        }
 
         Partenaire::create([
             'name' => request('name'),
             'mail' => request('mail'),
-            'website' => request('website'), 
-            'logo' => request('logo'), 
-            'phone' => request('phone'), 
-            'adress' => request('adress'), 
-            'city' => request('city')
+            'website' => request('website'),
+            'logo' => $logolink,
+            'phone' => request('phone'),
+            'adress' => request('adress'),
+            'commune_id' => request('commune_id'),
+            'type' => request('type')
         ]);
 
         return back();

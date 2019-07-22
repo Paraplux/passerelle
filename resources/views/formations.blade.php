@@ -14,7 +14,7 @@
 <div class="formations-page">
 
     <div class="header">
-        <img src="https://cdn.stocksnap.io/img-thumbs/960w/OO7XQL3Q9C.jpg" alt="" class="search-background">
+        <img src="{{ $content->formations_thumb }}" alt="" class="search-background">
         <div class="typewriter">Se former sur les différents métiers d'aujourd'hui et de demain.</div>
         <div class="input-field">
             <form action="/se-former/search" method="GET">

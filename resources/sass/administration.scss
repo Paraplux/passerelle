@@ -51,25 +51,25 @@
             margin-top: 100px;
             width: 50%;
         }
-    
+
         h1 {
             margin: 3rem auto;
             text-align: center;
         }
-        
+
         .form-group {
             margin: 20px auto;
             display: flex;
             flex-wrap: wrap;
             width: 60%;
         }
-        
+
         label {
             margin: 10px auto;
             width: 100%;
             font-weight: bold;
         }
-        
+
         input {
             width: 100%;
             height: 2.5rem;
@@ -80,8 +80,8 @@
             border: 1px solid rgba($blue, 0.3);
             outline: none;
         }
-        
-        
+
+
         button {
             display: block;
             height: 50px;
@@ -175,7 +175,7 @@
             width: 100%;
             margin-top: 5rem;
             border-spacing: 0px;
-            
+
             th {
                 text-align: left;
             }
@@ -198,6 +198,17 @@
         padding-top: 5rem;
         padding-bottom: 5rem;
         form {
+
+            .theme-thumb {
+                margin: 10px 0 25px 25px;
+                width: 200px;
+                border: 2px solid $orange;
+
+                &:hover {
+                    cursor: pointer;
+                    opacity: 0.8;
+                }
+            }
 
             button {
                 display: block;
@@ -241,7 +252,10 @@
                 #cke_fiche_ckeditor_3,
                 #cke_fiche_ckeditor_4,
                 #cke_faq_ckeditor,
-                #cke_event_ckeditor {
+                #cke_event_ckeditor,
+                #cke_theme_ckeditor_1,
+                #cke_theme_ckeditor_2,
+                #cke_theme_ckeditor_3 {
                     border-radius: 5px;
                     border: none;
                     border: 1px solid rgba($dark, 0.3);
@@ -258,7 +272,7 @@
                     border: none;
                     border: 1px solid rgba($dark, 0.3);
                 }
-                
+
                 input[type='file'] {
                     border: none;
                     line-height: 1rem;
@@ -270,7 +284,10 @@
                 #cke_fiche_ckeditor_3,
                 #cke_fiche_ckeditor_4,
                 #cke_faq_ckeditor,
-                #cke_event_ckeditor {
+                #cke_event_ckeditor,
+                #cke_theme_ckeditor_1,
+                #cke_theme_ckeditor_2,
+                #cke_theme_ckeditor_3 {
                     width: 100%;
                 }
 
@@ -294,13 +311,17 @@
                     height: 2.5rem;
                     margin-top: auto;
                 }
-                
+
                 #addtag {
                     line-height: 2.5rem;
                     height: 2.5rem;
                     font-size: 0.8rem;
                 }
 
+            }
+
+            .form-group.choice {
+                justify-content: center;
             }
 
             .form-small-group {
@@ -363,7 +384,7 @@
             font-size: 1.1rem;
             font-family: 'Nunito', sans-serif;
         }
-        
+
     }
 
     .master-navbar {
@@ -413,4 +434,9 @@
         margin: auto;
     }
 
+    .master-top-link {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
 }

@@ -2,112 +2,169 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
+use App\Commune;
+use App\Event;
+use App\Faq;
 use App\Fiche;
 use App\Label;
-use App\Structure;
-use App\Branche;
-use App\Faq;
-use App\Article;
 use App\Partenaire;
-use App\Commune;
+use App\Question;
+use App\Secteur;
+use App\Structure;
 use App\Tag;
+use App\User;
 
 class AdministrationRepository {
 
-    public function getData($model) {
-        switch ($model) {
-            case 'fiche':
-                $data['fiches'] = Fiche::all();
-                $data['labels'] = Label::all();
-                $data['branches'] = Branche::all();
-                $data['structures'] = Structure::all();
-                break;
-            case 'label':
-                $data['labels'] = Label::all();
-                break;
-            case 'structure':
-                $data['structures'] = Structure::all();
-                $data['communes'] = Commune::where('code_postale', 'LIKE', '02%')
-                                         ->orWhere('code_postale', 'LIKE', '59%')
-                                         ->orWhere('code_postale', 'LIKE', '60%')
-                                         ->orWhere('code_postale', 'LIKE', '62%')
-                                         ->orWhere('code_postale', 'LIKE', '80%')
-                                         ->orderBy('nom_commune')
-                                         ->get();
-                break;
-            case 'branche':
-                $data = Branche::all();
-                break;
-            case 'article':
-                $data['tags'] = Tag::all();
-                $data['articles'] = Article::all();
-                break;
-            case 'faq':
-                $data = Faq::all();
-                break;
-            case 'partenaire':
-                $data = Partenaire::all();
-                break;
-            default:
-                $data = '';
+    public function getData($model)
+    {
+
+        if(request('model') === 'partenaire') {
+            $data['partenaire'] = Partenaire::all();
+
+        } else if(request('model') === 'label') {
+            $data['label'] = Label::all();
+
+        } else if(request('model') === 'structure') {
+            $data['structure'] = Structure::all();
+
+        } else if(request('model') === 'secteur') {
+            $data['secteur'] = Secteur::all();
+
+        } else if(request('model') === 'fiche') {
+            $data['label'] = Label::all();
+            $data['structure'] = Structure::all();
+            $data['secteur'] = Secteur::all();
+            $data['fiche'] = Fiche::all();
+
+        } else if(request('model') === 'article') {
+            $data['article'] = Article::all();
+            $data['tag'] = Tag::all();
+
+        } else if(request('model') === 'event') {
+            $data['event'] = Event::all();
+            $data['structure'] = Structure::all();
+
+        } else if(request('model') === 'faq') {
+            $data['faq'] = Faq::all();
+
+        } else if(request('model') === 'question') {
+            $data['question'] = Question::all();
+
+        } else if(request('model') === 'keyword') {
+            $data['keyword'] = Keyword::all();
+
+        } else if(request('model') === 'engagement') {
+            $data['engagement'] = Engagement::all();
+
+        } else if(request('model') === 'user') {
+            $data['user'] = User::all();
         }
+
         return $data;
     }
 
     public function deleteData($model, $id)
     {
-        switch ($model) {
-            case 'fiche':
-                $item = Fiche::findOrFail($id);
-                $status = $item->delete();
-                break;
-            case 'label':
-                
-                break;
-            case 'structure':
-                $item = Structure::findOrFail($id);
-                $status = $item->delete();
-                break;
-            case 'branche':
-                
-                break;
-            case 'article':
-                
-                break;
-            case 'faq':
-                
-                break;
-            default:
-                $status = false;
+        if(request('model') === 'partenaire') {
+            $item = Partenaire::findOrFail($id);
+            $status = $item->delete();
+
+        } else if(request('model') === 'label') {
+            $item = Label::findOrFail($id);
+            $status = $item->delete();
+
+        } else if(request('model') === 'structure') {
+            $item = Structure::findOrFail($id);
+            $status = $item->delete();
+
+        } else if(request('model') === 'secteur') {
+            $item = Secteur::findOrFail($id);
+            $status = $item->delete();
+
+        } else if(request('model') === 'fiche') {
+            $item = Fiche::findOrFail($id);
+            $status = $item->delete();
+
+        } else if(request('model') === 'article') {
+            $item = Article::findOrFail($id);
+            $status = $item->delete();
+
+        } else if(request('model') === 'event') {
+            $item = Event::findOrFail($id);
+            $status = $item->delete();
+
+        } else if(request('model') === 'faq') {
+            $item = Faq::findOrFail($id);
+            $status = $item->delete();
+
+        } else if(request('model') === 'question') {
+            $item = Question::findOrFail($id);
+            $status = $item->delete();
+
+        } else if(request('model') === 'keyword') {
+            $item = Keyword::findOrFail($id);
+            $status = $item->delete();
+
+        } else if(request('model') === 'engagement') {
+            $item = Engagement::findOrFail($id);
+            $status = $item->delete();
+
+        } else if(request('model') === 'user') {
+            $item = User::findOrFail($id);
+            $status = $item->delete();
         }
+        
         return $status;
     }
 
     public function editData($model, $id)
     {
-        switch ($model) {
-            case 'fiche':
-                $input = Fiche::findOrFail($id);
-                break;
-            case 'label':
-                
-                break;
-            case 'structure':
-                $input = Structure::findOrFail($id);
-                break;
-            case 'branche':
-                
-                break;
-            case 'article':
-                
-                break;
-            case 'faq':
-                
-                break;
-            default:
-                $input = '';
+        if(request('model') === 'partenaire') {
+            $data['partenaire'] = Partenaire::findOrFail($id);
+
+        } else if(request('model') === 'label') {
+            $data['label'] = Label::findOrFail($id);
+
+        } else if(request('model') === 'structure') {
+            $data['structure'] = Structure::findOrFail($id);
+
+        } else if(request('model') === 'secteur') {
+            $data['secteur'] = Secteur::findOrFail($id);
+
+        } else if(request('model') === 'fiche') {
+            $data['label'] = Label::all();
+            $data['structure'] = Structure::all();
+            $data['secteur'] = Secteur::all();
+            $data['fiche'] = Fiche::findOrFail($id);
+
+        } else if(request('model') === 'article') {
+            $data['article'] = Article::findOrFail($id);
+            $data['tag'] = Tag::all();
+
+        } else if(request('model') === 'event') {
+            $data['event'] = Event::findOrFail($id);
+            $data['structure'] = Structure::all();
+
+        } else if(request('model') === 'faq') {
+            $data['faq'] = Faq::findOrFail($id);
+
+        } else if(request('model') === 'question') {
+            $data['question'] = Question::findOrFail($id);
+
+        } else if(request('model') === 'keyword') {
+            $data['keyword'] = Keyword::findOrFail($id);
+
+        } else if(request('model') === 'engagement') {
+            $data['engagement'] = Engagement::findOrFail($id);
+
+        } else if(request('model') === 'user') {
+            $data['user'] = User::findOrFail($id);
+
         }
-        return $input;
+
+        return $data;
     }
 
 }

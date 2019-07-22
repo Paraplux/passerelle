@@ -1,6 +1,6 @@
 $(function(){
 
-    //CKEDITOR 
+    //CKEDITOR
 
     function ckeditor(id) {
         if($('#' + id).length >= 1) {
@@ -15,6 +15,9 @@ $(function(){
     ckeditor('faq_ckeditor');
     ckeditor('article_ckeditor');
     ckeditor('event_ckeditor');
+    ckeditor('theme_ckeditor_1');
+    ckeditor('theme_ckeditor_2');
+    ckeditor('theme_ckeditor_3');
 
     // RANDOM
     $('.alert .close').on('click', function() {
@@ -41,6 +44,14 @@ $(function(){
     }
     $('.toggle-navigation').on('click', function(){
         toggleNavigation();
+    })
+
+    //TRIGGER
+    $('#accueil_thumb').on('click', function() {
+        $('input[name="accueil_thumb"]').trigger('click');
+    })
+    $('#formations_thumb').on('click', function() {
+        $('input[name="formations_thumb"]').trigger('click');
     })
 
 

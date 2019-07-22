@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\URL;
 
 use App\Fiche;
+use App\Contenu;
 
 class FormationController extends Controller
 {
@@ -18,9 +19,11 @@ class FormationController extends Controller
     public function index() 
     {
         $events = $this->repository->getEvents();
+        $content = Contenu::firstOrFail()->get();
 
         return view('formations', [
-            'events' => $events
+            'events' => $events,
+            'content' => $content[0],
         ]);
     }
 
@@ -38,12 +41,14 @@ class FormationController extends Controller
     public function search()
     {
         $search = Fiche::search(request('query'))->get()->all();
+        $content = Contenu::firstOrFail()->get();
         $events = $this->repository->getEvents();
 
         return view('formations', [
             'query' => request('query'),
             'search' => $search,
-            'events' => $events
+            'events' => $events,
+            'content' => $content,
         ]);
     }
 }

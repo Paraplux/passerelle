@@ -6,9 +6,6 @@
 
 @include('flash')
 
-<div class="listing-container">
-
-    <a href="/governator/master/{{ $model }}/create">Soumettre une entrée</a>
 
     @if($model === 'partenaire')
         @include('admin.master.listing.partenaire')
@@ -37,7 +34,5 @@
     @elseif($model === 'user')
         @include('admin.master.listing.user')
     @endif
-    
-</div>
 
 @endsection

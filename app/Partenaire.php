@@ -14,7 +14,7 @@ class Partenaire extends Model
         'logo', 
         'phone', 
         'adress', 
-        'city',
+        'commune_id',
         'type'
     ];
 

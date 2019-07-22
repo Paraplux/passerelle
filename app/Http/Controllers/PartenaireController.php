@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Partenaire;
+use App\Contenu;
 
 class PartenaireController extends Controller
 {
@@ -11,11 +12,13 @@ class PartenaireController extends Controller
         $fondateurs = Partenaire::where('type', 'fondateur')->get();
         $signataires = Partenaire::where('type', 'signataire')->get();
         $partenaires = Partenaire::where('type', 'partenaire')->get();
+        $content = Contenu::firstOrFail()->get();
 
         return view('partenaires', [
             'fondateurs' => $fondateurs,
             'signataires' => $signataires,
-            'partenaires' => $partenaires
+            'partenaires' => $partenaires,
+            'content' => $content[0],
         ]);
     }
 

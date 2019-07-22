@@ -63,7 +63,7 @@ Nous contacter
     </div>
     <button type="submit">Envoyer</button>
     <br><br>
-    <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt neque amet nobis molestias. Ipsa, necessitatibus doloremque? Tempora quisquam, doloribus repellat quos iste molestiae deleniti dolores fugit, nisi velit vitae iure! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis quisquam explicabo deleniti deserunt mollitia nostrum ab quasi minus reiciendis obcaecati esse amet porro, aliquid, ducimus architecto veritatis dicta cumque voluptas!</p>
+    <p class="text-muted">{{ $content->contact_text }}</p>
 </form>
 @endsection
 

@@ -125,9 +125,12 @@ Route::get('/test', 'AccueilController@test');
 
     Route::get('/governator/manager/{model}/create', 'AdministrationController@managerCreate');
     Route::get('/governator/manager/{model}/list', 'AdministrationController@managerList');
+    
 
     Route::get('/governator/master/{model}/create', 'AdministrationController@masterCreate');
     Route::get('/governator/master/{model}/list', 'AdministrationController@masterList');
+    Route::get('/governator/master/{model}/edit/{id}', 'AdministrationController@masterEdit');
+    Route::post('/governator/master/{model}/edit/{id}', 'AdministrationController@masterSave');
     
     Route::get('/governator', 'AdministrationController@index')->name('governator');
 
@@ -145,11 +148,11 @@ Route::get('/test', 'AccueilController@test');
     Route::post('/governator/master/article/add', 'AdministrationController@addArticle');
     Route::post('/governator/master/event/add', 'AdministrationController@addEvent');
     Route::post('/governator/master/faq/add', 'AdministrationController@addFaq');
+    Route::post('/governator/master/user/add', 'AdministrationController@addUser');
+
+    //? routes d'édition Master
+    Route::post('/governator/master/theme/edit', 'AdministrationController@editTheme');
 
     //? Routes de suppression
     Route::get('/governator/delete/{model}/{id}', 'AdministrationController@deleteData');
-
-    //? Routes de modification
-    Route::get('/governator/edit/{category}/{model}/{id}', 'AdministrationController@editData');
-
 

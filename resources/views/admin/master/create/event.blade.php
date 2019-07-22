@@ -14,7 +14,7 @@
         <label for="structure">Structure de l'action</label>
         <select name="structure_id" id="structure">
             <option value="">- Selectionnez une structure -</option>
-            @foreach($structures as $structure)
+            @foreach($data['structure'] as $structure)
             <option {{ old('structure_id') == $structure->id ? 'selected' : '' }} value="{{ $structure->id }}">{{ $structure->name }} - {{ $structure->commune->nom_commune }}</option>
             @endforeach
         </select>
