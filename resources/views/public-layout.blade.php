@@ -45,6 +45,8 @@
         <a href="{{ route('partenaire') }}" class="head-link">Le groupe Passerelle</a>
         <a href="{{ route('map') }}" class="head-link">Cartographie</a>
         <a href="{{ route('engagements') }}" class="head-link">Nos engagements</a>
+        <a href="{{ route('mentions-legales') }}" class="head-link">Mentions Legales</a>
+        <a href="{{ route('mixity') }}" class="head-link">Mixité</a>
     </div>
     <div class="lateral-body">
 

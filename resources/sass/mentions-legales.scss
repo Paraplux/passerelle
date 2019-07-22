@@ -1,0 +1,29 @@
+@import './variables.scss';
+@import './keyword-section.scss';
+@import './navigation.no-transparent.scss';
+
+.content{
+    margin-right: 10%;
+    margin-left: 10%;
+    .title{
+        text-align: center;
+        color: $blue;
+                 
+    }
+    hr{
+        background-color: $orange;
+        height: 5px;
+        margin-top: -15px;
+        width: 80%;
+    }
+    
+    h2{
+        color: $orange;    
+        margin-left: -7%;
+    }
+    
+    h3{
+        color: $blue;    
+        margin-left: -3%;
+    }
+}
