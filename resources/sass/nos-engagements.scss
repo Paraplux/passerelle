@@ -108,18 +108,18 @@ body{
     }
 
     .banner-container {
-        width: 150%;
-        margin-left: -25%;
+        width: 180%;
+        margin-left: -40%;
         position: relative;
         object-fit: cover;
 
         .title-top{
             top: 5px;
-            transform: translateX(-20%);
+            transform: translateX(-17%);
         }
         .title-bot{
             bottom: 12px;
-            transform: translateX(22%);
+            transform: translateX(18%);
         }
     }
 
@@ -134,6 +134,7 @@ body{
             width: 100%;
         }
         p{
+            padding: 0;
             width: 100%;
             font-size: 1rem;
             text-align: justify;
@@ -192,7 +193,7 @@ body{
     }
     
     .article{
-        padding: 30px;
+        padding: 5px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -202,8 +203,9 @@ body{
         }
         p{
             width: 100%;
-            font-size: 1.5rem;
+            font-size: 1rem;
             text-align: justify;
+            padding: 0;
         }
         i {
             text-align: center;
@@ -220,7 +222,8 @@ body{
             order:1;
             border-left: none;
             padding-left: 15px;
-            font-size: 1.5rem;
+            font-size: 1rem;
+            padding: 0;
         }
         i {
             order:1;
@@ -235,8 +238,8 @@ body{
         p {
             order:1;
             border-left: none;
-            padding-left: 15px;
-            font-size: 1.5rem;
+            padding: 0;
+            font-size: 1rem;
         }
         i {
             order: 1;

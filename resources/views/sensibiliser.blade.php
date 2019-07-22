@@ -4,6 +4,12 @@
 
 @section('style')
 <link rel="stylesheet" href="/css/sensibiliser.css">
+<link rel="stylesheet" href="/css/carousel.css">
+<link rel="stylesheet" href="/css/keyword-section.css">
+<link rel="stylesheet" href="/css/dynamic-post.css">
+<link rel="stylesheet" href="/css/calendar.css">
+<link rel="stylesheet" href="/css/partenaires-slider.css">
+<link rel="stylesheet" href="/css/navigation.no-transparent.css">
 @endsection
 
 @section('content')

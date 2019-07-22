@@ -50,7 +50,7 @@
     }
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 600px) {
     .footer {
         flex-wrap: wrap;
     
@@ -61,7 +61,38 @@
     
         .navigation {
             width: 100%;
-            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+    
+            div {
+                width: 30%;
+            }
+
+            div:nth-child(1) {
+                text-align: left;
+            }
+            div:nth-child(3) {
+                text-align: right;
+            }
+    
+            a {
+                font-size: 1rem;
+                margin: 5px;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 420px) {
+    .footer {
+        flex-wrap: wrap;
+    
+        .navigation {
+    
+            a {
+                font-size: .7rem;
+            }
         }
     }
 }
