@@ -23,10 +23,3 @@ $(function() {
         $('input[value="' + tag + '"]').remove()
     })
 })
-
-
-
-
-let twitter = document.querySelector('.fa-twitter').parentNode.parentNode
-
-twitter.setAttribute('href') = 'ofezfopzejf'

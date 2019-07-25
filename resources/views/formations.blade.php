@@ -23,20 +23,20 @@
             <img src="/images/icons/search.png" alt="">
         </div>
     </div>
-    @if(isset($search))
-    <div class="formations-content">
-        @if(count($search) === 0)
-        <h2 id="searchResults" class="title-3">La recherche "<strong>{{ $query }}</strong>" n'a donné aucun résultat, affinez votre recherche ou jetez un oeil à notre contenu de formations ci dessous.</h2>
-        @else 
-        <h2 id="searchResults" class="title-3">Résultats pour : "{{ $query }}"</h2>
-        @endif
-        @foreach($search as $result)
-        <p>{{ $result->name }} -> <a href="/formation/{{ $result->id }}">Voir la fiche</a></p>
-        @endforeach
-    </div>
-    @endif
     <div class="section">
         <div class="section-main">
+                @if(isset($fiches))
+                <div class="formations-content scroll-anchor">
+                    @if(count($fiches) === 0)
+                    <h2 id="searchResults" class="title-3">La recherche "<strong>{{ $query }}</strong>" n'a donné aucun résultat, affinez votre recherche ou jetez un oeil à notre contenu de formations ci dessous.</h2>
+                    @else 
+                    <h2 id="searchResults" class="title-3">Résultats pour : "{{ $query }}"</h2>
+                    @endif
+                    @foreach($fiches as $fiche)
+                    <p>{{ $fiche->name }} -> <a href="/formation/{{ $fiche->id }}">Voir la fiche</a></p>
+                    @endforeach
+                </div>
+                @endif
             <div class="section-article">
                 <img src="/images/template/background-1.jpg" alt="">
                 <div class="section-article-text">
@@ -45,24 +45,18 @@
                 </div>
             </div>
             <div class="dynamic-post-container" id="carousel-communication">
-                <div class="dynamic-post event">
+                @foreach($articles as $article)
+                <div class="dynamic-post">
                     <div class="post-content">
-                        <h3 class="title-4 text-italic">Titre de l'événement</h3>
-                        <p class="text-main">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa harum quam ullam corrupti, nobis abodit ipsa! Est corrupti voluptates consectetur, expedita eius facere saepe quam nostrum quos.</p>
+                        <h3 class="title-4 text-italic">{{ $article->title }}</h3>
+                        <p class="text-main">{!! $article->getExtrait() !!}</p>
+                        <a href="/article/{{ $article->id }}" class="text-muted">Lire la suite...</a>
                     </div>
                     <div class="post-thumb">
-                        <img src="/images/landscape01.jpg" alt="">
+                        <img src="{{ $article->thumb_1 }}" alt="">
                     </div>
                 </div>
-                <div class="dynamic-post news">
-                    <div class="post-content">
-                        <h3 class="title-4 text-italic">Titre de l'actualité</h3>
-                        <p class="text-main">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa harum quam ullam corrupti, nobis aboditipsa! Est corrupti voluptates consectetur,expedita eius facesaepe quam nostrum quos repellat.</p>
-                    </div>
-                    <div class="post-thumb">
-                        <img src="/images/landscape02.jpg" alt="">
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div> <!-- /div.section-main -->
         

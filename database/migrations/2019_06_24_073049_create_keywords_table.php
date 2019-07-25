@@ -16,6 +16,8 @@ class CreateKeywordsTable extends Migration
         Schema::create('keywords', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->text('survol');
+            $table->text('clique');
             $table->string('thumb');
             $table->timestamps();
         });

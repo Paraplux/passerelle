@@ -19,7 +19,7 @@ crossorigin=""/>
     <div class="fiche-head">
         <div class="title-1">
             <div class="libelle-1">{{ $fiche->name }}</div>
-            <div class="libelle-2">{{ $fiche->branche->name }}</div>
+            <div class="libelle-2">{{ $fiche->secteur->name }}</div>
         </div>
         <div class="structure">
             <img src="{{ $fiche->structure->logo }}" alt="">

@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Commune;
+use App\Contenu;
 use App\Event;
 use App\Faq;
 use App\Fiche;
+use App\Keyword;
 use App\Label;
 use App\Partenaire;
 use App\Question;
@@ -41,6 +43,7 @@ class AdministrationRepository {
         } else if(request('model') === 'article') {
             $data['article'] = Article::all();
             $data['tag'] = Tag::all();
+            $data['keyword'] = Keyword::all();
 
         } else if(request('model') === 'event') {
             $data['event'] = Event::all();
@@ -60,6 +63,8 @@ class AdministrationRepository {
 
         } else if(request('model') === 'user') {
             $data['user'] = User::all();
+        } else if(request('model') === 'theme') {
+            $data['contenu'] = Contenu::all()[0];
         }
 
         return $data;
@@ -119,7 +124,7 @@ class AdministrationRepository {
         return $status;
     }
 
-    public function editData($model, $id)
+    public function editData($model, $id, $request)
     {
         if(request('model') === 'partenaire') {
             $data['partenaire'] = Partenaire::findOrFail($id);

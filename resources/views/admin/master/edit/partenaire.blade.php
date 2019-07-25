@@ -24,6 +24,12 @@
     </div>
     <div class="form-group">
         <label for="city">Ville & Code Postal</label>
+        <input type="hidden"
+        name="commune_edit_value" 
+        id="commune_edit_value"
+        data-placeholder="{{ $data['partenaire']->commune->nom_commune }}, {{ $data['partenaire']->commune->code_postale }}"
+        data-value="{{ $data['partenaire']->commune->id }}"
+        value="{{ $data['partenaire']->commune->id }}">
         <input  data-data="/json/communes.json"
                 data-search-in='nom_commune'
                 data-visible-properties='["nom_commune","code_postale"]'
@@ -31,7 +37,7 @@
                 data-value-property='id',
                 data-text-property="{nom_commune}, {code_postale}"
                 data-min-length="1"
-                class="flexdatalist" type="text" name="commune_id" placeholder="Ville, CP..." id="commune_id" ><br>
+                class="flexdatalist" type="text" name="commune_id" placeholder="Ville, CP..." id="commune_id"><br>
     </div>
     <div class="form-group choice">
         <p>Signataire <input {{ $data['partenaire']->type === "signataire" ? 'checked' : '' }} type="radio" name="type" value="signataire"></p>
@@ -42,5 +48,5 @@
         <input type="file" name="logo" id="logo"><br>
     </div>
     
-    <button type="submit">Ajouter</button>
+    <button type="submit">Modifier</button>
 </form>

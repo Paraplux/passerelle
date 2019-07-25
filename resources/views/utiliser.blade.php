@@ -38,24 +38,18 @@
                     </div>
                 </div>
                 <div class="dynamic-post-container" id="carousel-communication">
-                    <div class="dynamic-post event">
-                        <div class="post-content">
-                            <h3 class="title-4 text-italic">Titre de l'événement</h3>
-                            <p class="text-main">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa harum quam ullam corrupti, nobis abodit ipsa! Est corrupti voluptates consectetur, expedita eius facere saepe quam nostrum quos.</p>
+                    @foreach($articles as $article)
+                        <div class="dynamic-post">
+                            <div class="post-content">
+                                <h3 class="title-4 text-italic">{{ $article->title }}</h3>
+                                <p class="text-main">{!! $article->getExtrait() !!}</p>
+                                <a href="/article/{{ $article->id }}" class="text-muted">Lire la suite...</a>
+                            </div>
+                            <div class="post-thumb">
+                                <img src="{{ $article->thumb_1 }}" alt="">
+                            </div>
                         </div>
-                        <div class="post-thumb">
-                            <img src="/images/landscape01.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="dynamic-post news">
-                        <div class="post-content">
-                            <h3 class="title-4 text-italic">Titre de l'actualité</h3>
-                            <p class="text-main">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa harum quam ullam corrupti, nobis aboditipsa! Est corrupti voluptates consectetur,expedita eius facesaepe quam nostrum quos repellat.</p>
-                        </div>
-                        <div class="post-thumb">
-                            <img src="/images/landscape02.jpg" alt="">
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div> <!-- /div.section-main -->
             

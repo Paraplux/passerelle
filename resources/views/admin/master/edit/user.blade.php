@@ -32,5 +32,5 @@
         <p>Classique <input {{ $data['user']->role === "manager" ? 'checked' : '' }} type="radio" name="role" value="manager"></p>
     </div>
     
-    <button type="submit">Ajouter</button>
+    <button type="submit">Modifier</button>
 </form>

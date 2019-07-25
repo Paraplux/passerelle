@@ -50,7 +50,7 @@
         <select name="structure_id" id="structure">
             <option value="">- Selectionnez une structure -</option>
             @foreach($data['structure'] as $structure)
-            <option {{ {{ $data['fiche']->structure_id }} == $structure->id ? 'selected' : '' }} value="{{ $structure->id }}">{{ $structure->name }} - {{ $structure->commune->nom_commune }}</option>
+            <option {{ $data['fiche']->structure_id == $structure->id ? 'selected' : '' }} value="{{ $structure->id }}">{{ $structure->name }} - {{ $structure->commune->nom_commune }}</option>
             @endforeach
         </select>
     </div>
@@ -59,7 +59,7 @@
         <p class="text-muted"><i class="fas fa-exclamation-circle"></i> Vous pouvez selectionner plusieurs labels ! </p>
         <select multiple name="label_id" id="">
             @foreach($data['label'] as $label)
-            <option {{ {{ $data['fiche']->label_id }} == $label->id ? 'selected' : '' }} style="padding:10px 0 10px 50px; background-image: url({{ $label->logo }});" value="{{ $label->id }}">{{ $label->name }}</option>
+            <option {{ $data['fiche']->label_id == $label->id ? 'selected' : '' }} style="padding:10px 0 10px 50px; background-image: url({{ $label->logo }});" value="{{ $label->id }}">{{ $label->name }}</option>
             @endforeach
         </select>
     </div>

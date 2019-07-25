@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Tag;
 use App\ArticleTag;
+use App\Keyword;
 use Nicolaslopezj\Searchable\SearchableTrait;
 
 class Article extends Model
@@ -39,11 +40,16 @@ class Article extends Model
         'author',
         'thumb_1',
         'thumb_2',
+        'keyword_id',
         'updated_by',
     ];
     
     public function tags() {
         return $this->belongsToMany('App\Tag');
+    }
+
+    public function keyword () {
+        return $this->belongsTo('App\Keyword');
     }
 
     public function getDate($format)

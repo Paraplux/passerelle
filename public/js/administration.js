@@ -96,16 +96,7 @@ $(function(){
     toggleSecteur();
 
 
-    //TAG
-
-    let oldTag = "{{ old('taginput') ?? '' }}";
-
-    if(oldTag != "") {
-        $('.input[name="taginput"]').val(oldTag);
-
-        oldTagArray = oldTag.split(',')
-        oldTagArray.forEach(function(elem) {
-            $('input[name="taginput"]').parent().insertBefore('<li class="value"><span class="text">' + elem + '</span><span class="remove">×</span></li>', $('input[name="taginput"]').parent().find('.input-container'))
-        })
-    }
+    $('#commune_id-flexdatalist').attr('placeholder', $('#commune_edit_value').attr('data-placeholder'));
+    $('#commune_id-flexdatalist').val($('#commune_edit_value').attr('data-value'));
+    $('#commune_id').val($('#commune_edit_value').attr('data-value'));
 })

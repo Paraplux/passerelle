@@ -52,7 +52,7 @@ class Fiche extends Model
         return $this->belongsTo('App\Structure');
     }
 
-    public function branche() {
+    public function secteur() {
         return $this->belongsTo('App\Secteur');
     }
 

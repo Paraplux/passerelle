@@ -21,16 +21,22 @@ class FormationController extends Controller
         $events = $this->repository->getEvents();
         $content = Contenu::firstOrFail()->get();
 
+        $articles = $this->repository->getArticles()->where('keyword_id', 2)->shuffle();
+        if($articles->count() > 3){
+            $articles = $articles->slice(0, 3);
+        }
+
         return view('formations', [
             'events' => $events,
             'content' => $content[0],
+            'articles' => $articles,
         ]);
     }
 
     public function getFormation ()
     {
         $id = request('id');
-        $fiche = Fiche::where('id', $id)->first();
+        $fiche = Fiche::where('id', $id)->firstOrFail();
         
         return view('gabarit-fiche', [
             'fiche' => $fiche
@@ -40,15 +46,21 @@ class FormationController extends Controller
 
     public function search()
     {
-        $search = Fiche::search(request('query'))->get()->all();
         $content = Contenu::firstOrFail()->get();
+        $fiches = Fiche::search(request('query'))->get()->all();
         $events = $this->repository->getEvents();
+
+        $articles = $this->repository->getArticles()->where('keyword_id', 2)->shuffle();
+        if($articles->count() > 3){
+            $articles = $articles->slice(0, 3);
+        }
 
         return view('formations', [
             'query' => request('query'),
-            'search' => $search,
+            'content' => $content[0],
+            'fiches' => $fiches,
             'events' => $events,
-            'content' => $content,
+            'articles' => $articles,
         ]);
     }
 }

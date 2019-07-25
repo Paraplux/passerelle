@@ -22,6 +22,12 @@
     </div>
     <div class="form-group">
         <label for="commune_id">Ville</label>
+        <input type="hidden"
+        name="commune_edit_value" 
+        id="commune_edit_value"
+        data-placeholder="{{ $data['structure']->commune->nom_commune }}, {{ $data['structure']->commune->code_postale }}"
+        data-value="{{ $data['structure']->commune->id }}"
+        value="{{ $data['structure']->commune->id }}">
         <input  data-data="/json/communes.json"
                 data-search-in='nom_commune'
                 data-visible-properties='["nom_commune","code_postale"]'
@@ -35,5 +41,5 @@
         <label for="logo">Logo de la structure</label>
         <input type="file" name="logo" id="logo">
     </div>
-    <button type="submit">Ajouter</button>
+    <button type="submit">Modifier</button>
 </form>

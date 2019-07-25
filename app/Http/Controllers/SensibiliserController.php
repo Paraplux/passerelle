@@ -17,10 +17,16 @@ class SensibiliserController extends Controller
     {
         $partenaires = Partenaire::all()->shuffle();
         $events = $this->repository->getEvents();
+        
+        $articles = $this->repository->getArticles()->where('keyword_id', 1)->shuffle();
+        if($articles->count() > 3){
+            $articles = $articles->slice(0, 3);
+        }
 
         return view('sensibiliser', [
             'events' => $events,
-            'partenaires' => $partenaires
+            'partenaires' => $partenaires,
+            'articles' => $articles
         ]);
     }
 }

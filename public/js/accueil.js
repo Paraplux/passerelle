@@ -30,6 +30,14 @@ new Carousel(document.querySelector('#carousel-communication'), {
     navigation: false
 })
 
+new Carousel(document.querySelector('#carousel-formations'), {
+    slidesVisible: 2,
+    slidesToScroll: 1,
+    touch: true,
+    pagination: false,
+    navigation: false
+})
+
 
 $a = $('.formations-tile').width();
 $b = $('.feature-body').height();

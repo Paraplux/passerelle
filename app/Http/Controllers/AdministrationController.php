@@ -101,6 +101,7 @@ class AdministrationController extends Controller
         $structures = '';
         $secteurs = '';
         $tags = '';
+        $keywords = '';
         if(request('model') === 'fiche') {
             $model = 'fiche';
             $labels = Label::all();
@@ -109,6 +110,7 @@ class AdministrationController extends Controller
         } else if(request('model') === 'article') {
             $model = 'article';
             $tags = Tag::all();
+            $keywords = Keyword::all();
         } else if(request('model') === 'event') {
             $model = 'event';
             $structures = Structure::all();
@@ -120,7 +122,8 @@ class AdministrationController extends Controller
             'labels' => $labels,
             'structures' => $structures,
             'secteurs' => $secteurs,
-            'tags' => $tags
+            'tags' => $tags,
+            'keywords' => $keywords
         ]);
     }
 
@@ -161,8 +164,7 @@ class AdministrationController extends Controller
     public function masterEdit()
     {
 
-        $data = $this->repository->editData(request('model'), request('id'));
-
+        $data = $this->repository->editData(request('model'), request('id'), null);
 
         return view('admin.master.edit', [
             'id' => request('id'),
@@ -175,9 +177,18 @@ class AdministrationController extends Controller
     public function masterSave(Request $request)
     {
 
-        $data = $this->repository->editData(request('model'), request('id'));
+        
 
+        $data = $this->repository->editData(request('model'), request('id'), $request);
         $data = $data[request('model')];
+        if(request('model') === 'partenaire' || request('model') === 'structure') {
+
+            if($request->input('commune_id') === NULL) {
+                $newValue = $request->input('commune_edit_value');
+                $request->merge(['commune_id' => $newValue]);
+            }
+        }
+
         $data->fill($request->input())->save();
 
         return back();
@@ -399,7 +410,8 @@ class AdministrationController extends Controller
             'title' => 'required',
             'content' => 'required',
             'author' => 'required',
-            'thumb_1' => 'required'
+            'thumb_1' => 'required',
+            'keyword_id' => 'required',
         ]);
 
         $userTags = request('tags');
@@ -442,6 +454,7 @@ class AdministrationController extends Controller
             'title' => request('title'),
             'content' => request('content'),
             'author' => request('author'),
+            'keyword_id' => request('keyword_id'),
             'thumb_1' => $thumb1link,
             'thumb_2' => $thumb2link
         ]);

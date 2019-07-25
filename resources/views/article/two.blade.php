@@ -29,7 +29,7 @@
    
  
 <div class="article-side-content">
-        @for($i = 0; $i < 3; $i++)
+        @for($i = 0; $i < 2; $i++)
             <div class="article-annexe-{{ $i + 1 }}">
                 <h2 class="title-4">{{ $lastArticles[$i]->title }}</h2>
                 <p class="text-muted">{!! $lastArticles[$i]->getExtrait(100) !!}</p>

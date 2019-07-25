@@ -15,6 +15,15 @@
         <textarea id="article_ckeditor" name="content">{{ old('content') }}</textarea>
     </div>
     <div class="form-group">
+        <label for="keyword_id">Verbe d'action traité par l'article</label>
+        <select name="keyword_id" id="keyword_id">
+            <option value="">- Selectionnez un verbe d'action -</option>
+            @foreach($data['keyword'] as $keyword)
+            <option {{ old('keyword_id') == $keyword->id ? 'selected' : '' }} value="{{ $keyword->id }}">{{ $keyword->name }}</option>
+            @endforeach
+        </select>
+    </div>
+    <div class="form-group">
         <label for="thumb_1">Illustration 1</label>
         <input type="file" name="thumb_1">
         <label for="thumb_2">Illustration 2</label>

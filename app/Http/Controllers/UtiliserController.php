@@ -15,8 +15,14 @@ class UtiliserController extends Controller
     public function index(AccueilRepository $repository) {
         $events = $this->repository->getEvents();
 
+        $articles = $this->repository->getArticles()->where('keyword_id', 6)->shuffle();
+        if($articles->count() > 3){
+            $articles = $articles->slice(0, 3);
+        }
+
         return view('utiliser', [
-            'events' => $events
+            'events' => $events,
+            'articles' => $articles,
         ]);
     }
 }
