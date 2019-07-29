@@ -8,3 +8,12 @@
 	</ul>
 </div>
 @endif
+
+@if (\Session::has('success'))
+<div class="alert alert-success alert-block">
+	<button type="button" class="close" data-dismiss="alert"><i class="fa fa-times" aria-hidden="true"></i></button>	
+    <ul>
+        <li>{!! \Session::get('success') !!}</li>
+	</ul>
+</div>
+@endif

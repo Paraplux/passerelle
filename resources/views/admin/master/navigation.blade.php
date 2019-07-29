@@ -21,7 +21,7 @@
         <p>Personnalisation</p>
         <a class="text-muted" href="/governator/master/keyword/list">Verbes d'action</a>
         <a class="text-muted" href="/governator/master/theme/list">Thème</a>
-        <a class="text-muted" href="/governator/master/engagement">Charte d'engagements</a>
+        <a class="text-muted" href="/governator/master/engagement/list">Charte d'engagements</a>
     </div>
     <div class="navigation-group">
         <p>Administration</p>

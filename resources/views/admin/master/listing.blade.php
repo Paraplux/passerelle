@@ -31,7 +31,7 @@
     @elseif($model === 'theme')
         @include('admin.master.listing.theme')
     @elseif($model === 'engagement')
-        @include('admin.master.listing.engagement')
+        @include('admin.master.listing.charte')
     @elseif($model === 'user')
         @include('admin.master.listing.user')
     @endif

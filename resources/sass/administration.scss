@@ -168,7 +168,7 @@
 
     .listing-container {
         width: calc(80% - 300px);
-        margin: auto;
+        margin-left: 30%;
         padding-top: 5rem;
         padding-bottom: 5rem;
         table {
@@ -194,7 +194,7 @@
 
     .create-container {
         width: calc(80% - 300px);
-        margin: auto;
+        margin-left: 30%;
         padding-top: 5rem;
         padding-bottom: 5rem;
         form {
@@ -255,7 +255,9 @@
                 #cke_event_ckeditor,
                 #cke_theme_ckeditor_1,
                 #cke_theme_ckeditor_2,
-                #cke_theme_ckeditor_3 {
+                #cke_theme_ckeditor_3,
+                #cke_charte_ckeditor_1,
+                #cke_charte_ckeditor_2 {
                     border-radius: 5px;
                     border: none;
                     border: 1px solid rgba($dark, 0.3);
@@ -287,7 +289,9 @@
                 #cke_event_ckeditor,
                 #cke_theme_ckeditor_1,
                 #cke_theme_ckeditor_2,
-                #cke_theme_ckeditor_3 {
+                #cke_theme_ckeditor_3,
+                #cke_charte_ckeditor_1,
+                #cke_charte_ckeditor_2 {
                     width: 100%;
                 }
 

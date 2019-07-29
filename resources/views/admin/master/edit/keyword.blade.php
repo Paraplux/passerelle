@@ -1,4 +1,4 @@
-<form action="/governator/master/label/add" method="POST" enctype="multipart/form-data">
+<form action="/governator/master/{{ $model }}/edit/{{ $id }}" method="POST" enctype="multipart/form-data">
 {{ csrf_field() }}
     <div class="form-group">
         <label for="name">Nom du verbe d'action</label>

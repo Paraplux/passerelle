@@ -161,6 +161,9 @@ class AdministrationController extends Controller
 
     }
 
+    /**
+     * Return the edition view with de data needed
+     */
     public function masterEdit()
     {
 
@@ -174,6 +177,9 @@ class AdministrationController extends Controller
 
     }
 
+    /**
+     * Save the changes within the database
+     */
     public function masterSave(Request $request)
     {
 
@@ -181,6 +187,8 @@ class AdministrationController extends Controller
 
         $data = $this->repository->editData(request('model'), request('id'), $request);
         $data = $data[request('model')];
+
+        //Modèles qui requiert un changement de ville
         if(request('model') === 'partenaire' || request('model') === 'structure') {
 
             if($request->input('commune_id') === NULL) {
@@ -189,7 +197,60 @@ class AdministrationController extends Controller
             }
         }
 
-        $data->fill($request->input())->save();
+        //Modèles qui requiert un changement de thumb
+        if(request('model') === 'partenaire' || request('model') === 'label' || request('model') === 'structure' || request('model') === 'article') {
+
+            if(count($request->file()) > 0) {
+
+                if($request->file('thumb')) {
+                    $thumb = new UploadFile($request->file('logo')->path());
+                    if ($thumb->uploaded) {
+                        $thumbsha1 = 'thumb_' . sha1(base64_encode(openssl_random_pseudo_bytes(30)));
+                        $thumb->file_new_name_body = $thumbsha1;
+                        $thumb->image_resize = true;
+                        $thumb->image_x = 1200;
+                        $thumb->image_convert = 'jpg';
+                        $thumb->image_ratio_y = true;
+                        $thumb->Process('../public/images/thumbs/');
+                        $request->request->add(['logo' => '/images/thumbs/' . $thumbsha1 . '.jpg']);
+    
+                        if ($thumb->processed) {
+                            $thumb->Clean();
+                        }
+                    }
+                }
+
+                if($request->file('logo')) {
+                    $thumb = new UploadFile($request->file('logo')->path());
+                    if ($thumb->uploaded) {
+                        $thumbsha1 = 'thumb_' . sha1(base64_encode(openssl_random_pseudo_bytes(30)));
+                        $thumb->file_new_name_body = $thumbsha1;
+                        $thumb->image_resize = true;
+                        $thumb->image_x = 1200;
+                        $thumb->image_convert = 'jpg';
+                        $thumb->image_ratio_y = true;
+                        $thumb->Process('../public/images/logos/');
+                        $request->request->add(['logo' => '/images/logos/' . $thumbsha1 . '.jpg']);
+    
+                        if ($thumb->processed) {
+                            $thumb->Clean();
+                        }
+                    }
+                }
+            }
+
+            //Cas particulier de l'article avec deux thumbs
+            if(request('model') === 'article') {
+
+            }
+
+        }
+
+        $status = $data->fill($request->input())->save();
+
+        if($status == TRUE) {
+            return back()->with('success', 'Les modifications ont été prises en compte');
+        }
 
         return back();
         
@@ -316,13 +377,16 @@ class AdministrationController extends Controller
         $id = request('id');
         $input = $this->repository->editData($model, $id);
 
+        dd($input);
         $panel = "admin.manager.create.$model";
+
+
         return view($panel, [
             'model' => $model,
             'labels' => $labels,
             'structures' => $structures,
             'secteurs' => $secteurs,
-            'tags' => $tags
+            'tags' => $tags,
         ]);
     }
 
@@ -473,7 +537,7 @@ class AdministrationController extends Controller
         }
 
 
-        return back();
+        return back()->with('success', "L'article a bien été ajouté.");
     }
 
     public function addEvent()
@@ -496,7 +560,7 @@ class AdministrationController extends Controller
             'date_end' => request('date_end')
         ]);
 
-        return back();
+        return back()->with('success', "L'évènement a bien été créé.");
 
     }
 
@@ -517,8 +581,8 @@ class AdministrationController extends Controller
             $logo->image_x = 400;
             $logo->image_convert = 'png';
             $logo->image_ratio_y = true;
-            $logo->Process('../public/images/labels/logos');
-            $logolink = '/images/labels/logos/' . $logosha1 . '.png';
+            $logo->Process('../public/images/logos');
+            $logolink = '/images/logos/' . $logosha1 . '.png';
             if ($logo->processed) {
                 $logo->Clean();
             }
@@ -530,7 +594,7 @@ class AdministrationController extends Controller
             'logo' => $logolink
         ]);
 
-        return back();
+        return back()->with('success', "Le label a bien été créé.");
     }
 
     public function addStructure()
@@ -554,8 +618,8 @@ class AdministrationController extends Controller
             $logo->image_x = 400;
             $logo->image_convert = 'png';
             $logo->image_ratio_y = true;
-            $logo->Process('../public/images/labels/logos');
-            $logolink = '/images/labels/logos/' . $logosha1 . '.png';
+            $logo->Process('../public/images/logos');
+            $logolink = '/images/logos/' . $logosha1 . '.png';
             if ($logo->processed) {
                 $logo->Clean();
             }
@@ -571,7 +635,7 @@ class AdministrationController extends Controller
             'commune_id' => intval(request('commune_id'))
         ]);
 
-        return back();
+        return back()->with('success', "La structure a bien été créée.");
     }
 
     public function addSecteur()
@@ -585,7 +649,7 @@ class AdministrationController extends Controller
             'name' => request('name')
         ]);
 
-        return back();
+        return back()->with('success', "Le secteur d'activité a bien été créé.");
     }
 
     public function addFaq()
@@ -600,7 +664,7 @@ class AdministrationController extends Controller
             'reponse' => request('reponse')
         ]);
 
-        return back();
+        return back()->with('success', "Lea question F.A.Q a bien été créée.");
     }
 
     public function addPartenaire()
@@ -623,8 +687,8 @@ class AdministrationController extends Controller
             $logo->image_x = 400;
             $logo->image_convert = 'png';
             $logo->image_ratio_y = true;
-            $logo->Process('../public/images/partenaires/logos');
-            $logolink = '/images/partenaires/logos/' . $logosha1 . '.png';
+            $logo->Process('../public/images/logos');
+            $logolink = '/images/logos/' . $logosha1 . '.png';
             if ($logo->processed) {
                 $logo->Clean();
             }
@@ -641,6 +705,6 @@ class AdministrationController extends Controller
             'type' => request('type')
         ]);
 
-        return back();
+        return back()->with('success', "Le partenaire d'activité a bien été créé.");
     }
 }

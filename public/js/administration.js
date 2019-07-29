@@ -18,6 +18,9 @@ $(function(){
     ckeditor('theme_ckeditor_1');
     ckeditor('theme_ckeditor_2');
     ckeditor('theme_ckeditor_3');
+    ckeditor('charte_ckeditor_1');
+    ckeditor('charte_ckeditor_2');
+
 
     // RANDOM
     $('.alert .close').on('click', function() {

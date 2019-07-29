@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Article;
 use App\Commune;
 use App\Contenu;
+use App\Engagement;
 use App\Event;
 use App\Faq;
 use App\Fiche;
@@ -59,7 +60,7 @@ class AdministrationRepository {
             $data['keyword'] = Keyword::all();
 
         } else if(request('model') === 'engagement') {
-            $data['engagement'] = Engagement::all();
+            $data['engagement'] = Engagement::all()[0];
 
         } else if(request('model') === 'user') {
             $data['user'] = User::all();
