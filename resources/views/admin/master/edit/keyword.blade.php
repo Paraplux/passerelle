@@ -16,5 +16,5 @@
         <label for="thumb">Illustration du verbe d'action à utiliser pour les fiches : </label>
         <input type="file" name="thumb" id="thumb">
     </div>
-    <button type="submit">Modifier</button>
+    <button type="submit">Mettre à jour</button>
 </form>

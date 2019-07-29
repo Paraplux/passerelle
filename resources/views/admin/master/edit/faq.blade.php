@@ -8,5 +8,5 @@
         <label for="faq_ckeditor">Réponse</label>
         <textarea name="reponse" id="faq_ckeditor">{{ $data['faq']->reponse }}</textarea>
     </div>
-    <button type="submit">Ajouter la question</button>
+    <button type="submit">Mettre à jour</button>
 </form>

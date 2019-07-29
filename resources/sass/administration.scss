@@ -167,8 +167,8 @@
     }
 
     .listing-container {
-        width: calc(80% - 300px);
-        margin-left: 30%;
+        width: calc(90% - 300px);
+        margin-left: 25%;
         padding-top: 5rem;
         padding-bottom: 5rem;
         table {
@@ -193,8 +193,8 @@
     }
 
     .create-container {
-        width: calc(80% - 300px);
-        margin-left: 30%;
+        width: calc(90% - 300px);
+        margin-left: 25%;
         padding-top: 5rem;
         padding-bottom: 5rem;
         form {
@@ -391,6 +391,15 @@
 
     }
 
+    
+
+    @media all and (max-width: 1000px) {
+        .listing-container, .create-container {
+            width: 90%;
+            margin-left: 5%;
+        }
+    }
+
     .master-navbar {
         position: fixed;
         top: 0;
@@ -411,7 +420,8 @@
     }
 
     .toggle-navigation {
-        font-size: 2rem;
+        display: none;
+        font-size: 1.5rem;
         padding: 5px;
         position: absolute;
         right: 1%;
@@ -424,6 +434,21 @@
             transform: rotate(180deg);
         }
     }
+
+    @media all and (max-width: 1000px) {
+        .master-navbar {
+            left: -250px;
+        }
+    
+        .toggle-navigation {
+            display: block;
+    
+            i {
+                transform: rotate(0deg);
+            }
+        }
+    }
+
     .navigation-group {
         display: flex;
         flex-direction: column;

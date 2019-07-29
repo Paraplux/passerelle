@@ -74,5 +74,5 @@
             <span><label for="duree">Durée (en heures)</label><input value="{{ $data['fiche']->duree }}" type="text" name="duree" id="duree"></span>
         </div>
     </div>
-    <button type="submit">Ajouter</button>
+    <button type="submit">Mettre à jour</button>
 </form>

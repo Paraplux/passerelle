@@ -9,7 +9,7 @@
     <a href="/governator/logout">Se déconnecter</a>
 </div>
 
-<div class="listing-container">
+<div style="width: 90%; margin-left: 5%;" class="listing-container">
     @if($model === 'fiche')
         @include('admin.manager.listing.fiche')
     @elseif($model === 'article')

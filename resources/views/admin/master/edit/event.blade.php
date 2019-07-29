@@ -25,5 +25,5 @@
             <span><label for="date">Date et heure de la fin</label><input value="{{{ $data['event']->date_end }}" type="datetime-local" name="date_end" id="date"></span>
         </div>
     </div>
-    <button type="submit">Publier</button>
+    <button type="submit">Mettre à jour</button>
 </form>

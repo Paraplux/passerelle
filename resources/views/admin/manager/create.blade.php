@@ -10,7 +10,7 @@
 
 @include('flash')
 
-<div class="create-container">
+<div style="width: 90%; margin-left: 5%;" class="create-container">
 
     @if($model === 'fiche')
         @include('admin.manager.create.fiche')
