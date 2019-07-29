@@ -65,11 +65,11 @@ if ( window.addEventListener ) {
         document.body.innerHTML = "<audio controls autoplay src='../images/GeorgeMichael.mp3'></audio>";
 
         document.body.style.backgroundColor = "#000";
-        document.body.style.backgroundSize = "20%";
+        document.body.style.backgroundSize = "40%";
         document.body.style.backgroundPosition = "center";
         document.body.style.backgroundRepeat = "no-repeat";
         document.body.style.overflow = "hidden";
-        document.body.style.backgroundImage = "url(./images/morphequeen.png)";
+        document.body.style.backgroundImage = "url(../images/mixity/Barry.gif)";
         var canvas = document.body.appendChild( document.createElement( 'canvas' ) ),
         context = canvas.getContext( '2d' );
     context.globalCompositeOperation = 'lighter';
@@ -77,7 +77,7 @@ if ( window.addEventListener ) {
     canvas.height = 1080;
     draw();
     
-    var textStrip = ['诶', '比', '西', '迪', '伊', '吉', '艾', '杰', '开', '哦', '屁', '提', '维'];
+    var textStrip = ['诶', '比', '西', '迪', '伊', '吉', '', '杰', '开', '哦', '屁', '提', '维'];
     
     var stripCount = 60, stripX = new Array(), stripY = new Array(), dY = new Array(), stripFontSize = new Array();
     

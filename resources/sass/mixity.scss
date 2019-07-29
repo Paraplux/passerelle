@@ -5,7 +5,7 @@
 @import './calendar.scss';
 
 body {
-    background-color: $blue;
+	background-color: #f9c814;
 }
 
 .mixity-page {
@@ -41,7 +41,6 @@ body {
         left: 0;
         right: 0;
         object-fit: cover;
-        filter: grayscale(0.2) opacity(0.9);
         pointer-events: none;
 	}
 	
@@ -88,6 +87,7 @@ body {
 	figure.effect-zoe h2 {
 		float: left;
 		margin-top: -6px;
+		font-size: 1.4rem;
 	}
 
 	figure.effect-zoe p.icon-links a {
@@ -110,6 +110,7 @@ body {
 		color: rgb(255, 255, 255);
 		text-transform: none;
 		font-size: 100%;
+		font-size: 90%;
 		opacity: 0;
 		-webkit-backface-visibility: hidden; /* Fix for Chrome 37.0.2062.120 (Mac) */
 		-webkit-transition: opacity 0.35s;
@@ -179,5 +180,34 @@ body {
 	figure.effect-zoe:hover p.icon-links a:first-child {
 		-webkit-transition-delay: 0.2s;
 		transition-delay: 0.2s;
+	}
+	
+
+	@media only screen and (max-width: 580px) {
+		figure.effect-zoe figcaption {
+			margin-top: -18%;
+		}
+		figure.effect-zoe p.icon-links a {
+			margin-top: -6%;
+		}
+		
+	}
+	@media only screen and (max-width: 420px) {
+		figure.effect-zoe figcaption {
+			margin-top: -22%;
+		}
+		figure.effect-zoe p.icon-links a {
+			margin-top: -10%;
+		}
+		
+	}
+	@media only screen and (max-width: 320px) {
+		figure.effect-zoe figcaption {
+			margin-top: -22%;
+		}
+		figure.effect-zoe p.icon-links a {
+			margin-top: -16%;
+		}
+		
 	}
 }

@@ -18,24 +18,22 @@
 				<figure class="effect-zoe">
                     <img class="image-mixity" src="/images/mixity/mixity-pdf-1.png" alt="">
 					<figcaption>
-						<h2>1er <span>PDF</span></h2>
+						<h2>Égalité Femme - Homme</h2>
 						<p class="icon-links">
-							<a href="/images/mixity/Barry.gif"><i class="fas fa-arrow-right"></i></a>
-							<a href="/images/mixity/Barry.gif" download="Barry.gif"><i class="fas fa-download"></i></a>
+							<a href="/mixity.pdf" target="_blank"><i class="fas fa-arrow-right"></i></a>
+							<a href="/mixity.pdf" download><i class="fas fa-download"></i></a>
 						</p>
-						<p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
 					</figcaption>			
                 </figure>
                 <figure class="effect-zoe">
                         <img class="image-mixity" src="/images/mixity/mixity-pdf-2.png" alt="">
                         <figcaption>
-                            <h2>2nd <span>PDF</span></h2>
+                            <h2>Egalité Femme - Homme 2</h2>
                             <p class="icon-links">
-                                <a href="/images/mixity/Barry.gif"><i class="fas fa-arrow-right"></i></a>
-                                <a href="/images/mixity/Barry.gif" download="Barry.gif"><i class="fas fa-download"></i></a>
+                                <a href="/mixity2.pdf" target="_blank"><i class="fas fa-arrow-right"></i></a>
+							    <a href="/mixity2.pdf" download><i class="fas fa-download"></i></a>
                                 
                             </p>
-                            <p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
                         </figcaption>			
                     </figure>
     </div>
