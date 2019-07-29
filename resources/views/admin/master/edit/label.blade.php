@@ -12,5 +12,5 @@
         <label for="logo">Logo du label</label>
         <input type="file" name="logo" id="logo">
     </div>
-    <button type="submit">Ajouter</button>
+    <button type="submit">Mettre à jour</button>
 </form>

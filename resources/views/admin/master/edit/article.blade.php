@@ -32,5 +32,5 @@
         </datalist>    
         <button id="addtag">Ajouter un tag</button>
     </div>
-    <button type="submit">Publier</button>
+    <button type="submit">Mettre à jour</button>
 </form>

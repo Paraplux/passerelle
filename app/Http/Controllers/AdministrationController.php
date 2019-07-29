@@ -197,13 +197,57 @@ class AdministrationController extends Controller
             }
         }
 
-        //Modèles qui requiert un changement de thumb
-        if(request('model') === 'partenaire' || request('model') === 'label' || request('model') === 'structure' || request('model') === 'article') {
+        //Modèles qui requiert un changement de logo (400px)
+        if(request('model') === 'partenaire' || request('model') === 'label' || request('model') === 'structure') {
+
+            if(count($request->file()) > 0) {
+
+                if($request->file('logo')) {
+                    $thumb = new UploadFile($request->file('logo')->path());
+                    if ($thumb->uploaded) {
+                        $thumbsha1 = 'logo_' . sha1(base64_encode(openssl_random_pseudo_bytes(30)));
+                        $thumb->file_new_name_body = $thumbsha1;
+                        $thumb->image_resize = true;
+                        $thumb->image_x = 400;
+                        $thumb->image_convert = 'png';
+                        $thumb->image_ratio_y = true;
+                        $thumb->Process('../public/images/logos/');
+                        $request->request->add(['logo' => '/images/logos/' . $thumbsha1 . '.png']);
+    
+                        if ($thumb->processed) {
+                            $thumb->Clean();
+                        }
+                    }
+                }
+            }
+
+        }
+
+        //Modèles qui requiert un changement d'illustration (1200px)
+        if(request('model') === 'article' || request('model') === 'keyword') {
 
             if(count($request->file()) > 0) {
 
                 if($request->file('thumb')) {
-                    $thumb = new UploadFile($request->file('logo')->path());
+                    $thumb = new UploadFile($request->file('thumb')->path());
+                    if ($thumb->uploaded) {
+                        $thumbsha1 = 'thumb_' . sha1(base64_encode(openssl_random_pseudo_bytes(30)));
+                        $thumb->file_new_name_body = $thumbsha1;
+                        $thumb->image_resize = true;
+                        $thumb->image_x = 400;
+                        $thumb->image_convert = 'png';
+                        $thumb->image_ratio_y = true;
+                        $thumb->Process('../public/images/thumbs/');
+                        $request->request->add(['thumb' => '/images/thumbs/' . $thumbsha1 . '.png']);
+
+                        if ($thumb->processed) {
+                            $thumb->Clean();
+                        }
+                    }
+                }
+
+                if($request->file('thumb_1')) {
+                    $thumb = new UploadFile($request->file('thumb_1')->path());
                     if ($thumb->uploaded) {
                         $thumbsha1 = 'thumb_' . sha1(base64_encode(openssl_random_pseudo_bytes(30)));
                         $thumb->file_new_name_body = $thumbsha1;
@@ -212,16 +256,16 @@ class AdministrationController extends Controller
                         $thumb->image_convert = 'jpg';
                         $thumb->image_ratio_y = true;
                         $thumb->Process('../public/images/thumbs/');
-                        $request->request->add(['logo' => '/images/thumbs/' . $thumbsha1 . '.jpg']);
-    
+                        $request->request->add(['thumb_1' => '/images/thumbs/' . $thumbsha1 . '.jpg']);
+
                         if ($thumb->processed) {
                             $thumb->Clean();
                         }
                     }
                 }
 
-                if($request->file('logo')) {
-                    $thumb = new UploadFile($request->file('logo')->path());
+                if($request->file('thumb_2')) {
+                    $thumb = new UploadFile($request->file('thumb_2')->path());
                     if ($thumb->uploaded) {
                         $thumbsha1 = 'thumb_' . sha1(base64_encode(openssl_random_pseudo_bytes(30)));
                         $thumb->file_new_name_body = $thumbsha1;
@@ -229,21 +273,15 @@ class AdministrationController extends Controller
                         $thumb->image_x = 1200;
                         $thumb->image_convert = 'jpg';
                         $thumb->image_ratio_y = true;
-                        $thumb->Process('../public/images/logos/');
-                        $request->request->add(['logo' => '/images/logos/' . $thumbsha1 . '.jpg']);
-    
+                        $thumb->Process('../public/images/thumbs/');
+                        $request->request->add(['thumb_2' => '/images/thumbs/' . $thumbsha1 . '.jpg']);
+
                         if ($thumb->processed) {
                             $thumb->Clean();
                         }
                     }
                 }
-            }
-
-            //Cas particulier de l'article avec deux thumbs
-            if(request('model') === 'article') {
-
-            }
-
+            }    
         }
 
         $status = $data->fill($request->input())->save();

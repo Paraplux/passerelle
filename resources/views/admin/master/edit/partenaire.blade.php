@@ -48,5 +48,5 @@
         <input type="file" name="logo" id="logo"><br>
     </div>
     
-    <button type="submit">Modifier</button>
+    <button type="submit">Mettre à jour</button>
 </form>

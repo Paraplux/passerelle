@@ -41,5 +41,5 @@
         <label for="logo">Logo de la structure</label>
         <input type="file" name="logo" id="logo">
     </div>
-    <button type="submit">Modifier</button>
+    <button type="submit">Mettre à jour</button>
 </form>
