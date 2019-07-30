@@ -37,7 +37,25 @@ $(document).ready(function(){
 
     $('.accordion-content').on('click', function(evt){
         evt.stopPropagation()
-    })
+    })   
 
+    function carousel(id) {
+        if($('#' + id).length >= 1) {
+            minSlides = $('#' + id).children().length
+            if(minSlides > 5) {
+                minSlides = 5;
+            }
+            new Carousel(document.querySelector('#' + id), {
+                slidesVisible: minSlides,
+                slidesToScroll: 1,
+                touch: false,
+                pagination: false, 
+                navigation: true
+            })
+        }
+    }
+
+    carousel('labelSlider');
+    carousel('structureSlider');
 })
 

@@ -103,6 +103,9 @@ Route::get('/test', 'AccueilController@test');
     //? Route de récupération
     Route::get('/nous-contacter', 'ContactController@index')->name('contact');
 
+    //? Route d'envoie du formulaire
+    Route::post('/nous-contacter', 'ContactController@submit');
+
 //* KONAMI CODE ROUTES
 
     //? Route de récupération

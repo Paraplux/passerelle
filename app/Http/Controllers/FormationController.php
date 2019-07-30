@@ -37,9 +37,12 @@ class FormationController extends Controller
     {
         $id = request('id');
         $fiche = Fiche::where('id', $id)->firstOrFail();
+
+        $sameFiches = Fiche::where('name', $fiche->name)->get();
         
         return view('gabarit-fiche', [
-            'fiche' => $fiche
+            'fiche' => $fiche,
+            'sameFiches' => $sameFiches,
         ]);
     }
 
@@ -64,3 +67,10 @@ class FormationController extends Controller
         ]);
     }
 }
+
+
+
+/*
+Je dois selectionner les structures via les fiches portant le même nom
+
+ */

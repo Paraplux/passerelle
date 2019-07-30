@@ -15,7 +15,6 @@ class SensibiliserController extends Controller
 
     public function index() 
     {
-        $partenaires = Partenaire::all()->shuffle();
         $events = $this->repository->getEvents();
         
         $articles = $this->repository->getArticles()->where('keyword_id', 1)->shuffle();
@@ -25,7 +24,6 @@ class SensibiliserController extends Controller
 
         return view('sensibiliser', [
             'events' => $events,
-            'partenaires' => $partenaires,
             'articles' => $articles
         ]);
     }

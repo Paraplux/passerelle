@@ -75,13 +75,6 @@
 
 </div> <!-- /div.accompagner-page -->
 
-<div class="partenaires-slider" id="sliderCarousel">
-@if(count($partenaires) != 0)
-    @foreach($partenaires as $partenaire)
-    <img src="{{ $partenaire->logo }}" alt="">
-    @endforeach
-@endif
-</div>
 @endsection
 
 @section('script')

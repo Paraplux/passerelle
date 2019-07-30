@@ -8,7 +8,9 @@ Formation : {{ $fiche->name }}
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
 integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
 crossorigin=""/>
+<link rel="stylesheet" href="/css/carousel.css">
 <link rel="stylesheet" href="/css/gabarit-fiche.css">
+<link rel="stylesheet" href="/css/partenaires-slider.css">
 @endsection
 
 @section('content')
@@ -19,7 +21,9 @@ crossorigin=""/>
     <div class="fiche-head">
         <div class="title-1">
             <div class="libelle-1">{{ $fiche->name }}</div>
+            @if($fiche->secteur_id != NULL)
             <div class="libelle-2">{{ $fiche->secteur->name }}</div>
+            @endif
         </div>
         <div class="structure">
             <img src="{{ $fiche->structure->logo }}" alt="">
@@ -80,9 +84,22 @@ crossorigin=""/>
             </div>
         </div>
     </div>
-    <div class="labels">
-            
-        </div>
+    
+    @if(count($fiche->labels) != 0)
+    <div class="bottom-slider" id="labelSlider">
+        @foreach($fiche->labels as $label) 
+            <a href="{{ $label->website }}"><img src="{{ $label->logo }}" alt="{{ $label->name }}"></a>
+        @endforeach
+    </div>
+    @endif
+    @if(count($sameFiches) != 0)
+    <h1 style="color: #FFF" class="title-2">Suivez cette formation dans l'une de nos structures partenaires:</h1>
+    <div class="bottom-slider" id="structureSlider">
+        @foreach($sameFiches as $sameFiche)
+        <a href="/formation/{{ $sameFiche->id }}"><img src="{{ $sameFiche->structure->logo }}" alt="{{ $sameFiche->structure->name }}"></a>
+        @endforeach
+    </div>
+    @endif
 </div>
 @endsection
 
@@ -91,6 +108,7 @@ crossorigin=""/>
    integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
    crossorigin=""></script>
 
+<script src="/js/carousel.js"></script>
 <script src="/js/gabarit-fiche.js"></script>
 
 <script>

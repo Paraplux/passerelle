@@ -17,7 +17,7 @@
         <div><i data-value="6" class="keyword-button far fa-hand-pointer"></i><div class="keyword-label">Utiliser</div></div>
         <div><i data-value="7" class="keyword-button fas fa-hands"></i><div class="keyword-label">Partager</div></div>
         <input class="old-keyword-input" value="{{ $data['fiche']->keyword_id }}" type="hidden">
-        <input class="keyword-input" type="hidden" name="keyword_id" id="keyword">
+        <input class="keyword-input" value="{{ $data['fiche']->keyword_id }}" type="hidden" name="keyword_id" id="keyword">
         <p class="text-muted"><i class="fas fa-exclamation-circle"></i> Choisissez le verbe d'action auquel votre fiche action se rapporte ! </p>
     </div>
     <div class="form-group secteur">
@@ -25,7 +25,7 @@
         <select name="secteur_id" id="secteur">
             <option value="">- Selectionnez un secteur -</option>
             @foreach($data['secteur'] as $secteur)
-            <option value="{{ $secteur->id }}">{{ $secteur->name }}</option>
+            <option {{ $data['fiche']->secteur_id == $secteur->id ? 'selected' : '' }} value="{{ $secteur->id }}">{{ $secteur->name }}</option>
             @endforeach
         </select>
     </div>
@@ -59,7 +59,7 @@
         <p class="text-muted"><i class="fas fa-exclamation-circle"></i> Vous pouvez selectionner plusieurs labels ! </p>
         <select multiple name="label_id" id="">
             @foreach($data['label'] as $label)
-            <option {{ $data['fiche']->label_id == $label->id ? 'selected' : '' }} style="padding:10px 0 10px 50px; background-image: url({{ $label->logo }});" value="{{ $label->id }}">{{ $label->name }}</option>
+            <option {{  in_array($label->id, $data['fiche_labels']) ? 'selected' : '' }} style="padding:10px 0 10px 50px; background-image: url({{ $label->logo }});" value="{{ $label->id }}">{{ $label->name }}</option>
             @endforeach
         </select>
     </div>

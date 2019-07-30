@@ -169,6 +169,7 @@ class AdministrationController extends Controller
 
         $data = $this->repository->editData(request('model'), request('id'), null);
 
+
         return view('admin.master.edit', [
             'id' => request('id'),
             'model' => request('model'),
@@ -285,6 +286,9 @@ class AdministrationController extends Controller
         }
 
         $status = $data->fill($request->input())->save();
+
+        if(request('model') === 'fiche') {
+        }
 
         if($status == TRUE) {
             return back()->with('success', 'Les modifications ont été prises en compte');

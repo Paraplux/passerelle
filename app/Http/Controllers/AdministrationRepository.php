@@ -146,6 +146,12 @@ class AdministrationRepository {
             $data['secteur'] = Secteur::all();
             $data['fiche'] = Fiche::findOrFail($id);
 
+            $data['fiche_labels'] = array();
+
+            foreach($data['fiche']['labels'] as $label) {
+                array_push($data['fiche_labels'], $label->id);
+            }
+
         } else if(request('model') === 'article') {
             $data['article'] = Article::findOrFail($id);
             $data['tag'] = Tag::all();

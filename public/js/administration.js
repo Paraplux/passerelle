@@ -62,7 +62,7 @@ $(function(){
 
     //KEYWORDS
     function toggleSecteur() {
-        if($('.keyword-input').attr('value') == 2) {
+        if($('.keyword-input').attr('value') == 2 || $('.old-keyword-input').attr('value') == 2) {
             $('.form-group.secteur').slideDown();
         } else {
             $('.form-group.secteur').slideUp();

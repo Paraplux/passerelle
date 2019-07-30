@@ -8,10 +8,3 @@ new Carousel(document.querySelector('#carousel-communication'), {
     slidesToScroll: 1,
     touch: true
 })
-
-
-new Carousel(document.querySelector('#sliderCarousel'), {
-    slidesVisible: 6,
-    slidesToScroll: 3,
-    touch: true
-})

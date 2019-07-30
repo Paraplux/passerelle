@@ -10,49 +10,49 @@ Nous contacter
 @endsection
 
 @section('content')
-<form action="" method="POST">
+<form action="/nous-contacter" method="POST">
 <h1 class="title-1">Nous contacter</h1>
 {{ csrf_field() }}
 
     <div class="form-group">
         <label for="">Votre prénom : </label>
-        <input value="" type="text" name="lastname" placeholder="Jean">
+        <input type="text" name="lastname" placeholder="Jean">
     </div>
     <div class="form-group">
         <label for="">Votre nom : </label>
-        <input value="" type="text" name="firstname" placeholder="Dupont">
+        <input type="text" name="firstname" placeholder="Dupont">
     </div>
     <div class="form-group">
         <label for="">Votre adresse mail : </label>
-        <input value="" type="email" name="mail" placeholder="votre@mail.fr">
+        <input type="email" name="mail" placeholder="votre@mail.fr">
     </div>
     <div class="form-group">
         <label for="">Vous êtes ?</label>
-        <select name="" id="">
+        <select name="category" id="">
             <option value="">-- Choisissez --</option>
-            <option value="">Professionel</option>
-            <option value="">Particulier</option>
-            <option value="">Etudiant</option>
-            <option value="">Autre</option>
+            <option value="Professionel">Professionel</option>
+            <option value="Particulier">Particulier</option>
+            <option value="Etudiant">Etudiant</option>
+            <option value="Autre">Autre</option>
         </select>
     </div>
     <div class="form-group">
         <p class="pointer"><i class="fas fa-exclamation-circle"></i> Vous souhaitez contacter un ou des organisme(s) en particulier ?</p>
         <label for="">Organisme(s)</label>
-        <select multiple name="" id="">
+        <select multiple name="destinataire[]" id="">
             <optgroup label="Fondateurs">
                 @foreach($fondateurs as $fondateur)
-                <option style="padding:10px 0 10px 50px; background-image: url({{ $fondateur->logo }});" value="">{{ $fondateur->name }}</option>
+                <option style="padding:10px 0 10px 50px; background-image: url({{ $fondateur->logo }});" value="{{ $fondateur->mail }}">{{ $fondateur->name }}</option>
                 @endforeach
             </optgroup>
             <optgroup label="Signataires">
                 @foreach($signataires as $signataire)
-                <option style="padding:10px 0 10px 50px; background-image: url({{ $signataire->logo }});"  value="">{{ $signataire->name }}</option>
+                <option style="padding:10px 0 10px 50px; background-image: url({{ $signataire->logo }});"  value="{{ $signataire->mail }}">{{ $signataire->name }}</option>
                 @endforeach
             </optgroup>
             <optgroup label="Partenaires">
                 @foreach($partenaires as $partenaire)
-                <option style="padding:10px 0 10px 50px; background-image: url({{ $partenaire->logo }});"  value="">{{ $partenaire->name }}</option>
+                <option style="padding:10px 0 10px 50px; background-image: url({{ $partenaire->logo }});"  value="{{ $partenaire->mail }}">{{ $partenaire->name }}</option>
                 @endforeach
             </optgroup>
         </select>

@@ -56,8 +56,8 @@ class Fiche extends Model
         return $this->belongsTo('App\Secteur');
     }
 
-    public function label() {
-        return $this->belongsTo('App\Label');
+    public function labels() {
+        return $this->belongsToMany('App\Label');
     }
 
     public function getDate($format)
