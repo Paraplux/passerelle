@@ -257,9 +257,20 @@ body {
 
         /* ----- MAIN STYLE ----- */
     .formations-content {
-        text-align: center;
+        text-align: left;
         padding: 0 50px;
+        .results{
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: $orange;
+        }
+        .results:hover{
+            color: $blue;            
+        }
     }
+
+    
 
 }
 

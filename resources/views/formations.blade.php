@@ -33,7 +33,8 @@
                     <h2 id="searchResults" class="title-3">Résultats pour : "{{ $query }}"</h2>
                     @endif
                     @foreach($fiches as $fiche)
-                    <p>{{ $fiche->name }} -> <a href="/formation/{{ $fiche->id }}">Voir la fiche</a></p>
+                    <p><a class="results" href="/formation/{{ $fiche->id }}">{{ $fiche->name }}</a></p>
+                    {!! $fiche->content !!}
                     @endforeach
                 </div>
                 @endif
