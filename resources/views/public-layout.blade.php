@@ -32,6 +32,7 @@
         <i id="quickActionOpen" class="fas fa-plus"></i>
         <div class="quick-actions">
             <div id="searchOpen" class="quick-item"><i class="fas fa-search"></i></div>
+            <a style="text-decoration: none" href="{{ route('mixity') }}" class="quick-item"><i class="fas fa-female"></i> <i class="fas fa-male"></i></a>
             <a href="{{ route('contact') }}" class="quick-item"><i class="far fa-envelope"></i></a>
             <div id="proModalOpen" class="quick-item"><i class="fas fa-exchange-alt"></i></div>
         </div>
@@ -41,12 +42,9 @@
 <!-- MENU LATERAL -->
 <div class="navigation-lateral">
     <div class="lateral-head">
-        <a href="{{ route('governator') }}" class="head-link">Page d'administration</a>
+        <a href="{{ route('engagements') }}" class="head-link">Nos engagements</a>
         <a href="{{ route('partenaire') }}" class="head-link">Le groupe Passerelle</a>
         <a href="{{ route('map') }}" class="head-link">Cartographie</a>
-        <a href="{{ route('engagements') }}" class="head-link">Nos engagements</a>
-        <a href="{{ route('mentions-legales') }}" class="head-link">Mentions Legales</a>
-        <a href="{{ route('mixity') }}" class="head-link">Mixité</a>
     </div>
     <div class="lateral-body">
 
@@ -128,13 +126,15 @@
             <a href="{{ route('accompagner') }}" class="">Accompagner</a>
             <a href="{{ route('sensibiliser') }}" class="">Sensibiliser</a>
             <a href="{{ route('partager') }}" class="">Partager</a>
+            <a href="{{ route('map') }}" class="">Cartographie</a>
         </div>
         <div class="navigation-more">
             <h4>Qui sommes nous ?</h4>
-            <a href="" class="">Passerelle & moi</a>
-            <a href="" class="">Nos engagements</a>
-            <a href="{{ route('partenaire') }}" class="">Nos partenaires</a>
+            
+            <a href="{{ route('engagements') }}" class="">Nos engagements</a>
+            <a href="{{ route('partenaire') }}" class="">Le groupe Passerelle</a>
             <a href="{{ route('contact') }}" class="">Nous contacter</a>
+            <a href="{{ route('mentions-legales') }}" class="">Mentions légales</a>
         </div>
     </div>
     <div class="about"></div>
