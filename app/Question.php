@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Reponse;
 
 class Question extends Model
 {
@@ -14,6 +15,6 @@ class Question extends Model
     ];
 
     public function reponses() {
-        $this->hasMany('App\Reponse');
+        return $this->hasMany('App\Reponse');
     }
 }

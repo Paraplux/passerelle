@@ -6,7 +6,7 @@
 
 @include('flash')
 
-    <p class="text-muted">Vous pouvez également cliquer sur "Editer" afin de voir plus d'informations.</p>
+    <p class="text-muted">Vous pouvez également cliquer sur "Editer ou Modérer" afin de voir plus d'informations.</p>
 
     @if($model === 'partenaire')
         @include('admin.master.listing.partenaire')

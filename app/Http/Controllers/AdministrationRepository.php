@@ -13,6 +13,7 @@ use App\Keyword;
 use App\Label;
 use App\Partenaire;
 use App\Question;
+use App\Reponse;
 use App\Secteur;
 use App\Structure;
 use App\Tag;
@@ -158,6 +159,9 @@ class AdministrationRepository {
 
         } else if(request('model') === 'question') {
             $data['question'] = Question::findOrFail($id);
+
+        } else if(request('model') === 'reponse') {
+            $data['reponse'] = Reponse::findOrFail($id);
 
         } else if(request('model') === 'keyword') {
             $data['keyword'] = Keyword::findOrFail($id);

@@ -20,6 +20,8 @@ $(function(){
     ckeditor('theme_ckeditor_3');
     ckeditor('charte_ckeditor_1');
     ckeditor('charte_ckeditor_2');
+    ckeditor('question_ckeditor');
+    ckeditor('reponse_ckeditor');
 
 
     // RANDOM

@@ -14,4 +14,8 @@ class Reponse extends Model
         'thumbs_up',
         'thumbs_down'
     ];
+
+    public function question() {
+        return $this->belongsTo('App\Question');
+    }
 }

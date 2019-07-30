@@ -34,7 +34,7 @@ class PartagerController extends Controller
     public function getQuestion()
     {
         $id = request('id');
-        $question = Question::where('id', $id)->first();
+        $question = Question::where('id', $id)->firstOrFail();
         $reponses = Reponse::where('question_id', $id)->orderByDesc('thumbs_up')->get();
 
         return view('partager.question', [
