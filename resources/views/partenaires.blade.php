@@ -14,6 +14,18 @@ Nos partenaires
     <h1 class="title-1 page-title">Notre groupe</h1>
     <p class="text-muted page-intro">{{ $content->partenaires_text }}</p><br>
 
+    <div class="partenaires-videos">
+        <div class="video">
+            <iframe width="560" height="315"  src="https://www.youtube.com/embed/q_ml2w1Mu-g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video">
+            <iframe width="560" height="315"  src="https://www.youtube.com/embed/bG7n9JwfG5Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video">
+            <iframe width="560" height="315"  src="https://www.youtube.com/embed/JoHBGrYEhns" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
     <h1 class="title-2 page-subtitle">Les fondateurs de Passerelle Numérique</h1>
     <div class="cards-container fondateurs">
         @foreach($fondateurs as $fondateur)
