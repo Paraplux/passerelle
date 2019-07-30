@@ -472,10 +472,13 @@ class AdministrationController extends Controller
             'date_start' => 'required',
             'date_end' => 'required',
             'duree' => 'required',
+            'pdf_link' => 'required'
         ]);
 
         $labels = request('label_id');
         $secteur = request('secteur_id') ?? '0';
+
+        $pdf_link = $request->file('pdf_link')->store('pdf');
 
         $createdFiche = Fiche::create([
             'name' => request('name'),
@@ -490,6 +493,7 @@ class AdministrationController extends Controller
             'date_start' => request('date_start'),
             'date_end' => request('date_end'),
             'duree' => request('duree'),
+            'pdf_link' => $pdf_link,
         ]);
 
         if(!is_array($labels)) {
@@ -505,6 +509,8 @@ class AdministrationController extends Controller
                 ]);
             }
         }
+
+
 
         return back();
     }

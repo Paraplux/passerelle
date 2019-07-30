@@ -45,7 +45,8 @@ class Fiche extends Model
         'structure_id',
         'certification',
         'secteur_id',
-        'keyword_id'
+        'keyword_id',
+        'pdf_link',
     ];
 
     public function structure() {

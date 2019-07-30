@@ -1,4 +1,4 @@
-<form name="fiche" action="/governator/manager/fiche/add" method="POST">
+<form name="fiche" action="/governator/manager/fiche/add" method="POST" enctype="multipart/form-data">
     {{ csrf_field() }}
     <br>
     <h1 class="title-3">Ajoutez vos fiches actions grâce à ce formulaire</h1>
@@ -73,6 +73,10 @@
             <span><label for="date">Fin</label><input value="{{ old('date_end') }}" type="date" name="date_end" id="date"></span>
             <span><label for="duree">Durée (en heures)</label><input value="{{ old('duree') }}" type="text" name="duree" id="duree"></span>
         </div>
+    </div>
+    <div class="form-group">
+        <label for="pdf_link">Ajout du fichier PDF</label>
+        <input type="file" name="pdf_link" id="pdf_link">
     </div>
     <button type="submit">Ajouter</button>
 </form>

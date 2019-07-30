@@ -65,7 +65,7 @@ crossorigin=""/>
             </div>
             <div class="accordion-item">
                 <p class="accordion-title accordion-title-4"><i class="fas fa-file-pdf"></i> Documentation</p>
-                <p class="accordion-content">Téléchargez la version pdf de la fiche ! </p>
+                <p class="accordion-content">Téléchargez la version pdf de la fiche ! <a download href="{{ asset('storage/' . $fiche->pdf_link) }}">Télécharger</a></p>
             </div>
             <div class="accordion-item">
                 <p class="accordion-title accordion-title-5"><i class="fas fa-user-check"></i>A définir</p>
