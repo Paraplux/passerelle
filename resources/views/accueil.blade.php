@@ -58,7 +58,7 @@
                             <a href="/article/{{ $articles[$i]->id }}" class="text-muted">Lire la suite...</a>
                         </div>
                         <div class="post-thumb">
-                            <img src="{{ $articles[$i]->thumb_1 }}" alt="">
+                                <a href="/article/{{ $articles[$i]->id }}" class="text-muted"><img src="{{ $articles[$i]->thumb_1 }}" alt=""></a>
                         </div>
                     </div>
                     @endfor
