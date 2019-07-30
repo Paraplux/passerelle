@@ -59,7 +59,7 @@ Nous contacter
     </div>
     <div class="form-group">
         <label for="">Votre message : </label>
-        <textarea value="test" name="message"></textarea>
+        <textarea name="message"></textarea>
     </div>
     <button type="submit">Envoyer</button>
     <br><br>

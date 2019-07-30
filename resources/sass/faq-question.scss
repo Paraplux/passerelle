@@ -12,8 +12,8 @@
 }
 
 .question-main-content {
-    width: 70%;
-    padding-right: 50px;
+    width: 100%;
+    padding: 50px;
 
     a {
         color: $orange;
@@ -33,6 +33,66 @@
 
         h3 {
             text-align: right;
+        }
+    }
+
+    .reponse-form {
+        padding-bottom: 5rem;
+        width: 60%;
+    
+        .form-group {
+            margin: 20px auto;
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+    
+            input, select, textarea {
+                margin: 5px;
+                height: 2rem;
+                line-height: 2rem;
+                padding-left: 10px;
+                border-radius: 5px;
+                border: none;
+                border: 1px solid rgba($blue, 0.3);
+                outline: none;
+            }
+
+            input {
+                width:40%;
+            }
+    
+            textarea {
+                width: calc(80% + 10px);
+                height: 100px;
+            }
+    
+            .info {
+                width: 100%;
+                color: $dark;
+            }
+        }
+    
+        button {
+            display: block;
+            height: 35px;
+            width: 100px;
+            margin: auto;
+            margin-left: 10px;
+            margin-top: 20px;
+    
+            font-family: 'Quicksand';
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+    
+            border: none;
+            border-radius: 5px;
+            background-color: $orange;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+            color: $light;
+    
+            cursor: pointer;
+            outline: none;
         }
     }
 
@@ -74,22 +134,4 @@
         background-color: rgba(255, 144, 71, 0.3);
     }
 
-}
-
-.question-side-content {
-    width: 30%;
-    margin-top: 3rem;
-    padding-left: 50px;
-
-    text-align: center;
-    border-left: 1px solid rgba($dark, 0.5);
-
-    .side-item {
-        width: 50%;
-        margin: auto;
-
-        img {
-            width: 100%;
-        }
-    }
 }

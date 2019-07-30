@@ -42,7 +42,7 @@
     </div>
     <div class="faq-side-content">
         <div class="side-item">
-            <form class="question-form" action="/foire-aux-questions/add" method="POST">
+            <form class="question-form" action="/partager/add" method="POST">
             {{ csrf_field() }}
                 <h2 class="title-4">Posez votre propre question ?</h2>
                 <textarea name="question" placeholder="Intitulé de la question..."></textarea>

@@ -24,16 +24,6 @@
             </div>
             <br>
 
-            <!-- REPONSES -->
-            <h2 class="title-2">Proposer ma réponse</h2>
-
-            <form action="/partager/{{ $question->id }}" method="POST">
-            {{ csrf_field() }}
-                <input name="pseudo" type="text" placeholder="Pseudo">
-                <input name="mail" type="text" placeholder="Adresse mail">
-                <textarea name="reponse"></textarea>
-                <button type="submit">Répondre</button>
-            </form>
 
             <h2 class="title-2">Réponses</h2>
 
@@ -49,15 +39,22 @@
             </div>
             @endforeach
 
-    </div>
-    <div class="question-side-content">
-        <h2 class="title-4">Module Facebook</h2>
-        <div class="side-item">
-            <img src="https://cdn.pixabay.com/photo/2015/05/17/10/51/facebook-770688_960_720.png" alt="">
-        </div>
-        <div class="side-item"></div>
-        <div class="side-item"></div>
-        <div class="side-item"></div>
+            
+            <!-- REPONSES -->
+            <h2 class="title-2">Proposer ma réponse</h2>
+
+            <form class="reponse-form" action="/partager/{{ $question->id }}" method="POST">
+            {{ csrf_field() }}
+                <div class="form-group">
+                    <input name="pseudo" type="text" placeholder="Pseudo">
+                    <input name="mail" type="text" placeholder="Adresse mail">
+                </div>
+                <div class="form-group">
+                    <textarea type="text" name="reponse"></textarea>
+                </div>
+                <button type="submit">Répondre</button>
+            </form>
+
     </div>
 </div>
 @endsection

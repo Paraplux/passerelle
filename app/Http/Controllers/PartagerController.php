@@ -51,7 +51,9 @@ class PartagerController extends Controller
             'reponse' => request('reponse'),
             'pseudo' => request('pseudo'),
             'mail' => request('mail'),
-            'question_id' => $id
+            'question_id' => $id,
+            'thumbs_up' => 0,
+            'thumbs_down' => 0
         ]);
 
         return back();
