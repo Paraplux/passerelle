@@ -80,13 +80,13 @@
                                 <i class="far fa-clock"></i> {{ $formation->duree }} H
                             </div>
                             <div class="tile-info">
-                                <i class="far fa-calendar-alt"></i> {{ $formation->getDate('d/m/y') }}
+                                <i title="Sous réserver des places disponibles et blablablabla" class="fas fa-exclamation-circle"></i> Lorem Ipsum
                             </div>
                             <div class="tile-info">
                                 <i class="fas fa-map-marker-alt"></i> {{ $formation->structure->commune->nom_commune }}
                             </div>
                             <div class="tile-info">
-                                <i class="fas fa-chevron-right"></i><a href="/formation/{{ $formation->id }}">Voir...</a>
+                                <i class="fas fa-plus"></i><a href="/formation/{{ $formation->id }}">Voir la fiche...</a>
                             </div>
                         </div>
                     </div>
