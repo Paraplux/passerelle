@@ -53,6 +53,10 @@ class Fiche extends Model
         return $this->belongsTo('App\Structure');
     }
 
+    public function keyword() {
+        return $this->belongsTo('App\Keyword');
+    }
+
     public function secteur() {
         return $this->belongsTo('App\Secteur');
     }

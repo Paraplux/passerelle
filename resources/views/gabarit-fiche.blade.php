@@ -15,7 +15,7 @@ crossorigin=""/>
 
 @section('content')
 <div class="background-container">
-    <img src="https://cdn.stocksnap.io/img-thumbs/960w/SCC00WCQ3I.jpg" alt="" class="background">
+    <img src="{{ $fiche->keyword->thumb }}" alt="" class="background">
 </div>
 <div class="template-fiche">
     <div class="fiche-head">

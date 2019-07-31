@@ -235,7 +235,7 @@ class AdministrationController extends Controller
                         $thumbsha1 = 'thumb_' . sha1(base64_encode(openssl_random_pseudo_bytes(30)));
                         $thumb->file_new_name_body = $thumbsha1;
                         $thumb->image_resize = true;
-                        $thumb->image_x = 400;
+                        $thumb->image_x = 1200;
                         $thumb->image_convert = 'png';
                         $thumb->image_ratio_y = true;
                         $thumb->Process('../public/images/thumbs/');
