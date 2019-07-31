@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Keyword;
 
 class InnoverController extends Controller
 {
@@ -20,9 +21,13 @@ class InnoverController extends Controller
             $articles = $articles->slice(0, 3);
         }
 
+        
+        $keyword = Keyword::where('id', 4)->get()[0];
+
         return view('innover', [
             'events' => $events,
             'articles' => $articles,
+            'keyword' => $keyword,
         ]);
     }
 }

@@ -18,8 +18,8 @@
 
         <div class="header">
             <div class="title">
-                <h1 class="title-1">Utiliser</h1>
-                <p class="text-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias molestias corporis vero cupiditate a illo molestiae expedita neque similique eveniet?</p>
+                <h1 class="title-1">{{ $keyword->name }}</h1>
+                <p class="text-title">{{ $keyword->survol }}</p>
                 <img class="light" src="/images/icons/light-on.svg" alt=""/>
                 <div class="phone-container">
                     <p class="click">Clique ici ></p>
@@ -31,10 +31,10 @@
         <div class="section">
             <div class="section-main">
                 <div class="section-article">
-                    <img src="/images/template/background-1.jpg" alt="">
+                    <img src="{{ $keyword->thumb }}" alt="">
                     <div class="section-article-text">
-                        <h1 class="title-2">Accompagner</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias molestias corporis vero cupiditate a illo molestiae expedita neque similique eveniet? Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias molestias corporis vero cupiditate a illo molestiae expedita neque similique eveniet?Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias molestias corporis vero cupiditate a illo molestiae expedita neque similique eveniet?</p>
+                        <h1 class="title-2">{{ $keyword->name }}</h1>
+                        <p>{{ $keyword->clique }}</p>
                     </div>
                 </div>
                 <div class="dynamic-post-container" id="carousel-communication">

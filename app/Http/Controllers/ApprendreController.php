@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Keyword;
 
 class ApprendreController extends Controller
 {
@@ -21,9 +22,12 @@ class ApprendreController extends Controller
             $articles = $articles->slice(0, 3);
         }
 
+        
+        $keyword = Keyword::where('id', 5)->get()[0];
         return view('apprendre', [
             'events' => $events,
-            'articles' => $articles
+            'articles' => $articles,
+            'keyword' => $keyword,
         ]);
     }
 }

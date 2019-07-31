@@ -23,18 +23,18 @@
             <div class="megaphone-sound bottom"></div>
         </div>
         <div class="title">
-            <h1>Sensibiliser</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias molestias corporis vero cupiditate a illo molestiae expedita neque similique eveniet?</p>
+            <h1>{{ $keyword->name }}</h1>
+            <p>{{ $keyword->survol }}</p>
         </div>
     </div> <!-- /div.header -->
 
     <div class="section">
         <div class="section-main">
             <div class="section-article">
-                <img src="/images/template/background-1.jpg" alt="">
+                <img src="{{ $keyword->thumb }}" alt="">
                 <div class="section-article-text">
-                    <h1 class="title-2">Sensibiliser</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias molestias corporis vero cupiditate a illo molestiae expedita neque similique eveniet? Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias molestias corporis vero cupiditate a illo molestiae expedita neque similique eveniet?Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias molestias corporis vero cupiditate a illo molestiae expedita neque similique eveniet?</p>
+                    <h1 class="title-2">{{ $keyword->name }}</h1>
+                    <p>{{ $keyword->clique }}</p>
                 </div>
             </div>
             <div class="dynamic-post-container" id="carousel-communication">

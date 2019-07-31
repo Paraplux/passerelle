@@ -20,18 +20,18 @@
         <div id="canvasDiv"></div>
         <img src="/images/image.png" alt="">
         <div class="title">
-            <h1>Apprendre <i id="pencil" class="fas fa-pencil-alt"></i></h1>
-            <p>Anticiper et accompagner l'impact du numérique sur la formation (classes virtuelles, classes inversées, fablab, etc...).</p>
+            <h1>{{ $keyword->name }} <i id="pencil" class="fas fa-pencil-alt"></i></h1>
+            <p>{{ $keyword->survol }}</p>
         </div>
     </div>
 
     <div class="section">
         <div class="section-main">
             <div class="section-article">
-                <img src="/images/template/background-1.jpg" alt="">
+                <img src="{{ $keyword->thumb }}" alt="">
                 <div class="section-article-text">
-                    <h1 class="title-2">Apprendre</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias molestias corporis vero cupiditate a illo molestiae expedita neque similique eveniet? Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias molestias corporis vero cupiditate a illo molestiae expedita neque similique eveniet?Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias molestias corporis vero cupiditate a illo molestiae expedita neque similique eveniet?</p>
+                    <h1 class="title-2">{{ $keyword->name }}</h1>
+                    <p>{{ $keyword->clique }}</p>
                 </div>
             </div>
             <div class="dynamic-post-container" id="carousel-communication">

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\URL;
 
 use App\Fiche;
 use App\Contenu;
+use App\Keyword;
 
 class FormationController extends Controller
 {
@@ -26,10 +27,14 @@ class FormationController extends Controller
             $articles = $articles->slice(0, 3);
         }
 
+        
+        $keyword = Keyword::where('id', 2)->get()[0];
+
         return view('formations', [
             'events' => $events,
             'content' => $content[0],
             'articles' => $articles,
+            'keyword' => $keyword,
         ]);
     }
 
@@ -58,12 +63,15 @@ class FormationController extends Controller
             $articles = $articles->slice(0, 3);
         }
 
+        
+        $keyword = Keyword::where('id', 2)->get()[0];
         return view('formations', [
             'query' => request('query'),
             'content' => $content[0],
             'fiches' => $fiches,
             'events' => $events,
             'articles' => $articles,
+            'keyword' => $keyword,
         ]);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Keyword;
 
 class AccompagnerController extends Controller
 {
@@ -20,9 +21,11 @@ class AccompagnerController extends Controller
             $articles = $articles->slice(0, 3);
         }
 
+        $keyword = Keyword::where('id', 3)->get()[0];
         return view('accompagner', [
             'events' => $events,
-            'articles' => $articles
+            'articles' => $articles,
+            'keyword' => $keyword,
         ]);
     }
 }
