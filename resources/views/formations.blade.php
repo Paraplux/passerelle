@@ -17,7 +17,7 @@
         <img src="{{ $content->formations_thumb }}" alt="" class="search-background">
         <div class="typewriter">Se former sur les différents métiers d'aujourd'hui et de demain.</div>
         <div class="input-field">
-            <form action="/se-former/search" method="GET">
+            <form class="se-former-form" action="/se-former/search" method="GET">
                 <input name="query" type="text" placeholder="Formation, métiers, . . .">
             </form>
             <img src="/images/icons/search.png" alt="">
@@ -92,7 +92,7 @@
 
 <script> var codropsEvents = {!! json_encode($events) !!}; </script>
 <script src="/js/calendar.js"></script>
-@if(isset($search))
+@if(isset($fiches))
 <script>
     const thisTop = window.pageYOffset
     const thisLeft = window.pageXOffset
