@@ -162,9 +162,21 @@ return [
         'author' => 'Auteur',
         'thumb' => 'Illustration',
         'thumb_1' => 'Illustration 1',
-        'thumb_2' => 'Illustration 2'
-
-
+        'thumb_2' => 'Illustration 2',
+        'nom' => 'Nom',
+        'prenom' => 'Prénom',
+        'login' => 'Login',
+        'mail' => 'E-mail',
+        'password' => 'Mot de passe',
+        'phone' => 'Téléphone',
+        'role' => 'Rôle',
+        'pdf_link' => 'Lien du PDF',
+        'website' => 'Site web',
+        'logo' => 'Logo', 
+        'adress' => 'Adresse',
+        'commune_id' => 'Commune',
+        'question' => 'Question',
+        'reponse' => 'Réponse',
     ],
 
 ];

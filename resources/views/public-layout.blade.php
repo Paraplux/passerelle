@@ -32,6 +32,7 @@
         <i id="quickActionOpen" class="fas fa-plus"></i>
         <div class="quick-actions">
             <div id="searchOpen" class="quick-item"><i class="fas fa-search"></i></div>
+            <a href="{{ route('map') }}" class="quick-item"><i class="fas fa-map-marked-alt"></i></a>
             <a style="text-decoration: none" href="{{ route('mixity') }}" class="quick-item"><i class="fas fa-female"></i> <i class="fas fa-male"></i></a>
             <a href="{{ route('contact') }}" class="quick-item"><i class="far fa-envelope"></i></a>
             <div id="proModalOpen" class="quick-item"><i class="fas fa-exchange-alt"></i></div>
@@ -44,7 +45,6 @@
     <div class="lateral-head">
         <a href="{{ route('engagements') }}" class="head-link">Nos engagements</a>
         <a href="{{ route('partenaire') }}" class="head-link">Le groupe Passerelle</a>
-        <a href="{{ route('map') }}" class="head-link">Cartographie</a>
     </div>
     <div class="lateral-body">
 

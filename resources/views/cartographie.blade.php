@@ -13,7 +13,7 @@ crossorigin=""/>
 @section('content')
 <div class="cartographie-page">
     <h1 class="title-1">Cartographie Passerelle Numérique</h1>
-    <strong>{{ $content->map_text }}</strong>
+    <strong>{!! $content->map_text !!}</strong>
     <div id="map"></div>
 </div>
 @endsection
@@ -68,9 +68,9 @@ partenaires.forEach(function(partenaire){
 map.addLayer(partenairesMarkers);
 
 
-function onMapClick(e) {
-    alert("You clicked the map at " + e.latlng);
-}
+// function onMapClick(e) {
+//     alert("You clicked the map at " + e.latlng);
+// }
 
 map.on('click', onMapClick);
 </script>
