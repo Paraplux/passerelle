@@ -52,7 +52,9 @@
 
         <a title="Se former sur les différents métiers d'aujourd'hui et de demain" href="{{ route('se-former') }}" class="body-link">Se former<i class="fas fa-graduation-cap"></i></a>
 
+        @if(request()->cookie('passerelle-numerique-choix-category') == 'pro')
         <a title="Vous accompagner de manière individualisée selon vos besoins" href="{{ route('accompagner') }}" class="body-link">Accompagner<i class="far fa-handshake"></i></a>
+        @endif
 
         <a title="L'innovation numérique au coeur de l'avenir" href="{{ route('innover') }}" class="body-link">Innover<i class="far fa-lightbulb"></i></a>
 
@@ -123,7 +125,9 @@
         </div>
         <div class="navigation-passerelle">
             <h4>Coopérer</h4>
+            @if(request()->cookie('passerelle-numerique-choix-category') == 'pro')
             <a href="{{ route('accompagner') }}" class="">Accompagner</a>
+            @endif
             <a href="{{ route('sensibiliser') }}" class="">Sensibiliser</a>
             <a href="{{ route('partager') }}" class="">Partager</a>
             <a href="{{ route('map') }}" class="">Cartographie</a>

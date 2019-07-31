@@ -189,6 +189,22 @@ class AdministrationController extends Controller
         $data = $this->repository->editData(request('model'), request('id'), $request);
         $data = $data[request('model')];
 
+        //Fiche qui requiert le changement de pdf 
+        if(request('model') === 'fiche') {
+
+            if($request->file('pdf_link') > 0) {
+
+                $newPDF = $request->file('pdf_link')->store('pdf');
+                
+            } else {
+                
+                $newPDF = $request->input('pdf_link_old');
+
+            }
+
+            $request->merge(['pdf_link' => $newPDF]);
+        }
+
         //Modèles qui requiert un changement de ville
         if(request('model') === 'partenaire' || request('model') === 'structure') {
 

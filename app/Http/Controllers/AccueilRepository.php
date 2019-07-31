@@ -65,7 +65,21 @@ class AccueilRepository {
 
     public function getArticles()
     {
-        $articles = Article::all();
+        if(request()->cookie('passerelle-numerique-choix-category') == 'pro') {
+
+            $articles = Article::all();
+
+        } else {
+            
+            $articles = Article::where('keyword_id', 1)
+                               ->orWhere('keyword_id', 2)
+                               ->orWhere('keyword_id', 4)
+                               ->orWhere('keyword_id', 5)
+                               ->orWhere('keyword_id', 6)
+                               ->orWhere('keyword_id', 7)
+                               ->get();
+
+        }
 
         return $articles;
     }

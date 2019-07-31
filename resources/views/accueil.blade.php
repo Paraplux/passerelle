@@ -16,7 +16,9 @@
         <div class="home-keywords">
             <a href="{{ route('sensibiliser') }}"><div><i class="keyword-button fa fa-bullhorn"></i><div class="keyword-label">Sensibiliser</div></div></a>
             <a href="{{ route('se-former') }}"><div><i class="keyword-button fa fa-graduation-cap"></i><div class="keyword-label">Se former</div></div></a>
+            @if(request()->cookie('passerelle-numerique-choix-category') == 'pro')
             <a href="{{ route('accompagner') }}"><div><i class="keyword-button far fa-handshake"></i><div class="keyword-label">Accompagner</div></div></a>
+            @endif
             <a href="{{ route('innover') }}"><div><i class="keyword-button far fa-lightbulb"></i><div class="keyword-label">Innover</div></div></a>
             <a href="{{ route('apprendre') }}"><div><i class="keyword-button fas fa-brain"></i><div class="keyword-label">Apprendre</div></div></a>
             <a href="{{ route('utiliser') }}"><div><i class="keyword-button far fa-hand-pointer"></i><div class="keyword-label">Utiliser</div></div></a>
